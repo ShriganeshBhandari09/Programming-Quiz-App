@@ -32,38 +32,83 @@
     </header>
 
     <div class="main-container" id="main-container">
-      <h1 class="h1-tag" id="number of question">
+      <h1 class="h1-tag" id="question-heading">
         Question <span id="currentQuestion"></span> of
         <span id="totalQuestions"></span>
       </h1>
       <div id="rangeSlider">
         <div id="rangeSliderValue"></div>
       </div>
-      <h2 class="h2-tag" id="question"></h2>
-      <div class="options">
-        <p class="p-tag" id="option-one"></p>
-        <p class="p-tag" id="option-two"></p>
-        <p class="p-tag" id="option-three"></p>
-        <p class="p-tag" id="option-four"></p>
-      </div>
-      <div class="buttons">
-        <button
-          type="button"
-          class="quiz-buttons"
-          onclick="decreaseSliderValue()"
-          id="backward-btn"
-        >
-          <i class="fa-solid fa-arrow-left"></i>Previous
-        </button>
-        <button
-          type="button"
-          class="quiz-buttons"
-          onclick="increaseSliderValue()"
-          id="forward-btn"
-        >
-          Submit & Next<i class="fa-solid fa-arrow-right"></i>
-        </button>
-      </div>
+      <form action="">
+        <h2 class="h2-tag" id="question"></h2>
+        <div class="options">
+          <div>
+            <input
+              type="radio"
+              name="options"
+              id="option-one"
+              value=""
+              unchecked
+            />
+            <label for="option-one" id="label-one"></label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="option-two"
+              name="options"
+              value=""
+              unchecked
+            />
+            <label for="option-two" id="label-two"></label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="option-three"
+              name="options"
+              value=""
+              unchecked
+            />
+            <label for="option-three" id="label-three"></label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="option-four"
+              name="options"
+              value=""
+              unchecked
+            /><label for="option-four" id="label-four"></label>
+          </div>
+        </div>
+        <div class="buttons">
+          <button
+            type="button"
+            class="quiz-buttons"
+            onclick="decreaseSliderValue()"
+            id="backward-btn"
+          >
+            <i class="fa-solid fa-arrow-left"></i>Previous
+          </button>
+          <button
+            type="button"
+            class="quiz-buttons"
+            onclick="compareAns()"
+            id="forward-btn"
+          >
+            Submit & Next<i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button
+            type="button"
+            class="quiz-buttons"
+            onclick="calculateMarks()"
+            id="final-btn"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
     <script src="../js/script.js"></script>
   </body>

@@ -47,10 +47,6 @@
   gap: 10px;
 }
 
-.options p {
-  font-size: 1em;
-}
-
 .buttons {
   display: flex;
   gap: 20px;
@@ -58,8 +54,35 @@
   justify-content: space-between;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+input[type="radio"] {
+  opacity: 0;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+input[type="radio"]:checked + label {
+  background-color: rgba(243, 189, 0, 1);
+  padding: 20px 3px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+input[type="radio"]:unchecked + label {
+  padding: 20px 3px;
+}
+
+.h4-tag {
+  text-align: center;
+  font-size: 30px;
+  padding: 40px;
+}
+
 .quiz-buttons {
-  padding: 5px 20px 5px 20px;
+  /* padding: 5px 20px 5px 20px; */
   outline: none;
   border: none;
   cursor: pointer;
@@ -70,11 +93,20 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
-.quiz-buttons:hover {
-  color: black;
+#backward-btn {
+  color: rgba(142, 142, 147, 1);
 }
+
+#final-btn {
+  display: none;
+}
+
+/* .quiz-buttons:hover {
+  color: black;
+} */
 
 #backward-btn {
   visibility: hidden;
@@ -94,6 +126,9 @@
 }
 
 @media (min-width: 375px) and (max-width: 767.98px) {
+  .main-container {
+    display: none;
+  }
   .h2-tag {
     font-size: 1.1em;
   }
@@ -102,6 +137,20 @@
   }
   .quiz-buttons {
     font-size: 1.1em;
+  }
+
+  .top-scores-img {
+    width: 70px;
+    height: 70px;
+    bottom: 37px;
+  }
+  .top-score {
+    justify-content: space-around;
+    gap: 0px;
+  }
+
+  .score div {
+    bottom: 50px;
   }
 }
 
@@ -204,5 +253,6 @@
     font-size: 32px;
     line-height: 38.4px;
     font-weight: 500;
+    gap: 30px;
   }
 }
