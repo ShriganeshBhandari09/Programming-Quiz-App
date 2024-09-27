@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter";
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.main-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100vw;
+}
+.login-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.h1-tag {
+  font-size: 32px;
+  font-weight: 700;
+}
+.p-tag {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(142, 142, 147, 1);
+}
+
+.auth-image {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input {
+  padding: 16px;
+  border: 1px solid rgba(142, 142, 147, 1);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  width: 100%;
+}
+
+label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+}
+
+.auth-button {
+  padding: 12px 24px 12px 24px;
+  border: 1px solid rgba(142, 142, 147, 1);
+  border-radius: 100px;
+  font-size: 16px;
+  background-color: rgba(243, 189, 0, 1);
+  font-weight: 500;
+  color: black;
+  line-height: 19.2px;
+  cursor: pointer;
+}
+
+.auth-button a {
+  text-decoration: none;
+}
+
+.auth-button:hover,
+.google-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.google-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  padding: 16px 20px 16px 20px;
+  background-color: rgba(254, 254, 254, 1);
+  gap: 8px;
+  border-radius: 8px;
+  font-weight: 400;
+  line-height: 19.2px;
+  border: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  cursor: pointer;
+}
+
+.sign-up-text {
+  text-align: center;
+  font-weight: 700;
+  color: rgba(142, 142, 147, 1);
+  padding-top: 20px;
+}
+
+.terms-element input {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+.terms-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* @media (min-width: 375px) and (max-width: 767.98px){
+    body{
+        background-color:burlywood;
+    }
+
+    .auth-image {
+        height: 50%;
+    }
+} */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .main-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 0px;
+  }
+  .auth-image {
+    height: 50%;
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .main-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .auth-image {
+    height: 500px;
+    width: 530px;
+  }
+
+  input {
+    width: 440px;
+  }
+  .terms-element input {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .auth-image {
+    height: 500px;
+    width: 530px;
+  }
+
+  input {
+    width: 440px;
+  }
+
+  .terms-element input {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .auth-image {
+    height: 500px;
+    width: 530px;
+  }
+
+  input {
+    width: 440px;
+  }
+}
