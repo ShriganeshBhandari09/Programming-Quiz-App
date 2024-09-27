@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/login.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <img src="/assets/signup.svg" alt="signup-img" class="auth-image" />
+      <div class="auth-form">
+        <div class="login-text">
+          <h1 class="h1-tag">Signup</h1>
+          <p class="p-tag">Signup to Join</p>
+        </div>
+        <form>
+          <div>
+            <label for="fullname">Full Name</label>
+            <input
+              type="text"
+              name="fullname"
+              id="fullname"
+              placeholder="Full Name"
+            />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" />
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input
+              type="text"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+          </div>
+          <a href="/pages/verify-otp.html"
+            ><button type="button" class="auth-button">Signup</button></a
+          >
+          <button type="button" class="google-button">
+            <img src="/assets/google.svg" alt="" />Signup with Google
+          </button>
+          <p class="terms-element">
+            <label for="terms" class="terms">Terms & Conditions</label>
+            <input type="checkbox" name="terms" id="terms" />I accept
+            <a href="">Terms & Conditions</a>
+          </p>
+        </form>
+        <p class="sign-up-text">
+          Have an account? <a href="./login.html">Log In?</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

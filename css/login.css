@@ -122,6 +122,10 @@ label {
   padding-top: 20px;
 }
 
+.terms{
+    display: none;
+}
+
 .terms-element input {
   width: 15px;
   height: 15px;
