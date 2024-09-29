@@ -3,42 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App</title>
+    <title>Quiz Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/login.css" />
   </head>
   <body>
-    <header>
-      <nav class="navigation_bar">
-        <img
-          src="assets/techpaatshala.svg"
-          alt=""
-          class="techpaathshala_icon"
-        />
-        <a href="./pages/login.html"
-          ><button type="button" class="login-btn">Start Quiz</button></a
+    <section class="login container">
+      <div class="login__img-wrapper">
+        <img class="login__img" src="assets/login.svg" alt="" />
+      </div>
+      <div class="login__form-container">
+        <div class="login__form-header">
+          <h1 class="login__form-heading">Login</h1>
+          <span class="login__form-description"
+            >Please Enter your details below</span
+          >
+        </div>
+        <form class="login__form" action="">
+          <div>
+            <label class="login__form-label" for="email">Email Id*</label>
+            <input
+              class="login__form-input"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div>
+            <label class="login__form-label" for="password">Password*</label>
+            <input
+              class="login__form-input"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button class="primary-btn" type="submit">Login</button>
+        </form>
+        <button class="secondary-btn" type="button">
+          <img
+            class="secondary__btn-img"
+            src="assets/google.svg"
+            alt="google-img"
+          />Sign up with Google
+        </button>
+        <span class="login__span"
+          >Don't have an account?<a href="pages/signup.html"> Sign Up?</a></span
         >
-      </nav>
-    </header>
-
-    <div class="main-container">
-      <p>Welcome to Quiz</p>
-      <p>Test you knowledge and have fun</p>
-      <a href="./pages/login.html"
-        ><button type="button" class="login-btn">Start Quiz</button></a
-      >
-    </div>
+      </div>
+    </section>
   </body>
 </html>
