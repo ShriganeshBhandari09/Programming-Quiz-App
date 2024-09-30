@@ -19,7 +19,7 @@
     />
     <link rel="stylesheet" href="/css/quiz-questions.css" />
   </head>
-  <body>
+  <body onload="generateQuestions()">
     <header class="header">
       <nav>
         <div class="header__image-wrapper">
@@ -40,58 +40,58 @@
       </nav>
     </header>
 
-    <main class="container">
+    <main class="container" id="main-container">
       <div class="container__heading-wrapper">
-        <h1 class="container__heading" id="question-heading">
-          Question 1 of 20
-        </h1>
+        <h1 class="container__heading" id="question-heading"></h1>
       </div>
       <div class="rangeslider" id="rangeSlider">
         <div class="rangeSliderValue" id="rangeSliderValue"></div>
       </div>
       <div class="container__questions">
         <div class="container__quesion-wrapper">
-          <h2 class="container__question">What does HTML stand for?</h2>
-          <p class="question__description">Supporting text</p>
+          <h2 class="container__question" id="question"></h2>
+          <p class="question__description"></p>
         </div>
         <div class="container__answers">
           <input
             type="radio"
             id="option-one"
-            value="HyperText Markup Language"
+            value=""
             name="options"
-          /><label for="option-one">HyperText Markup Language</label>
+          /><label for="option-one" id="label-one"></label>
           <input
             type="radio"
             id="option-two"
-            value="Home Tool Markup Language"
+            value=""
             name="options"
-          /><label for="option-two">Home Tool Markup Language</label>
+          /><label for="option-two" id="label-two"></label>
           <input
             type="radio"
             id="option-three"
-            value="Hyperlinks and Text Markup Language"
+            value=""
             name="options"
-          /><label for="option-three"
-            >Hyperlinks and Text Markup Language</label
-          >
+          /><label for="option-three" id="label-three"></label>
           <input
             type="radio"
             id="option-four"
-            value="HyperText Media Language"
+            value=""
             name="options"
-          /><label for="option-four">HyperText Media Language</label>
+          /><label for="option-four" id="label-four"></label>
         </div>
       </div>
       <div class="container__buttons">
         <button class="secondary-btn" type="button">
           <i class="fa-solid fa-arrow-left"></i>Previous
         </button>
-        <button class="secondary-btn" type="button">
+        <button onclick="compareAns()" id="forward-btn" class="secondary-btn" type="button">
           Submit & Continue<i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
     </main>
-    <!-- <script src="../js/script.js"></script> -->
+
+    <div>
+      <h2 id="marks"></h2>
+    </div>
+    <script src="../js/load-questions.js"></script>
   </body>
 </html>
