@@ -19,101 +19,79 @@
     />
     <link rel="stylesheet" href="/css/quiz-questions.css" />
   </head>
-  <body onload="generateQuestions()">
-    <header>
-      <nav class="navigation_bar">
-        <img
-          src="/assets/techpaatshala.svg"
-          alt=""
-          class="techpaathshala_icon"
-        />
-        <img src="/assets/profile.svg" alt="" class="profile_icon" />
+  <body>
+    <header class="header">
+      <nav>
+        <div class="header__image-wrapper">
+          <img
+            class="header__img"
+            src="../assets/techpaatshala.svg"
+            alt="logo"
+          />
+        </div>
+        <div class="header__profileinfo">
+          <span class="profile__name">Shriganesh Bhandari</span>
+          <img
+            class="profile__img"
+            src="../assets/profile.svg"
+            alt="profile-photo"
+          />
+        </div>
       </nav>
     </header>
 
-    <div class="main-container" id="main-container">
-      <h1 class="h1-tag" id="question-heading">
-        Question <span id="currentQuestion"></span> of
-        <span id="totalQuestions"></span>
-      </h1>
-      <div id="rangeSlider">
-        <div id="rangeSliderValue"></div>
+    <main class="container">
+      <div class="container__heading-wrapper">
+        <h1 class="container__heading" id="question-heading">
+          Question 1 of 20
+        </h1>
       </div>
-      <form action="">
-        <h2 class="h2-tag" id="question"></h2>
-        <div class="options">
-          <div>
-            <input
-              type="radio"
-              name="options"
-              id="option-one"
-              value=""
-              unchecked
-            />
-            <label for="option-one" id="label-one"></label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="option-two"
-              name="options"
-              value=""
-              unchecked
-            />
-            <label for="option-two" id="label-two"></label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="option-three"
-              name="options"
-              value=""
-              unchecked
-            />
-            <label for="option-three" id="label-three"></label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="option-four"
-              name="options"
-              value=""
-              unchecked
-            /><label for="option-four" id="label-four"></label>
-          </div>
+      <div class="rangeslider" id="rangeSlider">
+        <div class="rangeSliderValue" id="rangeSliderValue"></div>
+      </div>
+      <div class="container__questions">
+        <div class="container__quesion-wrapper">
+          <h2 class="container__question">What does HTML stand for?</h2>
+          <p class="question__description">Supporting text</p>
         </div>
-        <div class="buttons">
-          <button
-            type="button"
-            class="quiz-buttons"
-            onclick="decreaseSliderValue()"
-            id="backward-btn"
+        <div class="container__answers">
+          <input
+            type="radio"
+            id="option-one"
+            value="HyperText Markup Language"
+            name="options"
+          /><label for="option-one">HyperText Markup Language</label>
+          <input
+            type="radio"
+            id="option-two"
+            value="Home Tool Markup Language"
+            name="options"
+          /><label for="option-two">Home Tool Markup Language</label>
+          <input
+            type="radio"
+            id="option-three"
+            value="Hyperlinks and Text Markup Language"
+            name="options"
+          /><label for="option-three"
+            >Hyperlinks and Text Markup Language</label
           >
-            <i class="fa-solid fa-arrow-left"></i>Previous
-          </button>
-          <button
-            type="button"
-            class="quiz-buttons"
-            onclick="compareAns()"
-            id="forward-btn"
-          >
-            Submit & Next<i class="fa-solid fa-arrow-right"></i>
-          </button>
-          <button
-            type="button"
-            class="quiz-buttons"
-            onclick="calculateMarks()"
-            id="final-btn"
-          >
-            Submit
-          </button>
+          <input
+            type="radio"
+            id="option-four"
+            value="HyperText Media Language"
+            name="options"
+          /><label for="option-four">HyperText Media Language</label>
         </div>
-      </form>
-    </div>
-
-    <div class="result-conatiner">
-      <h2 id="marks"></h2>
-    </div>
-    <script src="../js/script.js"></script>
+      </div>
+      <div class="container__buttons">
+        <button class="secondary-btn" type="button">
+          <i class="fa-solid fa-arrow-left"></i>Previous
+        </button>
+        <button class="secondary-btn" type="button">
+          Submit & Continue<i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </main>
+    <!-- <script src="../js/script.js"></script> -->
   </body>
 </html>
