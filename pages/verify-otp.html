@@ -3,46 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App</title>
+    <title>Quiz Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="/css/login.css" />
-    <link rel="stylesheet" href="/css/verify-otp.css" />
+    <link rel="stylesheet" href="../css/login.css" />
   </head>
   <body>
-    <div class="main-container">
-      <img src="/assets/verify.svg" alt="login-img" class="auth-image" />
-      <div class="auth-form">
-        <div class="login-text">
-          <h1 class="h1-tag">Confirm your email</h1>
-          <p class="p-tag">We have sent OTP to xyztp12@gmail.com</p>
-        </div>
-        <form>
-          <div class="otp-container">
-            <input type="tel" name="" id="" maxlength="1" />
-            <input type="tel" name="" id="" maxlength="1" />
-            <input type="tel" name="" id="" maxlength="1" />
-            <input type="tel" name="" id="" maxlength="1" />
-            <input type="tel" name="" id="" maxlength="1" />
-            <input type="tel" name="" id="" maxlength="1" />
-          </div>
-          <a href="/pages/quiz-questions.html"
-            ><button type="button" class="auth-button">Verify</button></a
-          >
-        </form>
-        <p class="terms-element">Resend otp in 00:30</p>
+    <section class="auth container">
+      <div class="auth__img-wrapper">
+        <img class="auth__img" src="../assets/verify.svg" alt="" />
       </div>
-    </div>
+      <div class="verifyotp__form-container">
+        <div class="auth__form-header">
+          <h1 class="auth__form-heading">Confitm Your Otp</h1>
+          <span class="auth__form-description">We have sent OTP to </span>
+        </div>
+        <form class="verify-otp__form" action="">
+          <div class="otp-container">
+            <label for="numberone">1</label>
+            <input type="tel" name="numberone" id="numberone" maxlength="1" />
+            <label for="numbertwo">2</label>
+            <input type="tel" name="numbertwo" id="numbertwo" maxlength="1" />
+            <label for="numberthree">3</label>
+            <input
+              type="tel"
+              name="numberthree"
+              id="numberthree"
+              maxlength="1"
+            />
+            <label for="numberfour">4</label>
+            <input type="tel" name="numberfour" id="numberfour" maxlength="1" />
+            <label for="numberfive">5</label>
+            <input type="tel" name="numberfive" id="numberfive" maxlength="1" />
+            <label for="numbersix">6</label>
+            <input type="tel" name="numbersix" id="numbersix" maxlength="1" />
+          </div>
+          <button class="primary-btn" type="submit">Continue</button>
+        </form>
+        <span class="verify__otp-span">Resned OTP in 00:30</span>
+      </div>
+    </section>
   </body>
 </html>

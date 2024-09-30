@@ -138,7 +138,58 @@ img {
 
 .auth__span a {
   font-weight: 700;
-  color: #0948B4;
+  color: #0948b4;
+}
+
+.verifyotp__form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.verify-otp__form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.verify-otp__form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.otp-container label{
+  display: none;
+}
+
+.otp-container input {
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 50%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  color: black;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.verify__otp-span{
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14.4px;
+}
+
+@media (min-width: 375px) and (max-width: 767.98px) {
+  .otp-container input {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -153,6 +204,7 @@ img {
   .auth {
     flex-direction: row;
     gap: 60px;
+    margin: 0 auto;
   }
 
   .auth__form-container {
@@ -174,6 +226,12 @@ img {
   .auth__span {
     font-size: 14px;
   }
+
+  .otp-container input {
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -193,21 +251,42 @@ img {
     height: auto;
   }
 
-  /* .auth__form {
-    gap: 32px;
-  } */
 
   .auth__form-input {
     width: 440px;
   }
 
-  .auth__span{
+  .auth__span {
     font-size: 16px;
+  }
+
+  .verifyotp__form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+  
+  .verify-otp__form {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  .otp-container input {
+    width: 55px;
+    height: 55px;
+    font-size: 18px;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
     max-width: 1200px;
+  }
+
+  .otp-container input {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
   }
 }
