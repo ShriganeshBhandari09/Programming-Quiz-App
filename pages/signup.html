@@ -22,41 +22,47 @@
           <h1 class="auth__form-heading">Sign Up</h1>
           <span class="auth__form-description">Sign up to join</span>
         </div>
-        <form class="auth__form" action="">
+        <form class="auth__form">
           <div>
-            <label class="auth__form-label" for="name">Full Name*</label>
+            <label class="auth__form-label" for="fullname">Full Name*</label>
             <input
               class="auth__form-input"
               type="text"
               name="name"
-              id="name"
+              id="fullname"
               placeholder="Full Name"
               required
             />
           </div>
           <div>
-            <label class="auth__form-label" for="email">Email Id*</label>
+            <label class="auth__form-label" for="registeremail"
+              >Email Id*</label
+            >
             <input
               class="auth__form-input"
               type="email"
               name="email"
-              id="email"
+              id="registeremail"
               placeholder="Email"
               required
             />
           </div>
           <div>
-            <label class="auth__form-label" for="password">Password*</label>
+            <label class="auth__form-label" for="registerpassword"
+              >Password*</label
+            >
             <input
               class="auth__form-input"
               type="password"
               name="password"
-              id="password"
+              id="registerpassword"
               placeholder="Password"
               required
             />
           </div>
-          <button class="primary-btn" type="submit">Sign up</button>
+          <button onclick="registerUser()" class="primary-btn" type="submit">
+            Sign up
+          </button>
         </form>
         <button class="secondary-btn" type="button">
           <img
@@ -71,4 +77,5 @@
       </div>
     </section>
   </body>
+  <script src="../js/signup.js"></script>
 </html>

@@ -24,30 +24,30 @@
             >Please Enter your details below</span
           >
         </div>
-        <form class="auth__form" action="">
+        <form class="auth__form">
           <div>
-            <label class="auth__form-label" for="email">Email Id*</label>
+            <label class="auth__form-label" for="loginemail">Email Id*</label>
             <input
               class="auth__form-input"
               type="email"
               name="email"
-              id="email"
+              id="loginemail"
               placeholder="Email"
               required
             />
           </div>
           <div>
-            <label class="auth__form-label" for="password">Password*</label>
+            <label class="auth__form-label" for="loginpassword">Password*</label>
             <input
               class="auth__form-input"
               type="password"
               name="password"
-              id="password"
+              id="loginpassword"
               placeholder="Password"
               required
             />
           </div>
-          <button class="primary-btn" type="submit">Login</button>
+          <button onclick="loginUser()" class="primary-btn" type="button">Login</button>
         </form>
         <button class="secondary-btn" type="button">
           <img
@@ -62,4 +62,5 @@
       </div>
     </section>
   </body>
+  <script src="./js/login.js"></script>
 </html>
