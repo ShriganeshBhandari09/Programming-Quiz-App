@@ -17,65 +17,65 @@ img {
   max-width: 100%;
 }
 
-.login {
+.auth {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 10px;
 }
 
-.login__img-wrapper {
+.auth__img-wrapper {
   width: 100%;
 }
 
-.login__img {
+.auth__img {
   width: 100%;
 }
 
-.login__form-container {
+.auth__form-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.login__form-heading {
+.auth__form-heading {
   font-size: 32px;
   font-weight: 700;
   line-height: 38.4px;
 }
 
-.login__form-description {
+.auth__form-description {
   font-size: 16px;
   font-weight: 400;
   line-height: 19.2px;
   color: #8e8e93;
 }
 
-.login__form {
+.auth__form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.login__form-header {
+.auth__form-header {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.login__form div {
+.auth__form div {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.login__form-label {
+.auth__form-label {
   font-size: 16px;
   font-weight: 400;
   line-height: 19.2px;
 }
 
-.login__form-input {
+.auth__form-input {
   border-radius: 8px;
   border: 1px solid #8e8e93;
   padding: 16px;
@@ -124,7 +124,7 @@ img {
   height: 28px;
 }
 
-.login__span {
+.auth__span {
   padding: 30px 0px;
   display: flex;
   justify-content: center;
@@ -132,43 +132,82 @@ img {
   font-size: 16px;
   font-weight: 400;
   line-height: 19.2px;
-  gap: 2px;
+  gap: 5px;
   color: #8e8e93;
 }
 
-.login__span a {
+.auth__span a {
   font-weight: 700;
-  color: #344054;
+  color: #0948B4;
 }
 
 @media (min-width: 768px) {
   .container {
     max-width: 768px;
-  }
-
-  body {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .login {
+  .auth {
     flex-direction: row;
     gap: 60px;
-    justify-content: center;
-    align-items: center;
   }
 
-  .login__img {
+  .auth__form-container {
+    gap: 32px;
+  }
+
+  .auth__form {
+    gap: 24px;
+  }
+
+  .auth__img {
     display: block;
   }
 
-  .login__img-wrapper {
+  .auth__img-wrapper {
     width: 50%;
   }
 
-  .login__span {
+  .auth__span {
     font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+
+  .auth {
+    flex-direction: row;
+    gap: 0px;
+    margin: 0 auto;
+  }
+
+  .auth__img {
+    display: block;
+    width: 80%;
+    height: auto;
+  }
+
+  /* .auth__form {
+    gap: 32px;
+  } */
+
+  .auth__form-input {
+    width: 440px;
+  }
+
+  .auth__span{
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
   }
 }
