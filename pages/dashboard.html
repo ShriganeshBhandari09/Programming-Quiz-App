@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+        <div class="header__image-wrapper">
+          <img
+            class="header__img"
+            src="../assets/techpaatshala.svg"
+            alt="logo"
+          />
+        </div>
+        <div class="header__profileinfo">
+          <span class="profile__name">Shriganesh Bhandari</span>
+          <img
+            class="profile__img"
+            src="../assets/profile.svg"
+            alt="profile-photo"
+          />
+        </div>
+      </nav>
+    </header>
+    <main class="main-container">
+      <section class="hero">
+        <h1 class="hero__heading">Let's Start the Quiz</h1>
+        <span class="hero__time"
+          ><img src="../assets/time.svg" alt="" />10 min</span
+        >
+        <ul class="class__description">
+          <li>Disclaimers</li>
+          <li>Disclaimers</li>
+        </ul>
+      </section>
+      <section class="content">
+        <div class="content__img-wrapper">
+          <img class="content__img" src="../assets/dashboard.svg" alt="" />
+        </div>
+        <h2 class="content__title">Think you know programming? Prove it!</h2>
+        <p class="content__description">
+          When you're done, review your answers and See your rank.
+        </p>
+
+        <form class="content__form">
+          <div class="content__form-wrapper">
+            <div>
+              <label class="auth__form-label" for="name">Name*</label>
+              <input
+                class="auth__form-input"
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Name"
+                required
+              />
+            </div>
+            <div>
+              <label class="auth__form-label" for="email">Email Id*</label>
+              <input
+                class="auth__form-input"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+            <div>
+              <label class="auth__form-label" for="phoneno">Mobile No.*</label>
+              <input
+                class="auth__form-input"
+                type="tel"
+                name="phoneno"
+                id="phoneno"
+                placeholder="Mobile No."
+                required
+              />
+            </div>
+          </div>
+          <div class="content__form-btnwrapper">
+          <button class="primary-btn content__form-btn" type="submit">Start the Quiz</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
