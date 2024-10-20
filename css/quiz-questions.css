@@ -41,6 +41,12 @@ nav {
   gap: 20px;
 }
 
+.container__quesion-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
 .rangeslider {
   width: 100%;
   height: 16px;
@@ -63,7 +69,7 @@ nav {
   font-weight: 400;
   font-size: 24px;
   line-height: 28.8px;
-  color: #8E8E93;
+  color: #8e8e93;
 }
 
 .container__answers {
@@ -73,9 +79,7 @@ nav {
   gap: 10px;
 }
 
-i {
-  color: #0948b4;
-}
+
 
 input[type="radio"] {
   display: none;
@@ -112,9 +116,9 @@ input[type="radio"]:checked + label {
   cursor: pointer;
 }
 
-/* .previous-btn {
-  visibility: hidden;
-} */
+.previous-btn {
+  color: #8E8E93;
+}
 
 @media (min-width: 768px) {
   header {
