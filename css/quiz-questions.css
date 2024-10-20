@@ -35,6 +35,10 @@ nav {
   display: none;
 }
 
+.profile__img{
+  border-radius: 50%;
+}
+
 .container__questions {
   display: flex;
   flex-direction: column;

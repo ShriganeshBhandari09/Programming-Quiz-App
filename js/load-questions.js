@@ -266,15 +266,7 @@ for (let i = 0; i < totalQuestions; i++) {
 }
 
 var questionIndex = 0;
-
-function loadQuestion() {
-  questionheading.innerText = `Question ${
-    questionIndex + 1
-  } of ${totalQuestions}`;
-  question.innerText = `${questionIndex + 1}.${
-    questions[randomNumberArray[questionIndex]].question
-  }`;
-
+function displayQuestion() {
   questionDescription.innerText =
     questions[randomNumberArray[questionIndex]].supportingText;
   optionOne.value = questions[randomNumberArray[questionIndex]].options[0];
@@ -294,6 +286,16 @@ function loadQuestion() {
   labelFour.innerText = `4. ${
     questions[randomNumberArray[questionIndex]].options[3]
   }`;
+}
+
+function loadQuestion() {
+  questionheading.innerText = `Question ${
+    questionIndex + 1
+  } of ${totalQuestions}`;
+  question.innerText = `${questionIndex + 1}.${
+    questions[randomNumberArray[questionIndex]].question
+  }`;
+  displayQuestion();
   previousBtn.style.visibility = "hidden";
   slider.style.width = `${sliderValueArray[questionIndex]}%`;
   // console.log(selectedQuestionid);
@@ -340,26 +342,7 @@ function nextQuestion() {
   question.innerText = `${questionIndex + 1}.${
     questions[randomNumberArray[questionIndex]].question
   }`;
-  questionDescription.innerText =
-    questions[randomNumberArray[questionIndex]].supportingText;
-  optionOne.value = questions[randomNumberArray[questionIndex]].options[0];
-  optionTwo.value = questions[randomNumberArray[questionIndex]].options[1];
-  optionThree.value = questions[randomNumberArray[questionIndex]].options[2];
-  optionfour.value = questions[randomNumberArray[questionIndex]].options[3];
-
-  labelOne.innerText = questions[randomNumberArray[questionIndex]].options[0];
-  labelOne.innerText = `1. ${
-    questions[randomNumberArray[questionIndex]].options[0]
-  }`;
-  labelTwo.innerText = `2. ${
-    questions[randomNumberArray[questionIndex]].options[1]
-  }`;
-  labelThree.innerText = `3. ${
-    questions[randomNumberArray[questionIndex]].options[2]
-  }`;
-  labelFour.innerText = `4. ${
-    questions[randomNumberArray[questionIndex]].options[3]
-  }`;
+  displayQuestion();
   previousBtn.style.visibility = "initial";
   slider.style.width = `${sliderValueArray[questionIndex]}%`;
 }
@@ -373,28 +356,7 @@ function previousQuestion() {
     questionIndex + 1
   } of ${totalQuestions}`;
   // console.log(questionIndex);
-  question.innerText = `${questionIndex + 1}.${
-    questions[randomNumberArray[questionIndex]].question
-  }`;
-  questionDescription.innerText =
-    questions[randomNumberArray[questionIndex]].supportingText;
-  optionOne.value = questions[randomNumberArray[questionIndex]].options[0];
-  optionTwo.value = questions[randomNumberArray[questionIndex]].options[1];
-  optionThree.value = questions[randomNumberArray[questionIndex]].options[2];
-  optionfour.value = questions[randomNumberArray[questionIndex]].options[3];
-
-  labelOne.innerText = `1. ${
-    questions[randomNumberArray[questionIndex]].options[0]
-  }`;
-  labelTwo.innerText = `2. ${
-    questions[randomNumberArray[questionIndex]].options[1]
-  }`;
-  labelThree.innerText = `3. ${
-    questions[randomNumberArray[questionIndex]].options[2]
-  }`;
-  labelFour.innerText = `4. ${
-    questions[randomNumberArray[questionIndex]].options[3]
-  }`;
+  displayQuestion();
   // console.log(questions[randomNumberArray[questionIndex]]);
   slider.style.width = `${sliderValueArray[questionIndex]}%`;
   // selectedQuestionid--;
@@ -436,7 +398,7 @@ var selectedOptionsArray = [];
 
 function submitAnswers() {
   var selectedOption = document.querySelector('input[name="options"]:checked');
-  if (questionIndex === questions.length-1) {
+  if (questionIndex === questions.length - 1) {
     selectedOptionsArray.push(selectedOption.value);
     selectedOption.checked = false;
     console.log(selectedOptionsArray);
