@@ -58,8 +58,12 @@ nav {
 .container__question {
   font-weight: 700;
 }
+
 .question__description {
-  display: none;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.8px;
+  color: #8E8E93;
 }
 
 .container__answers {
@@ -108,7 +112,26 @@ input[type="radio"]:checked + label {
   cursor: pointer;
 }
 
+/* .previous-btn {
+  visibility: hidden;
+} */
+
 @media (min-width: 768px) {
+  header {
+    padding: 16px 80px;
+  }
+
+  .header__profileinfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .profile__name {
+    display: flex;
+  }
+
   .container__question {
     font-size: 30px;
   }

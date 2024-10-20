@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* body{
+      height: 100vh;
+  }
+  header {
+    width: 100%;
+    height: 72px;
+    border-bottom: 1px solid rgba(203, 203, 203, 1);
+    background-color: rgba(245, 245, 245, 1);
+  }
+  
+  
+  
+  .container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .podium{
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+  }
+  /* .crown{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .rank {
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+    max-width: fit-content;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  
+  
+  .first {
+    background-color: rgba(243, 189, 0, 1);
+    padding: 20px;
+  }
+  
+  .second {
+    background-color: rgba(244, 206, 74, 1);
+    padding: 20px;
+  
+  }
+  
+  .third {
+    background-color: rgba(247, 226, 150, 1);
+    padding: 20px;
+  }
+  
+  .rank p{
+      font-size: 32px;
+  } */
+header {
+  padding: 10px 12px;
+  border-bottom: 1px solid #cbcbcb;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile__name {
+  display: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  gap: 40px;
+}
+
+.profile-photo {
+  width: 40px;
+  height: 40px;
+}
+
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+.rank {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.second{
+  background-color: #f33efe;
+}
+
+.rank img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.rank-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+}
+
+.other-ranks {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 40px;
+  width: 90%;
+}
+
+@media (min-width: 768px) {
+  .podium {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+  }
+}
