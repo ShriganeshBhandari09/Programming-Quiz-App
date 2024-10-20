@@ -5,7 +5,6 @@ function generateProfileName() {
   profileName.innerText = userLoggedIn[0].fullName;
   // console.log(userLoggedIn[0].fullName);
   image.src = `https://ui-avatars.com/api/?name=${userLoggedIn[0].fullName}`;
-  console.log(image.src);
 }
 
 function redirectQuizQuestions() {

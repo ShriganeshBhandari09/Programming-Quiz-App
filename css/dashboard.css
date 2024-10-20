@@ -39,6 +39,8 @@ nav {
 
 .profile__img{
   border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 
 .hero {
@@ -185,11 +187,16 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
   }
 
   .profile__name {
     display: flex;
+  }
+
+  .profile__img{
+    width: 50px;
+    height: 50px;
   }
 
   .content {

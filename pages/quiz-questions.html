@@ -23,11 +23,13 @@
     <header class="header">
       <nav>
         <div class="header__image-wrapper">
-          <img
-            class="header__img"
-            src="../assets/techpaatshala.svg"
-            alt="logo"
-          />
+          <a href="dashboard.html">
+            <img
+              class="header__img"
+              src="../assets/techpaatshala.svg"
+              alt="logo"
+            />
+          </a>
         </div>
         <div class="header__profileinfo">
           <span class="profile__name" id="profile-name"></span>
@@ -91,7 +93,10 @@
       </div>
     </main>
 
-    <div>
+    <div
+      class="display-question-answers-continer"
+      id="display-question-answers-continer"
+    >
       <h2 id="marks"></h2>
     </div>
     <script src="../js/load-profilename.js"></script>
