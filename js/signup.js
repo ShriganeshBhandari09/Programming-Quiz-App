@@ -20,6 +20,16 @@ function registerUser() {
     return;
   }
 
+  if (registerPassword.value === "") {
+    alert("Please Enter Password");
+    return;
+  }
+
+  if (registerPassword.value.length < 6) {
+    alert("Password must be at least 6 characters long.");
+    return;
+  }
+
   for (let i = 0; i < users.length; i++) {
     if (users[i].email === email) {
       alert("Email Already Registered");
@@ -27,17 +37,16 @@ function registerUser() {
     }
   }
 
-  if (registerPassword.value === "") {
-    alert("Please Enter Password");
-    return;
-  }
-
   // validateForm();
   users.push({
     fullName: fullName.value,
-    email: registerEmail.value,
+    email: registerEmail.value.toLowerCase(),
     password: registerPassword.value,
   });
   localStorage.setItem("users", JSON.stringify(users));
   alert("Signup Successfull");
+
+  fullName.value = "";
+  registerEmail.value = "";
+  registerPassword.value = "";
 }

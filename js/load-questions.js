@@ -34,200 +34,200 @@ var questions = [
     explanation:
       "The correct way to link an external CSS file is by using the &lt;link&gt; tag with rel='stylesheet'.",
   },
-  {
-    question: "Which HTML element is used to create an unordered list?",
-    supportingText: "Lists are important for structuring related items.",
-    options: ["&lt;ul&gt;", "&lt;ol&gt;", "&lt;li&gt;", "&lt;list&gt;"],
-    answer: "&lt;ul&gt;",
-    explanation:
-      "The &lt;ul&gt; element is used to create an unordered list, while &lt;ol&gt; creates an ordered list.",
-  },
-  {
-    question: "What is the purpose of the alt attribute in an image tag?",
-    supportingText: "The alt attribute enhances accessibility and SEO.",
-    options: [
-      "To provide alternate text for an image",
-      "To specify the image source",
-      "To link to another page",
-      "To set the image size",
-    ],
-    answer: "To provide alternate text for an image",
-    explanation:
-      "The alt attribute provides alternative text for an image if it cannot be displayed, improving accessibility.",
-  },
-  {
-    question: "Which CSS property is used to change the text color?",
-    supportingText:
-      "This property is essential for controlling text appearance.",
-    options: ["text-color", "color", "font-color", "bgcolor"],
-    answer: "color",
-    explanation:
-      "The color property in CSS is used to change the color of the text in an element.",
-  },
-  {
-    question: "How can you center a block element horizontally in CSS?",
-    supportingText: "Centering elements is a common layout requirement.",
-    options: [
-      "margin: auto;",
-      "text-align: center;",
-      "align: center;",
-      "center: block;",
-    ],
-    answer: "margin: auto;",
-    explanation:
-      "Using 'margin: auto;' on a block element with a defined width will center it horizontally.",
-  },
-  {
-    question: "Which property controls the text size in CSS?",
-    supportingText: "Text size is crucial for readability in web design.",
-    options: ["text-size", "font-size", "size", "text-style"],
-    answer: "font-size",
-    explanation:
-      "The font-size property is used to set the size of the text in an element.",
-  },
-  {
-    question: "What does CSS stand for?",
-    supportingText: "CSS plays a critical role in web design.",
-    options: [
-      "Computer Style Sheets",
-      "Cascading Style Sheets",
-      "Creative Style Sheets",
-      "Colorful Style Sheets",
-    ],
-    answer: "Cascading Style Sheets",
-    explanation:
-      "CSS stands for Cascading Style Sheets, used for styling and layout of web pages.",
-  },
-  {
-    question: "Which JavaScript method is used to access an element by its id?",
-    supportingText: "This method allows for easy DOM manipulation.",
-    options: [
-      "getElementById()",
-      "querySelector()",
-      "getElementsByClassName()",
-      "getElementByTagName()",
-    ],
-    answer: "getElementById()",
-    explanation:
-      "The getElementById() method selects an HTML element based on its unique id.",
-  },
-  {
-    question: "What is the purpose of the JavaScript 'let' keyword?",
-    supportingText: "Variable declarations affect scope and lifespan.",
-    options: [
-      "To declare a variable with block scope",
-      "To declare a constant variable",
-      "To declare a variable globally",
-      "To create a function",
-    ],
-    answer: "To declare a variable with block scope",
-    explanation:
-      "'let' is used to declare variables that are block-scoped, unlike 'var', which is function-scoped.",
-  },
-  {
-    question:
-      "Which operator is used to assign a value to a variable in JavaScript?",
-    supportingText:
-      "Understanding assignment operators is fundamental in programming.",
-    options: ["=", "==", "===", "=>"],
-    answer: "=",
-    explanation:
-      "The '=' operator is used to assign a value to a variable in JavaScript.",
-  },
-  {
-    question: "What is the purpose of the JSON format?",
-    supportingText:
-      "Data interchange formats are critical for web applications.",
-    options: [
-      "To store images",
-      "To format text",
-      "To transmit data objects between a server and a web application",
-      "To style web pages",
-    ],
-    answer: "To transmit data objects between a server and a web application",
-    explanation:
-      "JSON (JavaScript Object Notation) is a lightweight format for data interchange, commonly used in web APIs.",
-  },
-  {
-    question:
-      "Which of the following is NOT a valid way to declare a variable in JavaScript?",
-    supportingText:
-      "Understanding variable declarations is important for coding effectively.",
-    options: ["var myVar;", "let myVar;", "const myVar;", "new myVar;"],
-    answer: "new myVar;",
-    explanation:
-      "'new myVar;' is not a valid variable declaration; 'var', 'let', and 'const' are the correct ways.",
-  },
-  {
-    question: "What is the purpose of the 'this' keyword in JavaScript?",
-    supportingText: "The 'this' keyword refers to the execution context.",
-    options: [
-      "To refer to the global object",
-      "To refer to the calling object",
-      "To create a new object",
-      "To refer to the previous object",
-    ],
-    answer: "To refer to the calling object",
-    explanation:
-      "In JavaScript, 'this' refers to the object that is executing the current function.",
-  },
-  {
-    question: "Which HTML tag is used to define a hyperlink?",
-    supportingText: "Hyperlinks are essential for navigation on the web.",
-    options: ["&lt;link&gt;", "&lt;a&gt;", "&lt;href&gt;", "&lt;url&gt;"],
-    answer: "&lt;a&gt;",
-    explanation:
-      "The &lt;a&gt; tag is used to define a hyperlink that links to another webpage or resource.",
-  },
-  {
-    question: "How can you create a comment in CSS?",
-    supportingText: "Comments help document code for better readability.",
-    options: [
-      "// This is a comment",
-      "/* This is a comment */",
-      "&lt;!-- This is a comment --&gt;",
-      "# This is a comment",
-    ],
-    answer: "/* This is a comment */",
-    explanation: "In CSS, comments are created using '/* comment */'.",
-  },
-  {
-    question:
-      "Which of the following CSS properties can be used to create a responsive layout?",
-    supportingText: "Responsive design adapts to different screen sizes.",
-    options: ["width", "max-width", "flex", "All of the above"],
-    answer: "All of the above",
-    explanation:
-      "All these properties can help create responsive designs by controlling element sizes and layouts.",
-  },
-  {
-    question: "What is the purpose of the 'box-sizing' property in CSS?",
-    supportingText: "Box model properties are vital for layout control.",
-    options: [
-      "To set the width of an element",
-      "To define the box model behavior of an element",
-      "To add padding to an element",
-      "To set the border of an element",
-    ],
-    answer: "To define the box model behavior of an element",
-    explanation:
-      "The 'box-sizing' property determines how the total width and height of an element is calculated, affecting layout.",
-  },
-  {
-    question: "What does the 'float' property do in CSS?",
-    supportingText:
-      "The float property is used for positioning and layout control.",
-    options: [
-      "It makes an element invisible",
-      "It allows elements to be floated to the left or right of their container",
-      "It centers an element horizontally",
-      "It adds space around an element",
-    ],
-    answer:
-      "It allows elements to be floated to the left or right of their container",
-    explanation:
-      "The 'float' property in CSS is used to position an element to the left or right within its container, allowing text and inline elements to wrap around it.",
-  },
+  // {
+  //   question: "Which HTML element is used to create an unordered list?",
+  //   supportingText: "Lists are important for structuring related items.",
+  //   options: ["&lt;ul&gt;", "&lt;ol&gt;", "&lt;li&gt;", "&lt;list&gt;"],
+  //   answer: "&lt;ul&gt;",
+  //   explanation:
+  //     "The &lt;ul&gt; element is used to create an unordered list, while &lt;ol&gt; creates an ordered list.",
+  // },
+  // {
+  //   question: "What is the purpose of the alt attribute in an image tag?",
+  //   supportingText: "The alt attribute enhances accessibility and SEO.",
+  //   options: [
+  //     "To provide alternate text for an image",
+  //     "To specify the image source",
+  //     "To link to another page",
+  //     "To set the image size",
+  //   ],
+  //   answer: "To provide alternate text for an image",
+  //   explanation:
+  //     "The alt attribute provides alternative text for an image if it cannot be displayed, improving accessibility.",
+  // },
+  // {
+  //   question: "Which CSS property is used to change the text color?",
+  //   supportingText:
+  //     "This property is essential for controlling text appearance.",
+  //   options: ["text-color", "color", "font-color", "bgcolor"],
+  //   answer: "color",
+  //   explanation:
+  //     "The color property in CSS is used to change the color of the text in an element.",
+  // },
+  // {
+  //   question: "How can you center a block element horizontally in CSS?",
+  //   supportingText: "Centering elements is a common layout requirement.",
+  //   options: [
+  //     "margin: auto;",
+  //     "text-align: center;",
+  //     "align: center;",
+  //     "center: block;",
+  //   ],
+  //   answer: "margin: auto;",
+  //   explanation:
+  //     "Using 'margin: auto;' on a block element with a defined width will center it horizontally.",
+  // },
+  // {
+  //   question: "Which property controls the text size in CSS?",
+  //   supportingText: "Text size is crucial for readability in web design.",
+  //   options: ["text-size", "font-size", "size", "text-style"],
+  //   answer: "font-size",
+  //   explanation:
+  //     "The font-size property is used to set the size of the text in an element.",
+  // },
+  // {
+  //   question: "What does CSS stand for?",
+  //   supportingText: "CSS plays a critical role in web design.",
+  //   options: [
+  //     "Computer Style Sheets",
+  //     "Cascading Style Sheets",
+  //     "Creative Style Sheets",
+  //     "Colorful Style Sheets",
+  //   ],
+  //   answer: "Cascading Style Sheets",
+  //   explanation:
+  //     "CSS stands for Cascading Style Sheets, used for styling and layout of web pages.",
+  // },
+  // {
+  //   question: "Which JavaScript method is used to access an element by its id?",
+  //   supportingText: "This method allows for easy DOM manipulation.",
+  //   options: [
+  //     "getElementById()",
+  //     "querySelector()",
+  //     "getElementsByClassName()",
+  //     "getElementByTagName()",
+  //   ],
+  //   answer: "getElementById()",
+  //   explanation:
+  //     "The getElementById() method selects an HTML element based on its unique id.",
+  // },
+  // {
+  //   question: "What is the purpose of the JavaScript 'let' keyword?",
+  //   supportingText: "Variable declarations affect scope and lifespan.",
+  //   options: [
+  //     "To declare a variable with block scope",
+  //     "To declare a constant variable",
+  //     "To declare a variable globally",
+  //     "To create a function",
+  //   ],
+  //   answer: "To declare a variable with block scope",
+  //   explanation:
+  //     "'let' is used to declare variables that are block-scoped, unlike 'var', which is function-scoped.",
+  // },
+  // {
+  //   question:
+  //     "Which operator is used to assign a value to a variable in JavaScript?",
+  //   supportingText:
+  //     "Understanding assignment operators is fundamental in programming.",
+  //   options: ["=", "==", "===", "=>"],
+  //   answer: "=",
+  //   explanation:
+  //     "The '=' operator is used to assign a value to a variable in JavaScript.",
+  // },
+  // {
+  //   question: "What is the purpose of the JSON format?",
+  //   supportingText:
+  //     "Data interchange formats are critical for web applications.",
+  //   options: [
+  //     "To store images",
+  //     "To format text",
+  //     "To transmit data objects between a server and a web application",
+  //     "To style web pages",
+  //   ],
+  //   answer: "To transmit data objects between a server and a web application",
+  //   explanation:
+  //     "JSON (JavaScript Object Notation) is a lightweight format for data interchange, commonly used in web APIs.",
+  // },
+  // {
+  //   question:
+  //     "Which of the following is NOT a valid way to declare a variable in JavaScript?",
+  //   supportingText:
+  //     "Understanding variable declarations is important for coding effectively.",
+  //   options: ["var myVar;", "let myVar;", "const myVar;", "new myVar;"],
+  //   answer: "new myVar;",
+  //   explanation:
+  //     "'new myVar;' is not a valid variable declaration; 'var', 'let', and 'const' are the correct ways.",
+  // },
+  // {
+  //   question: "What is the purpose of the 'this' keyword in JavaScript?",
+  //   supportingText: "The 'this' keyword refers to the execution context.",
+  //   options: [
+  //     "To refer to the global object",
+  //     "To refer to the calling object",
+  //     "To create a new object",
+  //     "To refer to the previous object",
+  //   ],
+  //   answer: "To refer to the calling object",
+  //   explanation:
+  //     "In JavaScript, 'this' refers to the object that is executing the current function.",
+  // },
+  // {
+  //   question: "Which HTML tag is used to define a hyperlink?",
+  //   supportingText: "Hyperlinks are essential for navigation on the web.",
+  //   options: ["&lt;link&gt;", "&lt;a&gt;", "&lt;href&gt;", "&lt;url&gt;"],
+  //   answer: "&lt;a&gt;",
+  //   explanation:
+  //     "The &lt;a&gt; tag is used to define a hyperlink that links to another webpage or resource.",
+  // },
+  // {
+  //   question: "How can you create a comment in CSS?",
+  //   supportingText: "Comments help document code for better readability.",
+  //   options: [
+  //     "// This is a comment",
+  //     "/* This is a comment */",
+  //     "&lt;!-- This is a comment --&gt;",
+  //     "# This is a comment",
+  //   ],
+  //   answer: "/* This is a comment */",
+  //   explanation: "In CSS, comments are created using '/* comment */'.",
+  // },
+  // {
+  //   question:
+  //     "Which of the following CSS properties can be used to create a responsive layout?",
+  //   supportingText: "Responsive design adapts to different screen sizes.",
+  //   options: ["width", "max-width", "flex", "All of the above"],
+  //   answer: "All of the above",
+  //   explanation:
+  //     "All these properties can help create responsive designs by controlling element sizes and layouts.",
+  // },
+  // {
+  //   question: "What is the purpose of the 'box-sizing' property in CSS?",
+  //   supportingText: "Box model properties are vital for layout control.",
+  //   options: [
+  //     "To set the width of an element",
+  //     "To define the box model behavior of an element",
+  //     "To add padding to an element",
+  //     "To set the border of an element",
+  //   ],
+  //   answer: "To define the box model behavior of an element",
+  //   explanation:
+  //     "The 'box-sizing' property determines how the total width and height of an element is calculated, affecting layout.",
+  // },
+  // {
+  //   question: "What does the 'float' property do in CSS?",
+  //   supportingText:
+  //     "The float property is used for positioning and layout control.",
+  //   options: [
+  //     "It makes an element invisible",
+  //     "It allows elements to be floated to the left or right of their container",
+  //     "It centers an element horizontally",
+  //     "It adds space around an element",
+  //   ],
+  //   answer:
+  //     "It allows elements to be floated to the left or right of their container",
+  //   explanation:
+  //     "The 'float' property in CSS is used to position an element to the left or right within its container, allowing text and inline elements to wrap around it.",
+  // },
 ];
 
 function storeQuestion() {
@@ -261,6 +261,7 @@ var previousBtn = document.getElementById("previous-btn");
 var submitBtn = document.getElementById("forward-btn");
 
 var mainContainer = document.getElementById("main-container");
+var scoreContainer = document.getElementById("score-container");
 
 totalQuestions = questions.length;
 var slider = document.getElementById("rangeSliderValue");
@@ -465,6 +466,7 @@ function calculateMarks() {
     JSON.parse(localStorage.getItem("UsersGivenTests")) || [];
   var userLoggedIn = JSON.parse(localStorage.getItem("userLoggedIn"));
   mainContainer.style.display = "none";
+  scoreContainer.style.display = "inline";
   for (let index = 0; index < selectedOptionsArray.length; index++) {
     var correctAnswer = questions[randomNumberArray[index]].answer;
     if (selectedOptionsArray[index] === correctAnswer) {
@@ -476,9 +478,10 @@ function calculateMarks() {
       userLoggedIn[0].fullName
     } scored ${marks} out of ${totalQuestions * 10}`;
     var questionAnswerContainer = document.createElement("div");
-    questionAnswerContainer.innerHTML = `<div><h2 class="container__question" id="question">${
-      questions[randomNumberArray[index]].question
-    }</h2>
+    questionAnswerContainer.className = "question-answer-container";
+    questionAnswerContainer.innerHTML = `<h2 class="container__question" id="question">${
+      index + 1
+    }. ${questions[randomNumberArray[index]].question}</h2>
         <p class="container__selected-option">Selected Answer is:- ${
           selectedOptionsArray[index]
         }</p>
@@ -488,25 +491,37 @@ function calculateMarks() {
               <p class="container__correct-answer-explanation">${
                 questions[randomNumberArray[index]].explanation
               }
-              </div>`;
+              `;
     document
       .getElementById("display-question-answers-continer")
       .appendChild(questionAnswerContainer);
-  }
 
-  date = new Date();
+    console.log(questionAnswerContainer);
+    if (selectedOptionsArray[index] === correctAnswer) {
+      questionAnswerContainer.classList.add("question-container-right-answers");
+    } else {
+      questionAnswerContainer.classList.add("question-container-wrong-answers");
+    }
+  }
+  // date = new Date();
   userGivenTests.push({
     fullName: userLoggedIn[0].fullName,
     marks: marks,
-    date: date,
-    time: date.getTime(),
+    // date: date,
+    // time: date.getTime(),
   });
   localStorage.setItem("UsersGivenTests", JSON.stringify(userGivenTests));
+}
+
+function logout() {
+  localStorage.removeItem("userLoggedIn");
+  window.location.assign("../index.html");
 }
 
 function loadLeaderboard() {
   var userGivenTests = JSON.parse(localStorage.getItem("UsersGivenTests"));
   userGivenTests.sort((a, b) => b.marks - a.marks);
+  var displayRank = document.getElementById("display-rank");
   var firstRankProfileImg = document.getElementById("first-rank-proile-img");
   var secondRankProfileImg = document.getElementById("second-rank-proile-img");
   var thirdRankProfileImg = document.getElementById("third-rank-proile-img");
@@ -514,7 +529,7 @@ function loadLeaderboard() {
   var firstRankScore = document.getElementById("first-rank-score");
   var secondRankScore = document.getElementById("second-rank-score");
   var thirdRankScore = document.getElementById("third-rank-score");
-
+  console.log(userGivenTests);
   for (
     let leaderboardUsers = 0;
     leaderboardUsers < userGivenTests.length;
@@ -523,18 +538,13 @@ function loadLeaderboard() {
     if (leaderboardUsers === 0) {
       firstRankProfileImg.src = `https://ui-avatars.com/api/?name=${userGivenTests[leaderboardUsers].fullName}`;
       firstRankScore.innerText = `${userGivenTests[0].marks}`;
-    }
-    if (leaderboardUsers === 1) {
+    } else if (leaderboardUsers === 1) {
       secondRankProfileImg.src = `https://ui-avatars.com/api/?name=${userGivenTests[leaderboardUsers].fullName}`;
       secondRankScore.innerText = `${userGivenTests[1].marks}`;
-    }
-
-    if (leaderboardUsers === 2) {
+    } else if (leaderboardUsers === 2) {
       thirdRankProfileImg.src = `https://ui-avatars.com/api/?name=${userGivenTests[leaderboardUsers].fullName}`;
       thirdRankScore.innerText = `${userGivenTests[2].marks}`;
-    }
-
-    if (leaderboardUsers > 2) {
+    } else if (leaderboardUsers > 2) {
       console.log("Present");
       var rankItem = document.createElement("div");
       console.log(rankItem);

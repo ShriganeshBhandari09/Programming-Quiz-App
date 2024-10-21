@@ -33,6 +33,7 @@
         </div>
         <div class="header__profileinfo">
           <span class="profile__name" id="profile-name"></span>
+          <span onclick="logout()">Logout</span>
           <img
             class="profile__img"
             src="../assets/profile.svg"
@@ -42,63 +43,74 @@
         </div>
       </nav>
     </header>
-    <main class="container" id="main-container">
-      <div class="container__heading-wrapper">
-        <h1 class="container__heading" id="question-heading"></h1>
-      </div>
-      <div class="rangeslider" id="rangeSlider">
-        <div class="rangeSliderValue" id="rangeSliderValue"></div>
-      </div>
-      <div class="container__questions">
-        <div class="container__quesion-wrapper">
-          <h2 class="container__question" id="question"></h2>
-          <p class="question__description" id="question-description"></p>
+    <main class="container">
+      <section class="container__quiz-question-section" id="main-container">
+        <div class="container__heading-wrapper">
+          <h1 class="container__heading" id="question-heading"></h1>
         </div>
-        <div class="container__answers">
-          <input type="radio" id="option-one" value="" name="options" /><label
-            for="option-one"
-            id="label-one"
-          ></label>
-          <input type="radio" id="option-two" value="" name="options" /><label
-            for="option-two"
-            id="label-two"
-          ></label>
-          <input type="radio" id="option-three" value="" name="options" /><label
-            for="option-three"
-            id="label-three"
-          ></label>
-          <input type="radio" id="option-four" value="" name="options" /><label
-            for="option-four"
-            id="label-four"
-          ></label>
+        <div class="rangeslider" id="rangeSlider">
+          <div class="rangeSliderValue" id="rangeSliderValue"></div>
         </div>
-      </div>
-      <div class="container__buttons">
-        <button
-          onclick="previousQuestion()"
-          id="previous-btn"
-          class="secondary-btn previous-btn"
-          type="button"
+        <div class="container__questions">
+          <div class="container__quesion-wrapper">
+            <h2 class="container__question" id="question"></h2>
+            <p class="question__description" id="question-description"></p>
+          </div>
+          <div class="container__answers">
+            <input type="radio" id="option-one" value="" name="options" /><label
+              for="option-one"
+              id="label-one"
+            ></label>
+            <input type="radio" id="option-two" value="" name="options" /><label
+              for="option-two"
+              id="label-two"
+            ></label>
+            <input
+              type="radio"
+              id="option-three"
+              value=""
+              name="options"
+            /><label for="option-three" id="label-three"></label>
+            <input
+              type="radio"
+              id="option-four"
+              value=""
+              name="options"
+            /><label for="option-four" id="label-four"></label>
+          </div>
+        </div>
+        <div class="container__buttons">
+          <button
+            onclick="previousQuestion()"
+            id="previous-btn"
+            class="secondary-btn previous-btn"
+            type="button"
+          >
+            <i class="fa-solid fa-arrow-left"></i>Previous
+          </button>
+          <button
+            onclick="submitAnswers()"
+            id="forward-btn"
+            class="secondary-btn"
+            type="button"
+          >
+            Next<i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+      <section class="container__score-section" id="score-container">
+        <div
+          class="display-question-answers-continer"
+          id="display-question-answers-continer"
         >
-          <i class="fa-solid fa-arrow-left"></i>Previous
-        </button>
-        <button
-          onclick="submitAnswers()"
-          id="forward-btn"
-          class="secondary-btn"
-          type="button"
-        >
-          Next<i class="fa-solid fa-arrow-right"></i>
-        </button>
-      </div>
-    </main>
 
-    <div
-      class="display-question-answers-continer"
-      id="display-question-answers-continer"
-    >
-      <h2 id="marks"></h2>
-    </div>
+          <h2 id="marks"></h2>
+          <a href="../pages/leaderboard.html"
+          ><h2 class="score-link-redirect">View you Rank on Leaderboard</h2></a
+        >
+        </div> 
+      </section>
+    </main>
     <script src="../js/load-profilename.js"></script>
     <script src="../js/load-questions.js"></script>
   </body>

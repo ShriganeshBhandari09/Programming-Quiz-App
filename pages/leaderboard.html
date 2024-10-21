@@ -13,17 +13,32 @@
     <link rel="stylesheet" href="../css/leaderboard.css" />
   </head>
   <body onload="loadLeaderboard()">
-    <header>
+    <header class="header">
       <nav>
-        <a href="dashboard.html">
-          <img src="../assets/techpaatshala.svg" alt="logo" class="logo"
-        /></a>
-        <img src="../assets/profile.svg" alt="profile" />
+        <div class="header__image-wrapper">
+          <a href="dashboard.html">
+            <img
+              class="header__img"
+              src="../assets/techpaatshala.svg"
+              alt="logo"
+            />
+          </a>
+        </div>
+        <div class="header__profileinfo">
+          <span class="profile__name" id="profile-name"></span>
+          <span onclick="logout()">Logout</span>
+          <img
+            class="profile__img"
+            src="../assets/profile.svg"
+            alt="profile-photo"
+            id="profile-img"
+          />
+        </div>
       </nav>
     </header>
     <div class="container">
       <div>
-        <h1>Rank</h1>
+        <h1 class="rank-display" id="display-rank"></h1>
       </div>
       <div class="podium">
         <div class="rank second">
