@@ -37,6 +37,17 @@ nav {
   display: none;
 }
 
+.header__profileinfo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.profile__logout-btn{
+  display: none;
+  cursor: pointer;
+}
+
 .profile__img{
   border-radius: 50%;
   width: 40px;
@@ -144,7 +155,7 @@ nav {
   padding: 12px 24px;
   background-color: #f3bd00;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 19.2px;
   color: #1c1c1e;
   border: none;
@@ -192,6 +203,18 @@ nav {
 
   .profile__name {
     display: flex;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .profile__logout-btn{
+    display: flex;
+    font-size: 16px;
+    padding: 10px;
+    font-weight: 700;
+    border: none;
+    background-color: #f3bd00;
+    border-radius: 10px;
   }
 
   .profile__img{

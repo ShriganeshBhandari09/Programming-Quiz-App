@@ -35,6 +35,12 @@ nav {
   display: none;
 }
 
+.profile__logout-btn{
+  display: none;
+  cursor: pointer;
+}
+
+
 .profile__img {
   border-radius: 50%;
   width: 40px;
@@ -186,6 +192,18 @@ input[type="radio"]:checked + label {
 
   .profile__name {
     display: flex;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .profile__logout-btn{
+    display: flex;
+    font-size: 16px;
+    padding: 10px;
+    font-weight: 700;
+    border: none;
+    background-color: #f3bd00;
+    border-radius: 10px;
   }
 
   .profile__img {

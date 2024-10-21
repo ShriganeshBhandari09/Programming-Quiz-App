@@ -87,6 +87,11 @@ nav {
   display: none;
 }
 
+.profile__logout-btn {
+  display: none;
+  cursor: pointer;
+}
+
 .profile__img {
   border-radius: 50%;
   width: 40px;
@@ -101,6 +106,13 @@ nav {
   gap: 40px;
 }
 
+.rank-display{
+  font-size: 34px;
+}
+
+.supporting-text, .rank-display{
+  text-align: center;
+}
 
 .podium {
   display: flex;
@@ -192,6 +204,10 @@ nav {
     padding: 16px 80px;
   }
 
+  .rank-display{
+    font-size: 40px;
+  }
+
   .header__profileinfo {
     display: flex;
     justify-content: center;
@@ -201,6 +217,18 @@ nav {
 
   .profile__name {
     display: flex;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .profile__logout-btn {
+    display: flex;
+    font-size: 16px;
+    padding: 10px;
+    font-weight: 700;
+    border: none;
+    background-color: #f3bd00;
+    border-radius: 10px;
   }
 
   .profile__img {
@@ -221,25 +249,39 @@ nav {
     top: 0px;
   }
 
+  .rank-value {
+    position: relative;
+    top: 75px;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
   .score-container {
     width: 200px;
-    padding-top: 100px;
+    padding-top: 80px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rank-name{
+    font-size: 24px;
   }
 
   .score-container__first {
     background-color: #f3bd00;
-    height: 400px;
+    height: 552px;
   }
 
   .score-container__second {
     background-color: #f4ce4a;
-    height: 350px;
+    height: 492px;
   }
 
   .score-container__third {
     background-color: #f7e296;
-    height: 300px;
+    height: 485px;
   }
 
   .users-photo {
@@ -261,25 +303,24 @@ nav {
     justify-content: center;
     align-items: center;
     position: relative;
-    bottom: 180px;
-    height: fit-content;
+    bottom: 250px;
+    max-height: fit-content;
   }
 
   .other-ranks {
     margin-top: 100px;
   }
 
-  .score-container h2 {
-    font-family: Inter;
+  .score-heading {
     font-size: 32px;
     font-weight: 700;
     line-height: 38.4px;
     text-align: center;
   }
-  .score-container h3 {
+  .marks-heading {
     font-family: Inter;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 22px;
+    font-weight: 700;
     line-height: 19.2px;
     text-align: center;
   }
