@@ -50,7 +50,7 @@ function registerUser() {
 
 //Login Function
 function loginUser() {
-  var email = document.getElementById("loginemail").value;
+  var email = document.getElementById("loginemail").value.toLowerCase();
   var password = document.getElementById("loginpassword").value;
   var users = JSON.parse(localStorage.getItem("users"));
   var isLoggedIn = false;
@@ -73,7 +73,7 @@ function loginUser() {
     } else if (email === users[i].email && password === users[i].password) {
       isLoggedIn = true;
       userLoggedIn.push(users[i]);
-      localStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
+      sessionStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
       console.log("Else if is running");
     }
   }
@@ -94,12 +94,12 @@ function loginUser() {
 
 //Load Profile Name
 function generateProfileName() {
-  var userLoggedIn = JSON.parse(localStorage.getItem("userLoggedIn"));
+  var userLoggedIn = JSON.parse(sessionStorage.getItem("userLoggedIn"));
   var profileName = document.getElementById("profile-name");
   var image = document.getElementById("profile-img");
   profileName.innerText = `Welcome, ${userLoggedIn[0].fullName}`;
   // console.log(userLoggedIn[0].fullName);
-  image.src = `https://ui-avatars.com/api/?name=${userLoggedIn[0].fullName}`;
+  image.src = `https://ui-avatars.com/api/?name=${userLoggedIn[0].fullName}&background=F3BD00&color=000`;
 }
 
 //Redirect from dashboard to quiz questions
@@ -109,13 +109,14 @@ function redirectQuizQuestions() {
 
 //Logout Function
 function logout() {
-  localStorage.removeItem("userLoggedIn");
+  sessionStorage.removeItem("userLoggedIn");
   window.location.assign("../index.html");
 }
 
 //Load Questions Function
 var questions = [
   {
+    id: 1,
     question: "What does HTML stand for?",
     supportingText: "HTML is the foundational language for creating web pages.",
     options: [
@@ -129,6 +130,7 @@ var questions = [
       "HTML stands for Hyper Text Markup Language, and it is used to structure content on the web.",
   },
   {
+    id: 2,
     question: "Which of the following is a semantic HTML element?",
     supportingText:
       "Semantic elements clearly describe their meaning to both the browser and the developer.",
@@ -138,6 +140,7 @@ var questions = [
       "The &lt;header&gt; element is semantic and is used to define the header of a document or section.",
   },
   {
+    id: 3,
     question: "What is the correct way to link a CSS file in HTML?",
     supportingText: "Linking CSS files is essential for styling web pages.",
     options: [
@@ -151,6 +154,7 @@ var questions = [
       "The correct way to link an external CSS file is by using the &lt;link&gt; tag with rel='stylesheet'.",
   },
   {
+    id: 4,
     question: "Which HTML element is used to create an unordered list?",
     supportingText: "Lists are important for structuring related items.",
     options: ["&lt;ul&gt;", "&lt;ol&gt;", "&lt;li&gt;", "&lt;list&gt;"],
@@ -159,6 +163,7 @@ var questions = [
       "The &lt;ul&gt; element is used to create an unordered list, while &lt;ol&gt; creates an ordered list.",
   },
   {
+    id: 5,
     question: "What is the purpose of the alt attribute in an image tag?",
     supportingText: "The alt attribute enhances accessibility and SEO.",
     options: [
@@ -172,6 +177,7 @@ var questions = [
       "The alt attribute provides alternative text for an image if it cannot be displayed, improving accessibility.",
   },
   {
+    id: 6,
     question: "Which CSS property is used to change the text color?",
     supportingText:
       "This property is essential for controlling text appearance.",
@@ -181,6 +187,7 @@ var questions = [
       "The color property in CSS is used to change the color of the text in an element.",
   },
   {
+    id: 7,
     question: "How can you center a block element horizontally in CSS?",
     supportingText: "Centering elements is a common layout requirement.",
     options: [
@@ -194,6 +201,7 @@ var questions = [
       "Using 'margin: auto;' on a block element with a defined width will center it horizontally.",
   },
   {
+    id: 8,
     question: "Which property controls the text size in CSS?",
     supportingText: "Text size is crucial for readability in web design.",
     options: ["text-size", "font-size", "size", "text-style"],
@@ -202,6 +210,7 @@ var questions = [
       "The font-size property is used to set the size of the text in an element.",
   },
   {
+    id: 9,
     question: "What does CSS stand for?",
     supportingText: "CSS plays a critical role in web design.",
     options: [
@@ -215,6 +224,7 @@ var questions = [
       "CSS stands for Cascading Style Sheets, used for styling and layout of web pages.",
   },
   {
+    id: 10,
     question: "Which JavaScript method is used to access an element by its id?",
     supportingText: "This method allows for easy DOM manipulation.",
     options: [
@@ -228,6 +238,7 @@ var questions = [
       "The getElementById() method selects an HTML element based on its unique id.",
   },
   {
+    id: 11,
     question: "What is the purpose of the JavaScript 'let' keyword?",
     supportingText: "Variable declarations affect scope and lifespan.",
     options: [
@@ -241,6 +252,7 @@ var questions = [
       "'let' is used to declare variables that are block-scoped, unlike 'var', which is function-scoped.",
   },
   {
+    id: 12,
     question:
       "Which operator is used to assign a value to a variable in JavaScript?",
     supportingText:
@@ -251,6 +263,7 @@ var questions = [
       "The '=' operator is used to assign a value to a variable in JavaScript.",
   },
   {
+    id: 13,
     question: "What is the purpose of the JSON format?",
     supportingText:
       "Data interchange formats are critical for web applications.",
@@ -265,6 +278,7 @@ var questions = [
       "JSON (JavaScript Object Notation) is a lightweight format for data interchange, commonly used in web APIs.",
   },
   {
+    id: 14,
     question:
       "Which of the following is NOT a valid way to declare a variable in JavaScript?",
     supportingText:
@@ -275,6 +289,7 @@ var questions = [
       "'new myVar;' is not a valid variable declaration; 'var', 'let', and 'const' are the correct ways.",
   },
   {
+    id: 15,
     question: "What is the purpose of the 'this' keyword in JavaScript?",
     supportingText: "The 'this' keyword refers to the execution context.",
     options: [
@@ -288,6 +303,7 @@ var questions = [
       "In JavaScript, 'this' refers to the object that is executing the current function.",
   },
   {
+    id: 16,
     question: "Which HTML tag is used to define a hyperlink?",
     supportingText: "Hyperlinks are essential for navigation on the web.",
     options: ["&lt;link&gt;", "&lt;a&gt;", "&lt;href&gt;", "&lt;url&gt;"],
@@ -296,6 +312,7 @@ var questions = [
       "The &lt;a&gt; tag is used to define a hyperlink that links to another webpage or resource.",
   },
   {
+    id: 17,
     question: "How can you create a comment in CSS?",
     supportingText: "Comments help document code for better readability.",
     options: [
@@ -308,6 +325,7 @@ var questions = [
     explanation: "In CSS, comments are created using '/* comment */'.",
   },
   {
+    id: 18,
     question:
       "Which of the following CSS properties can be used to create a responsive layout?",
     supportingText: "Responsive design adapts to different screen sizes.",
@@ -317,6 +335,7 @@ var questions = [
       "All these properties can help create responsive designs by controlling element sizes and layouts.",
   },
   {
+    id: 19,
     question: "What is the purpose of the 'box-sizing' property in CSS?",
     supportingText: "Box model properties are vital for layout control.",
     options: [
@@ -330,6 +349,7 @@ var questions = [
       "The 'box-sizing' property determines how the total width and height of an element is calculated, affecting layout.",
   },
   {
+    id: 20,
     question: "What does the 'float' property do in CSS?",
     supportingText:
       "The float property is used for positioning and layout control.",
@@ -578,10 +598,11 @@ function submitAnswers() {
 
 var marks = 0;
 var marksHeading = document.getElementById("marks");
+var selectedAnswersArray = [];
 function calculateMarks() {
   var userGivenTests =
-    JSON.parse(localStorage.getItem("UsersGivenTests")) || [];
-  var userLoggedIn = JSON.parse(localStorage.getItem("userLoggedIn"));
+    JSON.parse(localStorage.getItem("usersGivenTests")) || [];
+  var userLoggedIn = JSON.parse(sessionStorage.getItem("userLoggedIn"));
   mainContainer.style.display = "none";
   scoreContainer.style.display = "inline";
   for (let index = 0; index < selectedOptionsArray.length; index++) {
@@ -613,6 +634,12 @@ function calculateMarks() {
       .getElementById("display-question-answers-continer")
       .appendChild(questionAnswerContainer);
 
+    selectedAnswersArray.push({
+      question: `${questions[randomNumberArray[index]].question}`,
+      selectedAnswer: `${selectedOptionsArray[index]}`,
+      correctAnswer: correctAnswer,
+    });
+
     console.log(questionAnswerContainer);
     if (selectedOptionsArray[index] === correctAnswer) {
       questionAnswerContainer.classList.add("question-container-right-answers");
@@ -621,20 +648,34 @@ function calculateMarks() {
     }
   }
   // date = new Date();
-  userGivenTests.push({
-    fullName: userLoggedIn[0].fullName,
-    marks: marks,
-    email: userLoggedIn[0].email,
-    // date: date,
-    // time: date.getTime(),
-  });
-  localStorage.setItem("UsersGivenTests", JSON.stringify(userGivenTests));
+  var loggedInEmail = userLoggedIn[0].email;
+
+  const existingTest = userGivenTests.find(
+    (test) => test.email === loggedInEmail
+  );
+  if (existingTest) {
+    existingTest.marks = marks;
+    existingTest.selectedAnswers = selectedAnswersArray;
+    console.log("If is running");
+  } else {
+    userGivenTests.push({
+      fullName: userLoggedIn[0].fullName,
+      marks: marks,
+      email: userLoggedIn[0].email,
+      selectedAnswers: selectedAnswersArray,
+      // date: date,
+      // time: date.getTime(),
+    });
+    console.log("Else is running");
+  }
+
+  localStorage.setItem("usersGivenTests", JSON.stringify(userGivenTests));
 }
 
 //Display LeaderBoard
 function loadLeaderboard() {
   generateProfileName();
-  var userGivenTests = JSON.parse(localStorage.getItem("UsersGivenTests"));
+  var userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
   userGivenTests.sort((a, b) => b.marks - a.marks);
   console.log(userGivenTests);
   var displayRank = document.getElementById("display-rank");
@@ -652,7 +693,7 @@ function loadLeaderboard() {
   var thirdRankScore = document.getElementById("third-rank-score");
   var currentUserScore = document.getElementById("current-user-score");
 
-  var currentUser = JSON.parse(localStorage.getItem("userLoggedIn"));
+  var currentUser = JSON.parse(sessionStorage.getItem("userLoggedIn"));
   console.log(currentUser);
   console.log(userGivenTests);
   for (
@@ -681,8 +722,8 @@ function loadLeaderboard() {
       // console.log(rankItem);
       rankItem.innerHTML = `<div class="rank-item">
               <div class="rank-item__name">
-                <h3>#${leaderboardUsers + 1}</h3>
-                <h3>${userGivenTests[leaderboardUsers].fullName}</h3>
+                <h3 class="rank-item__rank">#${leaderboardUsers + 1}</h3>
+                <h3 class="rank-item__username">${userGivenTests[leaderboardUsers].fullName}</h3>
               </div>
               <div class="rank-item__score">
                 <h3>${userGivenTests[leaderboardUsers].marks}</h3>
@@ -700,7 +741,7 @@ function loadLeaderboard() {
         userGivenTests[leaderboardUsers].fullName === currentUser[0].fullName
       ) {
         currentUserScore.style.display = "flex";
-        currentUserScore.style.backgroundColor = "#34fe34";
+        currentUserScore.style.backgroundColor = "#FBF1CE";
         document.getElementById("current-user-rank").innerText = `#${
           leaderboardUsers + 1
         }`;
@@ -717,8 +758,20 @@ function loadLeaderboard() {
   let currentUserIndex =
     userGivenTests.findIndex((u) => u.fullName === currentUserName) + 1;
   console.log(currentUserIndex);
-  displayRank.innerText = `Wow, You Rank ${currentUserIndex}`;
   if (currentUserIndex === 1) {
+    displayRank.innerText = `Wow, Your Rank Is ${currentUserIndex}st`;
     supportingText.innerHTML = "&#127881 Congratulations &#127881";
+    return
+  }
+  if(currentUserIndex === 2){
+    displayRank.innerText = `Wow, You Rank ${currentUserIndex}nd`;
+    return
+  }
+  if(currentUserIndex === 3){
+    displayRank.innerText = `Wow, You Rank ${currentUserIndex}rd`;
+    return
+  }
+  else{
+    displayRank.innerText = `Wow, You Rank ${currentUserIndex}th`;
   }
 }

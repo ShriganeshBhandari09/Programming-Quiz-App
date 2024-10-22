@@ -131,6 +131,11 @@ nav {
   text-align: center;
 }
 
+.rank-value {
+  font-weight: 700;
+  font-size: 32px;
+}
+
 .rank-item {
   display: flex;
   justify-content: space-between;
@@ -140,10 +145,15 @@ nav {
 }
 
 .curve-container {
+  width: 100%;
+  border-radius: 50% 50% 0% 0%/ 90px;
+  box-shadow: 0px -8px 40px 0px rgba(28, 28, 30, 0.1);
+  background-color: #ffffff;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  max-height: fit-content;
 }
 
 .other-ranks {
@@ -152,6 +162,7 @@ nav {
   gap: 30px;
   padding-bottom: 40px;
   width: 90%;
+  padding-top: 90px;
 }
 
 .users-photo {
@@ -193,6 +204,18 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.rank-item__rank, .rank-item__score, .rank-item__username{
+font-size: 24px;
+font-weight: 700;
+line-height: 38.4px;
+text-align: center;
+}
+
+.rank-item__username{
+font-weight: 500;
 }
 
 @media (min-width: 768px) {
@@ -284,6 +307,21 @@ nav {
     height: 485px;
   }
 
+  .first{
+    position: relative;
+    bottom: 10px;
+  }
+
+  .second{
+    position: relative;
+    bottom: 10px;
+  }
+
+  .third{
+    position: relative;
+    top: 15px;
+  }
+
   .users-photo {
     position: relative;
     top: 80px;
@@ -308,7 +346,7 @@ nav {
   }
 
   .other-ranks {
-    margin-top: 100px;
+    padding-top: 100px;
   }
 
   .score-heading {
@@ -318,18 +356,21 @@ nav {
     text-align: center;
   }
   .marks-heading {
-    font-family: Inter;
     font-size: 22px;
     font-weight: 700;
     line-height: 19.2px;
     text-align: center;
   }
 
-  .rank-item h3 {
-    font-family: Inter;
+  .rank-item__rank, .rank-item__score, .rank-item__username{
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 38.4px;
     text-align: center;
-  }
+    }
+    
+    .rank-item__username{
+    font-weight: 500;
+    }
+    
 }
