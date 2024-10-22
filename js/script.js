@@ -592,10 +592,13 @@ var selectedOptionsArray = [];
 function submitAnswers() {
   var selectedOption = document.querySelector('input[name="options"]:checked');
   if (questionIndex === totalQuestions - 1) {
-    selectedOptionsArray.push(selectedOption.value);
+    selectedOptionsArray.splice(questionIndex, 1, selectedOption.value);
     selectedOption.checked = false;
     console.log(selectedOptionsArray);
-    calculateMarks();
+    let text = "Are you sure you want to submit the Quiz?"
+    if(confirm(text) == true){
+      calculateMarks();
+    }
   } else {
     if (!selectedOption) {
       alert("Please Select the Answer");
