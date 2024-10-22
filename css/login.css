@@ -86,7 +86,7 @@ img {
   /* color: #8e8e93; */
 }
 
-.primary-btn {
+.login-btn {
   border-radius: 100px;
   padding: 12px 24px;
   background-color: #f3bd00;
@@ -98,7 +98,7 @@ img {
   cursor: pointer;
 }
 
-.secondary-btn {
+.google-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,8 +115,8 @@ img {
   cursor: pointer;
 }
 
-.primary-btn:hover,
-.secondary-btn:hover {
+.login-btn:hover,
+.google-btn:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .secondary__btn-img {

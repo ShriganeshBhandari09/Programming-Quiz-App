@@ -23,9 +23,6 @@ header {
   border-bottom: 1px solid #cbcbcb;
   background-color: #f5f5f5;
   width: 100%;
-}
-
-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,11 +32,10 @@ nav {
   display: none;
 }
 
-.profile__logout-btn{
+.profile__logout-btn {
   display: none;
   cursor: pointer;
 }
-
 
 .profile__img {
   border-radius: 50%;
@@ -173,16 +169,12 @@ input[type="radio"]:checked + label {
   padding: 20px;
 }
 
-.score-link-redirect{
+.score-link-redirect {
   text-align: center;
   text-decoration: none;
 }
 
 @media (min-width: 768px) {
-  header {
-    padding: 16px 80px;
-  }
-
   .header__profileinfo {
     display: flex;
     justify-content: center;
@@ -192,11 +184,11 @@ input[type="radio"]:checked + label {
 
   .profile__name {
     display: flex;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
   }
 
-  .profile__logout-btn{
+  .profile__logout-btn {
     display: flex;
     font-size: 16px;
     padding: 10px;
@@ -229,6 +221,10 @@ input[type="radio"]:checked + label {
 }
 
 @media (min-width: 1024px) {
+  header {
+    padding: 16px 80px;
+  }
+
   .container {
     gap: 40px;
   }
@@ -237,6 +233,10 @@ input[type="radio"]:checked + label {
     line-height: 73.2px;
     font-weight: 600;
     color: #1c1c1e;
+  }
+
+  .profile__name{
+    font-size: 20px;
   }
 
   .container__question {
