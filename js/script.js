@@ -59,6 +59,7 @@ function loginUser() {
   var users = JSON.parse(localStorage.getItem("users"));
   var isLoggedIn = false;
   var userLoggedIn = [];
+  var adminLoggedIn = [];
 
   if (email === "") {
     alert("Please Enter Email");
@@ -67,6 +68,14 @@ function loginUser() {
 
   if (password === "") {
     alert("Please Enter Password");
+    return;
+  }
+
+  if (email === "admin@gmail.com" && password === "admin") {
+    console.log("Admin Login Successfull");
+    window.location.assign("/admin/dashboard.html");
+    adminLoggedIn.push({ name: "Admin", email: email, password: password });
+    sessionStorage.setItem("adminLoggedIn", JSON.stringify(adminLoggedIn));
     return;
   }
 
@@ -118,6 +127,7 @@ function redirectQuizQuestions() {
 //Logout Function Starts
 function logout() {
   sessionStorage.removeItem("userLoggedIn");
+  sessionStorage.removeItem("adminLoggedIn");
   window.location.assign("../index.html");
 }
 //Logout Function Ends
@@ -595,8 +605,8 @@ function submitAnswers() {
     selectedOptionsArray.splice(questionIndex, 1, selectedOption.value);
     selectedOption.checked = false;
     console.log(selectedOptionsArray);
-    let text = "Are you sure you want to submit the Quiz?"
-    if(confirm(text) == true){
+    let text = "Are you sure you want to submit the Quiz?";
+    if (confirm(text) == true) {
       calculateMarks();
     }
   } else {
@@ -850,117 +860,55 @@ function loadLeaderboard() {
 
 ///////////////////////////////////////////////Admin Side Script//////////////////////////////////////////////////
 
-//SignUp Function
-// function registerAdmin() {
-//   console.log("Admin Signup is running");
-//   var admin = JSON.parse(localStorage.getItem("admin")) || [];
-//   // var email = registerEmail.value;
-//   var fullName = document.getElementById("fullname").value;
-//   var registerEmail = document.getElementById("registeremail").value;
-//   var registerPassword = document.getElementById("registerpassword").value;
-
-//   if (fullName.trim() === "") {
-//     alert("Please Enter Name");
-//     return;
-//   }
-
-//   if (registerEmail === "") {
-//     alert("Please Enter Email");
-//     return;
-//   }
-
-//   if (registerPassword === "") {
-//     alert("Please Enter Password");
-//     return;
-//   }
-
-//   if (registerPassword.length < 6) {
-//     alert("Password must be at least 6 characters long.");
-//     return;
-//   }
-
-//   // for (let i = 0; i < users.length; i++) {
-//   //   if (users[i].email === registerEmail.toLowerCase()) {
-//   //     alert("Email Already Registered");
-//   //     return;
-//   //   }
-//   // }
-
-//   // validateForm();
-//   admin.push({
-//     fullName: fullName,
-//     email: registerEmail.toLowerCase(),
-//     password: registerPassword,
-//   });
-//   localStorage.setItem("admin", JSON.stringify(admin));
-//   window.location.assign("../index.html");
-//   alert("Signup Successfull");
-//   fullName.value = "";
-//   registerEmail.value = "";
-//   registerPassword.value = "";
-// }
-
-// //Login Function
-// function loginAdmin() {
-//   var email = document.getElementById("loginemail").value.toLowerCase();
-//   var password = document.getElementById("loginpassword").value;
-//   var admin = JSON.parse(localStorage.getItem("admin"));
-//   var isLoggedIn = false;
-//   var adminLoggedIn = [];
-
-//   if (email === "") {
-//     alert("Please Enter Email");
-//     return;
-//   }
-
-//   if (password === "") {
-//     alert("Please Enter Password");
-//     return;
-//   }
-
-//   for (let i = 0; i < admin.length; i++) {
-//     if (email != admin[i].email && password != admin[i].password) {
-//       isLoggedIn = false;
-//       console.log("if is running");
-//     } else if (email === admin[i].email && password === admin[i].password) {
-//       isLoggedIn = true;
-//       adminLoggedIn.push(admin[i]);
-//       sessionStorage.setItem("adminLoggedIn", JSON.stringify(adminLoggedIn));
-//       console.log("Else if is running");
-//     }
-//   }
-//   console.log(isLoggedIn);
-//   console.log(adminLoggedIn);
-
-//   if (isLoggedIn === true) {
-//     alert("Login Successfull");
-//     console.log("Login Successfull");
-//     window.location.assign("/admin/dashboard.html");
-//     return;
-//   } else {
-//     console.log("Incorrect Email or Password");
-//     alert("Incorrect Email or Password");
-//     return;
-//   }
-// }
-
 // //Load Profile Name
-// function generateAdminProfileName() {
-//   var adminLoggedIn = JSON.parse(sessionStorage.getItem("adminLoggedIn"));
-//   var profileName = document.getElementById("profile-name");
-//   var image = document.getElementById("profile-img");
-//   profileName.innerText = `Welcome, ${adminLoggedIn[0].fullName}`;
-//   // console.log(userLoggedIn[0].fullName);
-//   image.src = `https://ui-avatars.com/api/?name=${adminLoggedIn[0].fullName}&background=F3BD00&color=000`;
+function generateAdminProfileName() {
+  var adminLoggedIn = JSON.parse(sessionStorage.getItem("adminLoggedIn"));
+  var profileName = document.getElementById("profile-name");
+  var image = document.getElementById("profile-img");
+  profileName.innerText = `Welcome, ${adminLoggedIn[0].name}`;
+  // console.log(userLoggedIn[0].fullName);
+  image.src = `https://ui-avatars.com/api/?name=${adminLoggedIn[0].name}&background=F3BD00&color=000`;
+}
+
+function showSidebar() {
+  let headerMenuIcon = document.getElementById("header-menu-icon");
+  let sidebar = document.getElementById("side-bar");
+  sidebar.classList.toggle("show-sidebar");
+  headerMenuIcon.classList.toggle("move-header-menu");
+}
+// function loadAdminPage() {
+//   
+//   var adminContainerContent = document.getElementById(
+//     "admin-container-content"
+//   );
+//   var userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+//   var questions = JSON.parse(localStorage.getItem("questions"));
+//   var adminPage = document.createElement("div");
+//   adminPage.id = "admin-container-content";
+//   adminPage.innerHTML = `<h1>Welcome! Admin</h1>
+//         <h2>Number of Questions Added : ${questions.length}</h2>
+//         <h2>Number of Users Given Tests:  ${userGivenTests.length}</h2>`;
+//   adminContainerContent.appendChild(adminPage);
 // }
 
-// //Redirect from dashboard to quiz questions
-// // function redirectQuizQuestions() {
-// //   window.location.assign("/pages/quiz-questions.html");
-// // }
-
-// //Logout Function
-// function logoutAdmin() {
-//   sessionStorage.removeItem("adminLoggedIn");
-//   window.location.assign("../index.html");
-// }
+function fetchQuestions() {
+  var mainContainer = document.getElementById("admin-container");
+  var adminContainerContent = document.getElementById(
+    "admin-container-content"
+  );
+  adminContainerContent.style.display = "none";
+  var questions = JSON.parse(localStorage.getItem("questions"));
+  var questionsPage = document.createElement("div");
+  questionsPage.id = "questions-page-content";
+  for (let i = 0; i < questions.length; i++) {
+    questionsPage.innerHTML += `<h2 class="question">${questions[i].question}</h2>
+        <p class="supporting-text">${questions[i].supportingText}</p>
+        <ul class="opptions">
+          <li>${questions[i].options[0]}</li>
+          <li>${questions[i].options[1]}</li>
+          <li>${questions[i].options[2]}</li>
+          <li>${questions[i].options[3]}</li>
+        </ul>`;
+    mainContainer.appendChild(questionsPage);
+  }
+}
