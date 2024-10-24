@@ -80,14 +80,33 @@ header {
   align-items: center;
 }
 
+.header__img {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .profile__name {
   display: none;
 }
 
+.header__profileinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
 .profile__logout-btn {
-  display: none;
+  display: flex;
+  font-size: 16px;
+  padding: 8px;
+  font-weight: 500;
+  border: none;
+  background-color: #f3bd00;
+  border-radius: 10px;
   cursor: pointer;
+  margin-right: 5px;
 }
 
 .profile__img {
@@ -104,42 +123,98 @@ header {
   gap: 40px;
 }
 
-.rank-display{
+.rank-display {
   font-size: 34px;
 }
 
-.supporting-text, .rank-display{
+.supporting-text,
+.rank-display {
   text-align: center;
 }
 
 .podium {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding-bottom: 20px;
+  margin-top: -50px;
 }
-
-.rank {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.white {
+  display: inline;
+  top: 0px;
 }
 
 .rank-value {
+  position: relative;
+  top: 35px;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 24px;
 }
 
-.rank-item {
+.score-container {
+  width: 90px;
+  padding-top: 50px;
+  border-radius: 10px;
   display: flex;
-  justify-content: space-between;
-  gap: 60px;
-  box-shadow: 0px 8px 16px 0px rgba(28, 28, 30, 0.1);
-  padding: 20px;
+  flex-direction: column;
+}
+
+.rank-name {
+  font-size: 24px;
+}
+
+.score-heading {
+  font-size: 20px;
+}
+
+.score-container__first {
+  background-color: #f3bd00;
+  height: 552px;
+}
+
+.score-container__second {
+  background-color: #f4ce4a;
+  height: 492px;
+}
+
+.score-container__third {
+  background-color: #f7e296;
+  height: 485px;
+}
+
+.first {
+  position: relative;
+  bottom: 10px;
+}
+
+.second {
+  position: relative;
+  bottom: 10px;
+}
+
+.third {
+  position: relative;
+  top: 15px;
+}
+
+.users-photo {
+  position: relative;
+  top: 40px;
+  border-radius: 50%;
+  object-fit: fill;
+  width: 60px;
+  height: 60px;
+}
+
+.rank-name {
+  font-size: 16px;
+}
+
+.crown img {
+  position: relative;
+  top: 55px;
+  width: 50px;
+  height: 50px;
 }
 
 .curve-container {
@@ -151,7 +226,23 @@ header {
   justify-content: center;
   align-items: center;
   position: relative;
+  bottom: 350px;
   max-height: fit-content;
+}
+
+.rank {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.rank-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  box-shadow: 0px 8px 16px 0px rgba(28, 28, 30, 0.1);
+  padding: 20px;
 }
 
 .other-ranks {
@@ -161,13 +252,6 @@ header {
   padding-bottom: 40px;
   width: 90%;
   padding-top: 90px;
-}
-
-.users-photo {
-  width: 148px;
-  height: 148px;
-  border-radius: 50%;
-  object-fit: fill;
 }
 
 .first-rank {
@@ -186,10 +270,10 @@ header {
   display: none;
 }
 
-.crown {
+/* .crown {
   position: relative;
   top: 10px;
-}
+} */
 
 .rank-item__name {
   display: flex;
@@ -204,16 +288,36 @@ header {
   align-items: center;
 }
 
-
-.rank-item__rank, .rank-item__score, .rank-item__username{
-font-size: 24px;
-font-weight: 700;
-line-height: 38.4px;
-text-align: center;
+.rank-item__rank,
+.rank-item__score,
+.rank-item__username {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 38.4px;
+  text-align: center;
 }
 
-.rank-item__username{
-font-weight: 500;
+.rank-item__username {
+  font-weight: 500;
+}
+
+@media (min-width: 375px) and (max-width: 767.98px) {
+  .score-container {
+    width: 110px;
+  }
+
+  .podium {
+    gap: 20px;
+  }
+
+  .users-photo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .rank-name {
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -221,7 +325,7 @@ font-weight: 500;
     gap: 0px;
   }
 
-  .rank-display{
+  .rank-display {
     font-size: 40px;
   }
 
@@ -232,6 +336,10 @@ font-weight: 500;
     gap: 20px;
   }
 
+  .header__img {
+    width: 198px;
+  }
+
   .profile__name {
     display: flex;
     font-size: 16px;
@@ -239,13 +347,11 @@ font-weight: 500;
   }
 
   .profile__logout-btn {
-    display: flex;
-    font-size: 16px;
-    padding: 10px;
     font-weight: 700;
-    border: none;
-    background-color: #f3bd00;
-    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 0px;
+    padding: 10px;
+    font-size: 18px;
   }
 
   .profile__img {
@@ -254,6 +360,42 @@ font-weight: 500;
   }
 
   .podium {
+    gap: 50px;
+  }
+
+  .white {
+    display: inline;
+    top: 0px;
+  }
+
+  .crown img{
+    width: 60px;
+    height: 60px;
+    top: 76px;
+  }
+
+  .score-container {
+    width: 180px;
+    gap: 10px;
+    border-radius: 20px;
+    padding-top: 60px;
+  }
+
+  .rank-name {
+    font-size: 24px;
+  }
+
+  .users-photo {
+    width: 100px;
+    height: 100px;
+    top: 60px;
+  }
+
+  .curve-container {
+    bottom: 250px;
+  }
+
+  /* .podium {
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -261,10 +403,6 @@ font-weight: 500;
     margin-top: -50px;
   }
 
-  .white {
-    display: inline;
-    top: 0px;
-  }
 
   .rank-value {
     position: relative;
@@ -282,7 +420,7 @@ font-weight: 500;
     gap: 10px;
   }
 
-  .rank-name{
+  .rank-name {
     font-size: 24px;
   }
 
@@ -301,17 +439,17 @@ font-weight: 500;
     height: 485px;
   }
 
-  .first{
+  .first {
     position: relative;
     bottom: 10px;
   }
 
-  .second{
+  .second {
     position: relative;
     bottom: 10px;
   }
 
-  .third{
+  .third {
     position: relative;
     top: 15px;
   }
@@ -337,6 +475,12 @@ font-weight: 500;
     position: relative;
     bottom: 250px;
     max-height: fit-content;
+  } */
+
+
+  .rank-value{
+    top: 55px;
+    font-size: 32px;
   }
 
   .other-ranks {
@@ -356,26 +500,54 @@ font-weight: 500;
     text-align: center;
   }
 
-  .rank-item__rank, .rank-item__score, .rank-item__username{
+  .rank-item__rank,
+  .rank-item__score,
+  .rank-item__username {
     font-size: 32px;
     font-weight: 700;
     line-height: 38.4px;
     text-align: center;
-    }
-    
-    .rank-item__username{
+  }
+
+  .rank-item__username {
     font-weight: 500;
-    }
-    
+  }
 }
 
-
-@media (min-width:1024px) {
+@media (min-width: 1024px) {
   header {
     padding: 16px 80px;
   }
 
-  .profile__name{
+  .profile__name {
     font-size: 20px;
+  }
+
+  .score-container {
+    width: 200px;
+    padding-top: 70px;
+  }
+
+  .users-photo {
+    width: 120px;
+    height: 120px;
+    top: 70px;
+  }
+
+  .rank-name{
+    font-size: 32px;
+  }
+
+  .rank-value{
+    top: 65px;
+  }
+
+  .crown img{
+    width: 80px;
+    height: 80px;
+    top: 90px;
+  }
+  .curve-container{
+    bottom: 200px;
   }
 }

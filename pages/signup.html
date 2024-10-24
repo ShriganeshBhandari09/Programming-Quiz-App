@@ -23,7 +23,7 @@
           <span class="auth__form-description">Sign up to join</span>
         </div>
         <form class="auth__form">
-          <div>
+          <div class="auth__form-div">
             <label class="auth__form-label" for="fullname">Full Name*</label>
             <input
               class="auth__form-input"
@@ -35,7 +35,7 @@
               autocomplete="off"
             />
           </div>
-          <div>
+          <div class="auth__form-div">
             <label class="auth__form-label" for="registeremail"
               >Email Id*</label
             >
@@ -49,7 +49,7 @@
               autocomplete="off"
             />
           </div>
-          <div>
+          <div class="auth__form-div">
             <label class="auth__form-label" for="registerpassword"
               >Password*</label
             >
@@ -63,6 +63,14 @@
               autocomplete="off"
             />
           </div>
+          <div class="auth__form-checkbox">
+            <input
+              type="checkbox"
+              name="terms-and-conditions"
+              id="terms-and-conditions"
+            />
+            <label for="terms-and-conditions">I accept <a href="terms-and-conditions.html" target="_blank">Terms and Conditions</a></label>
+          </div>
           <button onclick="registerUser()" class="primary-btn login-btn" type="submit">
             Sign up
           </button>
@@ -74,14 +82,6 @@
             alt="google-img"
           />Sign up with Google
         </button>
-        <div class="auth__form-checkbox">
-          <input
-            type="checkbox"
-            name="terms-and-conditions"
-            id="terms-and-conditions"
-          />
-          <label for="terms-and-conditions">I accept <a href="terms-and-conditions.html" target="_blank">Terms and Conditions</a></label>
-        </div>
         <span class="auth__span"
           >Have an account?<a href="../index.html"> Login?</a></span
         >

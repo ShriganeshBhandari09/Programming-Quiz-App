@@ -638,7 +638,7 @@ const dummyData = [
   },
   {
     fullName: "Rohan Patel",
-    marks: 100,
+    marks: 50,
     email: "rohan.patel@example.com",
     selectedAnswers: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   },
@@ -873,12 +873,12 @@ function generateAdminProfileName() {
 function showSidebar() {
   let headerMenuIcon = document.getElementById("header-menu-icon");
   let sidebar = document.getElementById("side-bar");
-  let adminPageSection = document.getElementById("admin-welcome-page")
+  let adminPageSection = document.getElementById("admin-welcome-page");
   if (window.matchMedia("(min-width: 768px)").matches) {
     headerMenuIcon.classList.toggle("tablet-header-menu");
     sidebar.classList.toggle("disable-sidebar");
     console.log("If is running");
-    adminPageSection.classList.toggle("move-weclome-page")
+    adminPageSection.classList.toggle("move-weclome-page");
   } else {
     headerMenuIcon.classList.remove("tablet-header-menu");
     headerMenuIcon.classList.toggle("move-header-menu");
@@ -887,7 +887,7 @@ function showSidebar() {
   }
 }
 // function loadAdminPage() {
-//   
+//
 //   var adminContainerContent = document.getElementById(
 //     "admin-container-content"
 //   );

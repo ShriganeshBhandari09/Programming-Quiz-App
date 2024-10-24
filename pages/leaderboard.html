@@ -14,25 +14,27 @@
   </head>
   <body onload="loadLeaderboard()">
     <header class="header">
-        <div class="header__image-wrapper">
-          <a href="dashboard.html">
-            <img
-              class="header__img"
-              src="../assets/techpaatshala.svg"
-              alt="logo"
-            />
-          </a>
-        </div>
-        <div class="header__profileinfo">
-          <span class="profile__name" id="profile-name"></span>
-          <button type="button" class="profile__logout-btn" onclick="logout()">Logout</button>
+      <div class="header__image-wrapper">
+        <a href="dashboard.html">
           <img
-            class="profile__img"
-            src="../assets/profile.svg"
-            alt="profile-photo"
-            id="profile-img"
+            class="header__img"
+            src="../assets/techpaatshala.svg"
+            alt="logo"
           />
-        </div>
+        </a>
+      </div>
+      <div class="header__profileinfo">
+        <span class="profile__name" id="profile-name"></span>
+        <button type="button" class="profile__logout-btn" onclick="logout()">
+          Logout
+        </button>
+        <img
+          class="profile__img"
+          src="../assets/profile.svg"
+          alt="profile-photo"
+          id="profile-img"
+        />
+      </div>
     </header>
     <div class="container">
       <div>
@@ -108,8 +110,7 @@
               <h3 id="current-user-marks"></h3>
             </div>
           </div>
-          <hr>
-
+          <hr />
 
           <!-- <div class="rank-item">
             <div class="rank-item__name">

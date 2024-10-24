@@ -214,6 +214,7 @@ body {
     margin-top: -200px; */
      height: fit-content;
     width: fit-content;
+    margin: 0 auto;
   }
 
   .admin-welcome-page a {

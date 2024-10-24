@@ -28,13 +28,33 @@ header {
   align-items: center;
 }
 
+.header__img {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .profile__name {
   display: none;
 }
 
+.header__profileinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
 .profile__logout-btn {
-  display: none;
+  display: flex;
+  font-size: 16px;
+  padding: 8px;
+  font-weight: 500;
+  border: none;
+  background-color: #f3bd00;
+  border-radius: 10px;
   cursor: pointer;
+  margin-right: 5px;
 }
 
 .profile__img {
@@ -42,7 +62,6 @@ header {
   width: 40px;
   height: 40px;
 }
-
 .container__questions {
   display: flex;
   flex-direction: column;
@@ -143,6 +162,20 @@ input[type="radio"]:checked + label {
   border: none;
   cursor: pointer;
 }
+/* 
+
+.container__answers-option{
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.container__answers-option:hover{
+  background-color: #f3bd00;
+  border-radius: 10px;
+  padding: 10px 10px;
+  cursor: pointer;
+} */
 
 .previous-btn {
   color: #8e8e93;
@@ -182,6 +215,10 @@ input[type="radio"]:checked + label {
     gap: 20px;
   }
 
+  .header__img {
+    width: 198px;
+  }
+
   .profile__name {
     display: flex;
     font-size: 16px;
@@ -189,13 +226,11 @@ input[type="radio"]:checked + label {
   }
 
   .profile__logout-btn {
-    display: flex;
-    font-size: 16px;
-    padding: 10px;
     font-weight: 700;
-    border: none;
-    background-color: #f3bd00;
-    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 0px;
+    padding: 10px;
+    font-size: 18px;
   }
 
   .profile__img {
@@ -235,7 +270,7 @@ input[type="radio"]:checked + label {
     color: #1c1c1e;
   }
 
-  .profile__name{
+  .profile__name {
     font-size: 20px;
   }
 

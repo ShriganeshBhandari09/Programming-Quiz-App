@@ -63,7 +63,7 @@ img {
   gap: 5px;
 }
 
-.auth__form div {
+.auth__form-div {
   display: flex;
   flex-direction: column;
   gap: 6px;
