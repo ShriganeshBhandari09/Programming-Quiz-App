@@ -873,8 +873,18 @@ function generateAdminProfileName() {
 function showSidebar() {
   let headerMenuIcon = document.getElementById("header-menu-icon");
   let sidebar = document.getElementById("side-bar");
-  sidebar.classList.toggle("show-sidebar");
-  headerMenuIcon.classList.toggle("move-header-menu");
+  let adminPageSection = document.getElementById("admin-welcome-page")
+  if (window.matchMedia("(min-width: 768px)").matches) {
+    headerMenuIcon.classList.toggle("tablet-header-menu");
+    sidebar.classList.toggle("disable-sidebar");
+    console.log("If is running");
+    adminPageSection.classList.toggle("move-weclome-page")
+  } else {
+    headerMenuIcon.classList.remove("tablet-header-menu");
+    headerMenuIcon.classList.toggle("move-header-menu");
+    sidebar.classList.toggle("show-sidebar");
+    console.log("Else is running");
+  }
 }
 // function loadAdminPage() {
 //   
