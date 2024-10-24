@@ -113,7 +113,13 @@ body {
 }
 
 .profile__logout-btn {
-  display: none;
+  display: flex;
+  font-size: 16px;
+  padding: 10px;
+  font-weight: 700;
+  border: none;
+  background-color: #f3bd00;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -131,6 +137,7 @@ body {
   text-align: center;
   padding: 10px;
 }
+
 .admin-welcome-page a {
   font-size: 24px;
   padding: 10px 20px;
@@ -144,29 +151,87 @@ body {
   color: black;
 }
 
-/* 
-.admin-welcome-page a:hover{
-} */
+table,
+td {
+  border-collapse: collapse;
+  font-size: 20px;
+  padding: 10px 5px;
+  border: 1px solid black;
+}
+
+table {
+  margin: 20px;
+}
+
+th {
+  background-color: #f3bd00;
+  text-align: left;
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-size: 20px;
+  padding: 10px 5px;
+}
+
+.quiz-question-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 20px; */
+}
+
+.add-question-btn {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  align-items: center;
+  font-size: 24px;
+  gap: 5px;
+  border: none;
+  outline: none;
+  background-color: #f3bd00;
+  margin-top: 10px;
+  margin-right: 20px;
+  border-radius: 10px;
+  cursor: pointer;  
+  font-weight: 700;
+}
+
+.options, .user-emails {
+  display: none;
+}
+
+.admin-welcome-page a:hover, .add-question-btn:hover, .profile__logout-btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.table-button{
+  text-align: center;
+}
+
+.table-button button{
+  font-size: 24px;
+  font-weight: 700;
+  padding: 8px 10px;
+  width: fit-content;
+  margin: 10px auto;
+  border: none;
+  outline: none;
+  background-color: #f3bd00;
+  border-radius: 10px;
+  cursor: pointer; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 
 @media (min-width: 768px) {
   .header__image-wrapper {
     height: 78px;
   }
-  .sidebar {
-    position: relative;
-    top: -71px;
-    display: flex;
-    left: 0px;
-    flex-direction: column;
-  }
 
-  .disable-sidebar {
-    left: -300px;
-  }
-
-  .tablet-header-menu {
-    left: 220px;
-  }
   .header__profileinfo {
     display: flex;
     justify-content: center;
@@ -180,7 +245,7 @@ body {
     font-weight: 700;
   }
 
-  .profile__logout-btn {
+  /* .profile__logout-btn {
     display: flex;
     font-size: 16px;
     padding: 10px;
@@ -188,7 +253,7 @@ body {
     border: none;
     background-color: #f3bd00;
     border-radius: 10px;
-  }
+  } */
 
   .profile__img {
     width: 50px;
@@ -198,27 +263,36 @@ body {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    width: 100%;
   }
 
   .admin-welcome-page {
-    font-size: 24px;
-    /* padding-top: 100px; */
-    /* width: calc(100% - 200px);
-    display: flex;
-    align-items: center; */
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: -200px; */
-     height: fit-content;
-    width: fit-content;
+    font-size: 40px;
+    padding-top: 100px;
     margin: 0 auto;
   }
-
   .admin-welcome-page a {
-    font-size: 24px;
+    font-size: 20px;
+  }
+
+  .options {
+    display: flex;
+    border-collapse: collapse;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 100%;
+  }
+  .user-emails{
+    display: table-cell;
+    border-collapse: collapse;
+  }
+
+  .table-header-option, .table-email-header {
+    margin-bottom: -1px;
+  }
+
+  .add-question-btn {
+    margin-top: 10px;
+    margin-right: 0px;
   }
 }
 
@@ -226,8 +300,25 @@ body {
   .header {
     padding: 16px 80px;
   }
-  .sidebar {
+  /* .sidebar {
     top: -83px;
+  } */
+
+  .sidebar {
+    position: relative;
+    top: -83px;
+    display: block;
+    left: 0px;
+    flex-direction: column;
+  }
+
+  .disable-sidebar {
+    left: -300px;
+    display: none;
+  }
+
+  .tablet-header-menu {
+    left: 220px;
   }
 
   .header__image-wrapper {
@@ -246,11 +337,27 @@ body {
     font-size: 22px;
   }
 
-  .admin-welcome-page{
-    font-size: 40px;
+  /* .options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+  } */
+
+  table {
+    width: 100%;
   }
 
-  .admin-welcome-page a{
-    font-size: 40px;
+  .quiz-question-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    width: 80%;
+  }
+
+  .user-container {
+    width: 80%;
   }
 }

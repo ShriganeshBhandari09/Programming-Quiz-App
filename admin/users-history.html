@@ -19,7 +19,7 @@
     />
     <link rel="stylesheet" href="../admin/css/dashboard.css" />
   </head>
-  <body onload="readAllQuestions()">
+  <body onload="readAllUsers()">
     <header class="header">
       <i
         class="fa-solid fa-bars fa-xl tablet-header-menu"
@@ -59,25 +59,23 @@
           <a href="quiz-questions.html" class="siderbar-menu-links"
             ><img src="../assets/question.png" alt="" />Quiz Questions</a
           >
-          <a href="users-history.html" class="siderbar-menu-links"
+          <a href="#" class="siderbar-menu-links"
             ><img src="../assets/teamwork.png" alt="" />Users Quiz History</a
           >
         </div>
       </section>
-      <section class="quiz-question-container">
-        <button type="button" class="add-question-btn">
-          Add Question<i class="fa-solid fa-plus"></i>
-        </button>
+      <section class="user-container">
         <table>
           <thead>
             <tr>
               <th class="table-header">No.</th>
-              <th class="table-header">Question</th>
-              <th class="table-header options table-header-option" colspan="4">Options</th>
+              <th class="table-header">Users</th>
+              <th class="table-header user-emails table-email-header">Email</th>
+              <th class="table-header">Score</th>
               <th class="table-header">Action</th>
             </tr>
           </thead>
-          <tbody class="table-data" id="question-table-data"></tbody>
+          <tbody class="table-data" id="users-table-data"></tbody>
         </table>
       </section>
     </main>

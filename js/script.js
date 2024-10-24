@@ -873,12 +873,10 @@ function generateAdminProfileName() {
 function showSidebar() {
   let headerMenuIcon = document.getElementById("header-menu-icon");
   let sidebar = document.getElementById("side-bar");
-  let adminPageSection = document.getElementById("admin-welcome-page");
-  if (window.matchMedia("(min-width: 768px)").matches) {
+  if (window.matchMedia("(min-width: 1024px)").matches) {
     headerMenuIcon.classList.toggle("tablet-header-menu");
     sidebar.classList.toggle("disable-sidebar");
     console.log("If is running");
-    adminPageSection.classList.toggle("move-weclome-page");
   } else {
     headerMenuIcon.classList.remove("tablet-header-menu");
     headerMenuIcon.classList.toggle("move-header-menu");
@@ -901,24 +899,62 @@ function showSidebar() {
 //   adminContainerContent.appendChild(adminPage);
 // }
 
-function fetchQuestions() {
-  var mainContainer = document.getElementById("admin-container");
-  var adminContainerContent = document.getElementById(
-    "admin-container-content"
-  );
-  adminContainerContent.style.display = "none";
+// function fetchQuestions() {
+//   var mainContainer = document.getElementById("admin-container");
+//   var adminContainerContent = document.getElementById(
+//     "admin-container-content"
+//   );
+//   adminContainerContent.style.display = "none";
+//   var questions = JSON.parse(localStorage.getItem("questions"));
+//   var questionsPage = document.createElement("div");
+//   questionsPage.id = "questions-page-content";
+//   for (let i = 0; i < questions.length; i++) {
+//     questionsPage.innerHTML += `<h2 class="question">${questions[i].question}</h2>
+//         <p class="supporting-text">${questions[i].supportingText}</p>
+//         <ul class="opptions">
+//           <li>${questions[i].options[0]}</li>
+//           <li>${questions[i].options[1]}</li>
+//           <li>${questions[i].options[2]}</li>
+//           <li>${questions[i].options[3]}</li>
+//         </ul>`;
+//     mainContainer.appendChild(questionsPage);
+//   }
+// }
+
+var questionsLength = 20;
+function readAllQuestions() {
+  generateAdminProfileName();
   var questions = JSON.parse(localStorage.getItem("questions"));
-  var questionsPage = document.createElement("div");
-  questionsPage.id = "questions-page-content";
-  for (let i = 0; i < questions.length; i++) {
-    questionsPage.innerHTML += `<h2 class="question">${questions[i].question}</h2>
-        <p class="supporting-text">${questions[i].supportingText}</p>
-        <ul class="opptions">
-          <li>${questions[i].options[0]}</li>
-          <li>${questions[i].options[1]}</li>
-          <li>${questions[i].options[2]}</li>
-          <li>${questions[i].options[3]}</li>
-        </ul>`;
-    mainContainer.appendChild(questionsPage);
+
+  var questionstableData = document.getElementById("question-table-data");
+  for (let i = 0; i < questionsLength; i++) {
+    const element = questions[i];
+    console.log(element);
+    var newRow = document.createElement("tr");
+    newRow.innerHTML += `<td>${i + 1}</td>
+    <td>${questions[i].question}</td>
+    <td class="options">1. ${questions[i].options[0]}</td>
+    <td class="options">2. ${questions[i].options[1]}</td>
+    <td class="options">3. ${questions[i].options[2]}</td>
+    <td class="options">4. ${questions[i].options[3]}</td>
+    <td class="table-button"><button><i class="fa-solid fa-pencil"></i></button><button><i class="fa-solid fa-trash"></i></button></td>`;
+    questionstableData.appendChild(newRow);
+  }
+}
+// console.log(tableData)
+
+function readAllUsers() {
+  generateAdminProfileName();
+  var userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+  var usersTableData = document.getElementById("users-table-data");
+
+  for (let i = 0; i < userGivenTests.length; i++) {
+    var newRow = document.createElement("tr");
+    newRow.innerHTML += `<td>${i + 1}</td>
+    <td>${userGivenTests[i].fullName}</td>
+    <td class="user-emails">${userGivenTests[i].email}</td>
+    <td>${userGivenTests[i].marks}
+    <td class="table-button"><button><i class="fa-regular fa-eye"></i></button><button><i class="fa-solid fa-trash"></i></button></td>`;
+    usersTableData.appendChild(newRow);
   }
 }
