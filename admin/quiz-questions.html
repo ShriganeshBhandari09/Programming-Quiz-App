@@ -33,7 +33,7 @@
         </button>
         <img
           class="profile__img"
-          src="profile.svg"
+          src="../assets/profile.svg"
           alt="profile-photo"
           id="profile-img"
         />
@@ -65,15 +65,56 @@
         </div>
       </section>
       <section class="quiz-question-container">
-        <button type="button" class="add-question-btn">
+        <button type="button" class="add-question-btn" onclick="displayQuestionForm()">
           Add Question<i class="fa-solid fa-plus"></i>
         </button>
+        <section class="question-form-container" id="quiz-form">
+          <form action="">
+            <div class="question-form-div">
+              <label for="question">Question</label>
+              <input type="text" name="question" placeholder="Question" id="question" />
+            </div>
+            <div class="question-form-div">
+              <label for="supporting-text">Supporting Text</label>
+              <input type="text" name="supporting-text" placeholder="Question" id="supporting-text" />
+            </div>
+            <div class="question-form-div">
+              <label for="option-one">Option 1</label>
+              <input type="text" name="option-one" placeholder="Option 1" id="option-one" />
+            </div>
+            <div class="question-form-div">
+              <label for="option-two">Option 2</label>
+              <input type="text" name="option-two" placeholder="Option 2" id="option-two" />
+            </div>
+            <div class="question-form-div">
+              <label for="option-three">Option 3</label>
+              <input type="text" name="option-three" placeholder="Option 3" id="option-three" />
+            </div>
+            <div class="question-form-div">
+              <label for="option-four">Option 4</label>
+              <input type="text" name="option-four" placeholder="Option 4" id="option-four" />
+            </div>
+            <div class="question-form-div">
+              <label for="explanation-text">Supporting Text</label>
+              <input type="text" name="explanation-text" placeholder="Question" id="explanation-text" />
+            </div>
+            <button
+              onclick="addQuestions()"
+              class="primary-btn login-btn"
+              type="button"
+            >
+              Add Question
+            </button>
+          </form>
+        </section>
         <table>
           <thead>
             <tr>
               <th class="table-header">No.</th>
               <th class="table-header">Question</th>
-              <th class="table-header options table-header-option" colspan="4">Options</th>
+              <th class="table-header">Supporting Text</th>
+              <th class="table-header options table-header-option">Options</th>
+              <th class="table-header">Answer Explanation</th>
               <th class="table-header">Action</th>
             </tr>
           </thead>

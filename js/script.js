@@ -159,7 +159,6 @@ var questions = [
       "The &lt;header&gt; element is semantic and is used to define the header of a document or section.",
   },
   {
-    id: 3,
     question: "What is the correct way to link a CSS file in HTML?",
     supportingText: "Linking CSS files is essential for styling web pages.",
     options: [
@@ -173,7 +172,6 @@ var questions = [
       "The correct way to link an external CSS file is by using the &lt;link&gt; tag with rel='stylesheet'.",
   },
   {
-    id: 4,
     question: "Which HTML element is used to create an unordered list?",
     supportingText: "Lists are important for structuring related items.",
     options: ["&lt;ul&gt;", "&lt;ol&gt;", "&lt;li&gt;", "&lt;list&gt;"],
@@ -182,7 +180,6 @@ var questions = [
       "The &lt;ul&gt; element is used to create an unordered list, while &lt;ol&gt; creates an ordered list.",
   },
   {
-    id: 5,
     question: "What is the purpose of the alt attribute in an image tag?",
     supportingText: "The alt attribute enhances accessibility and SEO.",
     options: [
@@ -196,7 +193,6 @@ var questions = [
       "The alt attribute provides alternative text for an image if it cannot be displayed, improving accessibility.",
   },
   {
-    id: 6,
     question: "Which CSS property is used to change the text color?",
     supportingText:
       "This property is essential for controlling text appearance.",
@@ -206,7 +202,6 @@ var questions = [
       "The color property in CSS is used to change the color of the text in an element.",
   },
   {
-    id: 7,
     question: "How can you center a block element horizontally in CSS?",
     supportingText: "Centering elements is a common layout requirement.",
     options: [
@@ -220,7 +215,6 @@ var questions = [
       "Using 'margin: auto;' on a block element with a defined width will center it horizontally.",
   },
   {
-    id: 8,
     question: "Which property controls the text size in CSS?",
     supportingText: "Text size is crucial for readability in web design.",
     options: ["text-size", "font-size", "size", "text-style"],
@@ -229,7 +223,6 @@ var questions = [
       "The font-size property is used to set the size of the text in an element.",
   },
   {
-    id: 9,
     question: "What does CSS stand for?",
     supportingText: "CSS plays a critical role in web design.",
     options: [
@@ -243,7 +236,6 @@ var questions = [
       "CSS stands for Cascading Style Sheets, used for styling and layout of web pages.",
   },
   {
-    id: 10,
     question: "Which JavaScript method is used to access an element by its id?",
     supportingText: "This method allows for easy DOM manipulation.",
     options: [
@@ -257,7 +249,6 @@ var questions = [
       "The getElementById() method selects an HTML element based on its unique id.",
   },
   {
-    id: 11,
     question: "What is the purpose of the JavaScript 'let' keyword?",
     supportingText: "Variable declarations affect scope and lifespan.",
     options: [
@@ -271,7 +262,6 @@ var questions = [
       "'let' is used to declare variables that are block-scoped, unlike 'var', which is function-scoped.",
   },
   {
-    id: 12,
     question:
       "Which operator is used to assign a value to a variable in JavaScript?",
     supportingText:
@@ -282,7 +272,6 @@ var questions = [
       "The '=' operator is used to assign a value to a variable in JavaScript.",
   },
   {
-    id: 13,
     question: "What is the purpose of the JSON format?",
     supportingText:
       "Data interchange formats are critical for web applications.",
@@ -297,7 +286,6 @@ var questions = [
       "JSON (JavaScript Object Notation) is a lightweight format for data interchange, commonly used in web APIs.",
   },
   {
-    id: 14,
     question:
       "Which of the following is NOT a valid way to declare a variable in JavaScript?",
     supportingText:
@@ -308,7 +296,6 @@ var questions = [
       "'new myVar;' is not a valid variable declaration; 'var', 'let', and 'const' are the correct ways.",
   },
   {
-    id: 15,
     question: "What is the purpose of the 'this' keyword in JavaScript?",
     supportingText: "The 'this' keyword refers to the execution context.",
     options: [
@@ -322,7 +309,6 @@ var questions = [
       "In JavaScript, 'this' refers to the object that is executing the current function.",
   },
   {
-    id: 16,
     question: "Which HTML tag is used to define a hyperlink?",
     supportingText: "Hyperlinks are essential for navigation on the web.",
     options: ["&lt;link&gt;", "&lt;a&gt;", "&lt;href&gt;", "&lt;url&gt;"],
@@ -331,7 +317,6 @@ var questions = [
       "The &lt;a&gt; tag is used to define a hyperlink that links to another webpage or resource.",
   },
   {
-    id: 17,
     question: "How can you create a comment in CSS?",
     supportingText: "Comments help document code for better readability.",
     options: [
@@ -344,7 +329,6 @@ var questions = [
     explanation: "In CSS, comments are created using '/* comment */'.",
   },
   {
-    id: 18,
     question:
       "Which of the following CSS properties can be used to create a responsive layout?",
     supportingText: "Responsive design adapts to different screen sizes.",
@@ -354,7 +338,6 @@ var questions = [
       "All these properties can help create responsive designs by controlling element sizes and layouts.",
   },
   {
-    id: 19,
     question: "What is the purpose of the 'box-sizing' property in CSS?",
     supportingText: "Box model properties are vital for layout control.",
     options: [
@@ -368,7 +351,6 @@ var questions = [
       "The 'box-sizing' property determines how the total width and height of an element is calculated, affecting layout.",
   },
   {
-    id: 20,
     question: "What does the 'float' property do in CSS?",
     supportingText:
       "The float property is used for positioning and layout control.",
@@ -407,7 +389,7 @@ var questionDescription = document.getElementById("question-description");
 var optionOne = document.getElementById("option-one");
 var optionTwo = document.getElementById("option-two");
 var optionThree = document.getElementById("option-three");
-var optionfour = document.getElementById("option-four");
+var optionFour = document.getElementById("option-four");
 
 var labelOne = document.getElementById("label-one");
 var labelTwo = document.getElementById("label-two");
@@ -420,7 +402,7 @@ var submitBtn = document.getElementById("forward-btn");
 var mainContainer = document.getElementById("main-container");
 var scoreContainer = document.getElementById("score-container");
 
-var totalQuestions = 10;
+var totalQuestions = 20;
 console.log(totalQuestions);
 var slider = document.getElementById("rangeSliderValue");
 var maxSliderValue = 100;
@@ -473,7 +455,7 @@ function displayQuestion() {
   optionOne.value = questions[randomQuestionArray[questionIndex]].options[0];
   optionTwo.value = questions[randomQuestionArray[questionIndex]].options[1];
   optionThree.value = questions[randomQuestionArray[questionIndex]].options[2];
-  optionfour.value = questions[randomQuestionArray[questionIndex]].options[3];
+  optionFour.value = questions[randomQuestionArray[questionIndex]].options[3];
 
   labelOne.innerHTML = `1. ${
     questions[randomQuestionArray[questionIndex]].options[0]
@@ -517,7 +499,7 @@ function loadQuestion() {
 //   optionOne.value = questions[questionId].options[0];
 //   optionTwo.value = questions[questionId].options[1];
 //   optionThree.value = questions[questionId].options[2];
-//   optionfour.value = questions[questionId].options[3];
+//   optionFour.value = questions[questionId].options[3];
 
 //   labelOne.innerText = questions[questionId].options[0];
 //   labelTwo.innerText = questions[questionId].options[1];
@@ -675,6 +657,7 @@ function storeDummyData() {
 var marks = 0;
 var marksHeading = document.getElementById("marks");
 var selectedAnswersArray = [];
+var noOfTimeTestGiven = 1;
 function calculateMarks() {
   if (!localStorage.getItem("usersGivenTests")) {
     storeDummyData();
@@ -733,7 +716,10 @@ function calculateMarks() {
   const existingTest = userGivenTests.find(
     (test) => test.email === loggedInEmail
   );
+
   if (existingTest) {
+    noOfTimeTestGiven = existingTest.noOfTimeTestGiven + 1;
+    existingTest.noOfTimeTestGiven = noOfTimeTestGiven;
     existingTest.marks = marks;
     existingTest.selectedAnswers = selectedAnswersArray;
     console.log("If is running");
@@ -742,6 +728,7 @@ function calculateMarks() {
       fullName: userLoggedIn[0].fullName,
       marks: marks,
       email: userLoggedIn[0].email,
+      noOfTimeTestGiven: noOfTimeTestGiven,
       selectedAnswers: selectedAnswersArray,
       // date: date,
       // time: date.getTime(),
@@ -921,24 +908,29 @@ function showSidebar() {
 //   }
 // }
 
-var questionsLength = 20;
+// var questionsLength = 20;
 function readAllQuestions() {
   generateAdminProfileName();
   var questions = JSON.parse(localStorage.getItem("questions"));
 
-  var questionstableData = document.getElementById("question-table-data");
-  for (let i = 0; i < questionsLength; i++) {
-    const element = questions[i];
-    console.log(element);
+  let tableData = document.getElementById("question-table-data");
+  for (let i = 0; i < questions.length; i++) {
     var newRow = document.createElement("tr");
+    newRow.id = `question-${i + 1}`;
     newRow.innerHTML += `<td>${i + 1}</td>
     <td>${questions[i].question}</td>
-    <td class="options">1. ${questions[i].options[0]}</td>
-    <td class="options">2. ${questions[i].options[1]}</td>
-    <td class="options">3. ${questions[i].options[2]}</td>
-    <td class="options">4. ${questions[i].options[3]}</td>
-    <td class="table-button"><button><i class="fa-solid fa-pencil"></i></button><button><i class="fa-solid fa-trash"></i></button></td>`;
-    questionstableData.appendChild(newRow);
+    <td>${questions[i].supportingText}</td>
+    <td class="options">
+    <div class="options-div">
+    <p>1. ${questions[i].options[0]}</p>
+    <p>2. ${questions[i].options[1]}</p>
+    <p>3. ${questions[i].options[2]}</p>
+    <p>4. ${questions[i].options[3]}</p>
+    </div>
+    </td>
+    <td>${questions[i].explanation}</td>
+    <td class="table-button"><div class="table-button-div"><button onclick="updateQuestionForm()"><i class="fa-solid fa-pencil"></i></button><button><i class="fa-solid fa-trash"></i></button></div></td>`;
+    tableData.appendChild(newRow);
   }
 }
 // console.log(tableData)
@@ -946,15 +938,94 @@ function readAllQuestions() {
 function readAllUsers() {
   generateAdminProfileName();
   var userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-  var usersTableData = document.getElementById("users-table-data");
+  let tableData = document.getElementById("user-table-data");
 
   for (let i = 0; i < userGivenTests.length; i++) {
     var newRow = document.createElement("tr");
     newRow.innerHTML += `<td>${i + 1}</td>
     <td>${userGivenTests[i].fullName}</td>
-    <td class="user-emails">${userGivenTests[i].email}</td>
-    <td>${userGivenTests[i].marks}
-    <td class="table-button"><button><i class="fa-regular fa-eye"></i></button><button><i class="fa-solid fa-trash"></i></button></td>`;
-    usersTableData.appendChild(newRow);
+    <td class="options">${userGivenTests[i].email}</td>
+    <td>${userGivenTests[i].noOfTimeTestGiven}</td>
+    <td>${userGivenTests[i].marks}</td>
+    <td class="table-button"><div class="table-button-div"><button><i class="fa-solid fa-eye"></i></button><button><i class="fa-solid fa-trash"></i></button></div></td>`;
+    tableData.appendChild(newRow);
   }
 }
+
+function displayQuestionForm() {
+  let quizForm = document.getElementById("quiz-form");
+  quizForm.style.display = "initial";
+}
+
+function addQuestions() {
+  let questions = JSON.parse(localStorage.getItem("questions")) || [];
+  // var email = registerEmail.value;
+  let question = document.getElementById("question");
+  let supportingText = document.getElementById("supporting-text");
+  let optionOne = document.getElementById("option-one");
+  let optionTwo = document.getElementById("option-two");
+  let optionThree = document.getElementById("option-three");
+  let optionFour = document.getElementById("option-four");
+  let explanationText = document.getElementById("explanation-text");
+
+  questions.push({
+    question: question.value,
+    supportingText: supportingText.value,
+    options: [
+      optionOne.value,
+      optionTwo.value,
+      optionThree.value,
+      optionFour.value,
+    ],
+    explanation: explanationText.value,
+  });
+  localStorage.setItem("questions", JSON.stringify(questions));
+  alert("Added Question Successfull");
+  readAllQuestions();
+  question.value = "";
+  supportingText.value = "";
+  optionOne.value = "";
+  optionTwo.value = "";
+  optionThree.value = "";
+  optionFour.value = "";
+  explanationText.value = "";
+}
+
+// function updateQuestionForm() {
+//   let quizForm = document.getElementById("quiz-form");
+//   quizForm.style.display = "initial";
+//   let questions = JSON.parse(localStorage.getItem("questions")) || [];
+//   // var email = registerEmail.value;
+//   let question = document.getElementById("question");
+//   let supportingText = document.getElementById("supporting-text");
+//   let optionOne = document.getElementById("option-one");
+//   let optionTwo = document.getElementById("option-two");
+//   let optionThree = document.getElementById("option-three");
+//   let optionFour = document.getElementById("option-four");
+//   let explanationText = document.getElementById("explanation-text");
+
+//   for (let i = 0; i < questions.length; i++) {
+//     // const element = questions[i];
+//     // console.log(element);
+//     // console.log(questions[i].id)
+//     let questionId = questions[i].id - 1;
+//     if (i === questionId) {
+//       question.value = `${questions[i].question}`;
+//       supportingText.value = `${questions[i].supportingText}`;
+//       optionOne.value = `${questions[i].options[0]}`;
+//       optionTwo.value = questions[i].options[1];
+//       optionThree.value = questions[i].options[2];
+//       optionFour.value = questions[i].options[3];
+//       explanationText.value = questions[i].explanation;
+//       return
+//     } else {
+//       console.log("Elsei ");
+//     }
+
+//     // if(i === 0){
+//     //   console.log(true)
+//     // }else{
+//     //   console.log(false)
+//     // }
+//   }
+// }
