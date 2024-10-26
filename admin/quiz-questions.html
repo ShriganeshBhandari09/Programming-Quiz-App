@@ -65,45 +65,159 @@
         </div>
       </section>
       <section class="quiz-question-container">
-        <button type="button" class="add-question-btn" onclick="displayQuestionForm()">
+        <button
+          type="button"
+          class="add-question-btn"
+          onclick="displayQuestionForm()"
+        >
           Add Question<i class="fa-solid fa-plus"></i>
         </button>
         <section class="question-form-container" id="quiz-form">
           <form action="">
             <div class="question-form-div">
               <label for="question">Question</label>
-              <input type="text" name="question" placeholder="Question" id="question" />
+              <input
+                type="text"
+                name="question"
+                placeholder="Question"
+                id="question"
+              />
             </div>
             <div class="question-form-div">
               <label for="supporting-text">Supporting Text</label>
-              <input type="text" name="supporting-text" placeholder="Question" id="supporting-text" />
+              <input
+                type="text"
+                name="supporting-text"
+                placeholder="Question"
+                id="supporting-text"
+              />
             </div>
             <div class="question-form-div">
               <label for="option-one">Option 1</label>
-              <input type="text" name="option-one" placeholder="Option 1" id="option-one" />
+              <input
+                type="text"
+                name="option-one"
+                placeholder="Option 1"
+                id="option-one"
+              />
             </div>
             <div class="question-form-div">
               <label for="option-two">Option 2</label>
-              <input type="text" name="option-two" placeholder="Option 2" id="option-two" />
+              <input
+                type="text"
+                name="option-two"
+                placeholder="Option 2"
+                id="option-two"
+              />
             </div>
             <div class="question-form-div">
               <label for="option-three">Option 3</label>
-              <input type="text" name="option-three" placeholder="Option 3" id="option-three" />
+              <input
+                type="text"
+                name="option-three"
+                placeholder="Option 3"
+                id="option-three"
+              />
             </div>
             <div class="question-form-div">
               <label for="option-four">Option 4</label>
-              <input type="text" name="option-four" placeholder="Option 4" id="option-four" />
+              <input
+                type="text"
+                name="option-four"
+                placeholder="Option 4"
+                id="option-four"
+              />
             </div>
             <div class="question-form-div">
               <label for="explanation-text">Supporting Text</label>
-              <input type="text" name="explanation-text" placeholder="Question" id="explanation-text" />
+              <input
+                type="text"
+                name="explanation-text"
+                placeholder="Question"
+                id="explanation-text"
+              />
             </div>
             <button
-              onclick="addQuestions()"
+              onclick=""
               class="primary-btn login-btn"
               type="button"
+              id="add-question-btn"
             >
               Add Question
+            </button>
+          </form>
+        </section>
+        <section class="question-form-container" id="update-quiz-form">
+          <form action="">
+            <div class="question-form-div">
+              <label for="question">Question</label>
+              <input
+                type="text"
+                name="question"
+                placeholder="Question"
+                id="updated-question"
+              />
+            </div>
+            <div class="question-form-div">
+              <label for="supporting-text">Supporting Text</label>
+              <input
+                type="text"
+                name="supporting-text"
+                placeholder="Question"
+                id="updated-supporting-text"
+              />
+            </div>
+            <div class="question-form-div">
+              <label for="option-one">Option 1</label>
+              <input
+                type="text"
+                name="option-one"
+                placeholder="Option 1"
+                id="updated-option-one"
+              />
+            </div>
+            <div class="question-form-div">
+              <label for="option-two">Option 2</label>
+              <input
+                type="text"
+                name="option-two"
+                placeholder="Option 2"
+                id="updated-option-two"
+              />
+            </div>
+            <div class="question-form-div">
+              <label for="option-three">Option 3</label>
+              <input
+                type="text"
+                name="option-three"
+                placeholder="Option 3"
+                id="updated-option-three"
+              />
+            </div>
+            <div class="question-form-div">
+              <label for="option-four">Option 4</label>
+              <input
+                type="text"
+                name="option-four"
+                placeholder="Option 4"
+                id="updated-option-four"
+              />
+            </div>
+            <div class="question-form-div">
+              <label for="explanation-text">Supporting Text</label>
+              <input
+                type="text"
+                name="explanation-text"
+                placeholder="Question"
+                id="updated-explanation-text"
+              />
+            </div>
+            <button
+              class="primary-btn login-btn"
+              type="button"
+              id="update-question-button"
+            >
+              Update Question
             </button>
           </form>
         </section>

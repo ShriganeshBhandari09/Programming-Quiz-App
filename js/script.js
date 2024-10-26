@@ -3,10 +3,10 @@ function registerUser() {
   console.log("Signup is running");
   var users = JSON.parse(localStorage.getItem("users")) || [];
   // var email = registerEmail.value;
-  var fullName = document.getElementById("fullname").value;
-  var registerEmail = document.getElementById("registeremail").value;
-  var registerPassword = document.getElementById("registerpassword").value;
-  var checboxSelected = document.querySelector("input[type=checkbox]:checked");
+  let fullName = document.getElementById("fullname").value;
+  let registerEmail = document.getElementById("registeremail").value;
+  let registerPassword = document.getElementById("registerpassword").value;
+  let checboxSelected = document.querySelector("input[type=checkbox]:checked");
 
   if (fullName.trim() === "") {
     alert("Please Enter Name");
@@ -54,12 +54,12 @@ function registerUser() {
 
 //Login Function Starts
 function loginUser() {
-  var email = document.getElementById("loginemail").value.toLowerCase();
-  var password = document.getElementById("loginpassword").value;
-  var users = JSON.parse(localStorage.getItem("users"));
-  var isLoggedIn = false;
-  var userLoggedIn = [];
-  var adminLoggedIn = [];
+  let email = document.getElementById("loginemail").value.toLowerCase();
+  let password = document.getElementById("loginpassword").value;
+  let users = JSON.parse(localStorage.getItem("users"));
+  let isLoggedIn = false;
+  let userLoggedIn = [];
+  let adminLoggedIn = [];
 
   if (email === "") {
     alert("Please Enter Email");
@@ -109,9 +109,9 @@ function loginUser() {
 
 //Load Profile Name Starts
 function generateProfileName() {
-  var userLoggedIn = JSON.parse(sessionStorage.getItem("userLoggedIn"));
-  var profileName = document.getElementById("profile-name");
-  var image = document.getElementById("profile-img");
+  let userLoggedIn = JSON.parse(sessionStorage.getItem("userLoggedIn"));
+  let profileName = document.getElementById("profile-name");
+  let image = document.getElementById("profile-img");
   profileName.innerText = `Welcome, ${userLoggedIn[0].fullName}`;
   // console.log(userLoggedIn[0].fullName);
   image.src = `https://ui-avatars.com/api/?name=${userLoggedIn[0].fullName}&background=F3BD00&color=000`;
@@ -135,7 +135,6 @@ function logout() {
 //Load Questions Function Starts
 var questions = [
   {
-    id: 1,
     question: "What does HTML stand for?",
     supportingText: "HTML is the foundational language for creating web pages.",
     options: [
@@ -149,7 +148,6 @@ var questions = [
       "HTML stands for Hyper Text Markup Language, and it is used to structure content on the web.",
   },
   {
-    id: 2,
     question: "Which of the following is a semantic HTML element?",
     supportingText:
       "Semantic elements clearly describe their meaning to both the browser and the developer.",
@@ -379,7 +377,7 @@ if (!localStorage.getItem("questions")) {
 // // console.log(JSON.parse(localStorage.getItem("questions")));
 
 var questions = JSON.parse(localStorage.getItem("questions"));
-console.log(questions.length);
+// console.log(questions.length);
 var question = document.getElementById("question");
 var currntQuestion = document.getElementById("currentQuestion");
 var totalQuestions = document.getElementById("totalQuestions");
@@ -402,8 +400,8 @@ var submitBtn = document.getElementById("forward-btn");
 var mainContainer = document.getElementById("main-container");
 var scoreContainer = document.getElementById("score-container");
 
-var totalQuestions = 20;
-console.log(totalQuestions);
+var totalQuestions = 10;
+// console.log(totalQuestions);
 var slider = document.getElementById("rangeSliderValue");
 var maxSliderValue = 100;
 var sliderValue = maxSliderValue / totalQuestions;
@@ -432,7 +430,7 @@ for (let j = 0; j < totalQuestions; j++) {
     sliderValueArray.push(sliderValue);
   }
 }
-console.log(sliderValueArray);
+// console.log(sliderValueArray);
 
 let randomQuestionArray = [];
 let randomQuestionLength = questions.length;
@@ -446,7 +444,7 @@ for (let i = 0; i < randomQuestionLength; i++) {
   }
 }
 
-console.log(randomQuestionArray);
+// console.log(randomQuestionArray);
 
 var questionIndex = 0;
 function displayQuestion() {
@@ -582,7 +580,7 @@ var selectedOptionsArray = [];
 // }
 
 function submitAnswers() {
-  var selectedOption = document.querySelector('input[name="options"]:checked');
+  let selectedOption = document.querySelector('input[name="options"]:checked');
   if (questionIndex === totalQuestions - 1) {
     selectedOptionsArray.splice(questionIndex, 1, selectedOption.value);
     selectedOption.checked = false;
@@ -610,42 +608,49 @@ const dummyData = [
     fullName: "Aarav Sharma",
     marks: 80,
     email: "aarav.sharma@example.com",
+    noOfTimeTestGiven: 4,
     selectedAnswers: [1, 2, 3, 4, 1, 3, 2, 1, 4, 2],
   },
   {
     fullName: "Priya Verma",
     marks: 70,
     email: "priya.verma@example.com",
+    noOfTimeTestGiven: 3,
     selectedAnswers: [2, 3, 1, 3, 2, 2, 1, 4, 3, 2],
   },
   {
     fullName: "Rohan Patel",
     marks: 50,
     email: "rohan.patel@example.com",
+    noOfTimeTestGiven: 3,
     selectedAnswers: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   },
   {
     fullName: "Sneha Gupta",
     marks: 60,
     email: "sneha.gupta@example.com",
+    noOfTimeTestGiven: 6,
     selectedAnswers: [3, 2, 4, 2, 3, 1, 3, 2, 4, 3],
   },
   {
     fullName: "Vikram Rao",
     marks: 50,
     email: "vikram.rao@example.com",
+    noOfTimeTestGiven: 7,
     selectedAnswers: [4, 3, 2, 1, 4, 3, 4, 2, 1, 2],
   },
   {
     fullName: "Ananya Singh",
     marks: 40,
     email: "ananya.singh@example.com",
+    noOfTimeTestGiven: 10,
     selectedAnswers: [1, 4, 3, 2, 3, 1, 2, 1, 4, 3],
   },
   {
     fullName: "Karan Bhandari",
     marks: 40,
     email: "karan.bhandari@gmail.com",
+    noOfTimeTestGiven: 4,
     selectedAnswers: [2, 3, 4, 1, 2, 4, 3, 3, 2, 1],
   },
 ];
@@ -654,18 +659,19 @@ function storeDummyData() {
   localStorage.setItem("usersGivenTests", JSON.stringify(dummyData)) || [];
 }
 
+if (!localStorage.getItem("usersGivenTests")) {
+  storeDummyData();
+}
+
 var marks = 0;
 var marksHeading = document.getElementById("marks");
 var selectedAnswersArray = [];
 var noOfTimeTestGiven = 1;
 function calculateMarks() {
-  if (!localStorage.getItem("usersGivenTests")) {
-    storeDummyData();
-  }
-  var userGivenTests =
+  let userGivenTests =
     JSON.parse(localStorage.getItem("usersGivenTests")) || [];
   console.log(userGivenTests);
-  var userLoggedIn = JSON.parse(sessionStorage.getItem("userLoggedIn"));
+  let userLoggedIn = JSON.parse(sessionStorage.getItem("userLoggedIn"));
   mainContainer.style.display = "none";
   scoreContainer.style.display = "inline";
   for (let index = 0; index < selectedOptionsArray.length; index++) {
@@ -711,7 +717,7 @@ function calculateMarks() {
     }
   }
   // date = new Date();
-  var loggedInEmail = userLoggedIn[0].email;
+  let loggedInEmail = userLoggedIn[0].email;
 
   const existingTest = userGivenTests.find(
     (test) => test.email === loggedInEmail
@@ -742,88 +748,80 @@ function calculateMarks() {
 //Display LeaderBoard
 function loadLeaderboard() {
   generateProfileName();
-  var userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+  let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
   console.log(userGivenTests);
   userGivenTests.sort((a, b) => b.marks - a.marks);
   console.log(userGivenTests);
-  var displayRank = document.getElementById("display-rank");
-  var supportingText = document.getElementById("supporting-text");
+  let displayRank = document.getElementById("display-rank");
+  let supportingText = document.getElementById("supporting-text");
 
-  var firstRankName = document.getElementById("first-rank-name");
-  var thirdRankName = document.getElementById("third-rank-name");
-  var secondRankName = document.getElementById("second-rank-name");
-  var firstRankProfileImg = document.getElementById("first-rank-proile-img");
-  var secondRankProfileImg = document.getElementById("second-rank-proile-img");
-  var thirdRankProfileImg = document.getElementById("third-rank-proile-img");
+  let firstRankName = document.getElementById("first-rank-name");
+  let thirdRankName = document.getElementById("third-rank-name");
+  let secondRankName = document.getElementById("second-rank-name");
+  let firstRankProfileImg = document.getElementById("first-rank-proile-img");
+  let secondRankProfileImg = document.getElementById("second-rank-proile-img");
+  let thirdRankProfileImg = document.getElementById("third-rank-proile-img");
 
-  var firstRankScore = document.getElementById("first-rank-score");
-  var secondRankScore = document.getElementById("second-rank-score");
-  var thirdRankScore = document.getElementById("third-rank-score");
-  var currentUserScore = document.getElementById("current-user-score");
+  let firstRankScore = document.getElementById("first-rank-score");
+  let secondRankScore = document.getElementById("second-rank-score");
+  let thirdRankScore = document.getElementById("third-rank-score");
+  let currentUserScore = document.getElementById("current-user-score");
 
-  var currentUser = JSON.parse(sessionStorage.getItem("userLoggedIn"));
+  let currentUser = JSON.parse(sessionStorage.getItem("userLoggedIn"));
   console.log(currentUser);
   console.log(userGivenTests);
-  for (
-    let leaderboardUsers = 0;
-    leaderboardUsers < userGivenTests.length;
-    leaderboardUsers++
-  ) {
-    if (leaderboardUsers === 0) {
+  for (let i = 0; i < userGivenTests.length; i++) {
+    if (i === 0) {
       currentUserScore.style.display = "none";
-      firstRankName.innerText = userGivenTests[leaderboardUsers].fullName;
-      firstRankProfileImg.src = `https://ui-avatars.com/api/?name=${userGivenTests[leaderboardUsers].fullName}`;
+      firstRankName.innerText = userGivenTests[i].fullName;
+      firstRankProfileImg.src = `https://ui-avatars.com/api/?name=${userGivenTests[i].fullName}`;
       firstRankScore.innerText = `${userGivenTests[0].marks}`;
-    } else if (leaderboardUsers === 1) {
-      secondRankName.innerText = userGivenTests[leaderboardUsers].fullName;
+    } else if (i === 1) {
+      secondRankName.innerText = userGivenTests[i].fullName;
       currentUserScore.style.display = "none";
-      secondRankProfileImg.src = `https://ui-avatars.com/api/?name=${userGivenTests[leaderboardUsers].fullName}`;
+      secondRankProfileImg.src = `https://ui-avatars.com/api/?name=${userGivenTests[i].fullName}`;
       secondRankScore.innerText = `${userGivenTests[1].marks}`;
-    } else if (leaderboardUsers === 2) {
-      thirdRankName.innerText = userGivenTests[leaderboardUsers].fullName;
+    } else if (i === 2) {
+      thirdRankName.innerText = userGivenTests[i].fullName;
       currentUserScore.style.display = "none";
-      thirdRankProfileImg.src = `https://ui-avatars.com/api/?name=${userGivenTests[leaderboardUsers].fullName}`;
+      thirdRankProfileImg.src = `https://ui-avatars.com/api/?name=${userGivenTests[i].fullName}`;
       thirdRankScore.innerText = `${userGivenTests[2].marks}`;
-    } else if (leaderboardUsers > 2) {
+    } else if (i > 2) {
       var rankItem = document.createElement("div");
-      rankItem.id = `rank-${leaderboardUsers + 1}`;
+      rankItem.id = `rank-${i + 1}`;
       // console.log(rankItem);
       rankItem.innerHTML = `<div class="rank-item">
               <div class="rank-item__name">
-                <h3 class="rank-item__rank">#${leaderboardUsers + 1}</h3>
+                <h3 class="rank-item__rank">#${i + 1}</h3>
                 <h3 class="rank-item__username">${
-                  userGivenTests[leaderboardUsers].fullName
+                  userGivenTests[i].fullName
                 }</h3>
               </div>
               <div class="rank-item__score">
-                <h3>${userGivenTests[leaderboardUsers].marks}</h3>
+                <h3>${userGivenTests[i].marks}</h3>
               </div>
             </div>`;
       document.getElementById("other-ranks-section").appendChild(rankItem);
-      // console.log(document.getElementById(`rank-${leaderboardUsers+1}`).style.display = "none")
+      // console.log(document.getElementById(`rank-${i+1}`).style.display = "none")
       //       currentUserScore.style.display = "flex"
       // currentUserScore.style.backgroundColor = "#34fe34"
-      // document.getElementById("current-user-rank").innerText = `#${leaderboardUsers+1}`
+      // document.getElementById("current-user-rank").innerText = `#${i+1}`
       // document.getElementById("current-user-name").innerText = currentUserName
-      // document.getElementById('current-user-marks').innerText = `${userGivenTests[leaderboardUsers].marks}`
+      // document.getElementById('current-user-marks').innerText = `${userGivenTests[i].marks}`
       // console.log("Present");
-      if (
-        userGivenTests[leaderboardUsers].fullName === currentUser[0].fullName
-      ) {
+      if (userGivenTests[i].fullName === currentUser[0].fullName) {
         currentUserScore.style.display = "flex";
         currentUserScore.style.backgroundColor = "#FBF1CE";
-        document.getElementById("current-user-rank").innerText = `#${
-          leaderboardUsers + 1
-        }`;
+        document.getElementById("current-user-rank").innerText = `#${i + 1}`;
         document.getElementById("current-user-name").innerText =
           currentUser[0].fullName;
         document.getElementById(
           "current-user-marks"
-        ).innerText = `${userGivenTests[leaderboardUsers].marks}`;
+        ).innerText = `${userGivenTests[i].marks}`;
       }
     }
   }
-  var currentUserName = currentUser[0].fullName;
+  let currentUserName = currentUser[0].fullName;
   //   console.log(currentUserName);
   let currentUserIndex =
     userGivenTests.findIndex((u) => u.fullName === currentUserName) + 1;
@@ -849,9 +847,9 @@ function loadLeaderboard() {
 
 // //Load Profile Name
 function generateAdminProfileName() {
-  var adminLoggedIn = JSON.parse(sessionStorage.getItem("adminLoggedIn"));
-  var profileName = document.getElementById("profile-name");
-  var image = document.getElementById("profile-img");
+  let adminLoggedIn = JSON.parse(sessionStorage.getItem("adminLoggedIn"));
+  let profileName = document.getElementById("profile-name");
+  let image = document.getElementById("profile-img");
   profileName.innerText = `Welcome, ${adminLoggedIn[0].name}`;
   // console.log(userLoggedIn[0].fullName);
   image.src = `https://ui-avatars.com/api/?name=${adminLoggedIn[0].name}&background=F3BD00&color=000`;
@@ -911,7 +909,7 @@ function showSidebar() {
 // var questionsLength = 20;
 function readAllQuestions() {
   generateAdminProfileName();
-  var questions = JSON.parse(localStorage.getItem("questions"));
+  let questions = JSON.parse(localStorage.getItem("questions"));
 
   let tableData = document.getElementById("question-table-data");
   for (let i = 0; i < questions.length; i++) {
@@ -929,15 +927,21 @@ function readAllQuestions() {
     </div>
     </td>
     <td>${questions[i].explanation}</td>
-    <td class="table-button"><div class="table-button-div"><button onclick="updateQuestionForm()"><i class="fa-solid fa-pencil"></i></button><button><i class="fa-solid fa-trash"></i></button></div></td>`;
+    <td class="table-button"><div class="table-button-div"><button onclick="updateQuestionForm(${i})" id="update-button-${
+      i + 1
+    }"><i class="fa-solid fa-pencil"></i></button><button onclick="deleteQuestion(${i})" id="delete-button-${
+      i + 1
+    }"><i class="fa-solid fa-trash"></i></button></div></td>`;
     tableData.appendChild(newRow);
   }
+
+  console.log("running this function");
 }
 // console.log(tableData)
 
 function readAllUsers() {
   generateAdminProfileName();
-  var userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+  let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
   let tableData = document.getElementById("user-table-data");
 
   for (let i = 0; i < userGivenTests.length; i++) {
@@ -947,7 +951,9 @@ function readAllUsers() {
     <td class="options">${userGivenTests[i].email}</td>
     <td>${userGivenTests[i].noOfTimeTestGiven}</td>
     <td>${userGivenTests[i].marks}</td>
-    <td class="table-button"><div class="table-button-div"><button><i class="fa-solid fa-eye"></i></button><button><i class="fa-solid fa-trash"></i></button></div></td>`;
+    <td class="table-button"><div class="table-button-div"><button onclick="viewQuestions(${i})"><i class="fa-solid fa-eye"></i></button><button onclick="deleteUser(${i})" id="delete-button-${
+      i + 1
+    }"><i class="fa-solid fa-trash"></i></button></div></td>`;
     tableData.appendChild(newRow);
   }
 }
@@ -955,6 +961,9 @@ function readAllUsers() {
 function displayQuestionForm() {
   let quizForm = document.getElementById("quiz-form");
   quizForm.style.display = "initial";
+  let addQuestionBtn = document.getElementById("add-question-btn");
+  addQuestionBtn.setAttribute("onclick", "addQuestions()");
+  console.log(addQuestionBtn);
 }
 
 function addQuestions() {
@@ -967,7 +976,6 @@ function addQuestions() {
   let optionThree = document.getElementById("option-three");
   let optionFour = document.getElementById("option-four");
   let explanationText = document.getElementById("explanation-text");
-
   questions.push({
     question: question.value,
     supportingText: supportingText.value,
@@ -1029,3 +1037,123 @@ function addQuestions() {
 //     // }
 //   }
 // }
+
+// function displayUpdateQuestionForm() {
+//   let addQuestionBtn = document.getElementById("add-question-btn")
+//   addQuestionBtn.setAttribute('onclick', 'addQuestions()');
+//   console.log(addQuestionBtn)
+
+// }
+
+function updateQuestionForm(i) {
+  let updateButton = document.getElementById(`update-button-${i + 1}`);
+  let updateQuizQuestionForm = document.getElementById("update-quiz-form");
+  updateQuizQuestionForm.style.display = "initial";
+  let questions = JSON.parse(localStorage.getItem("questions")) || [];
+  let question = document.getElementById("updated-question");
+  let supportingText = document.getElementById("updated-supporting-text");
+  let optionOne = document.getElementById("updated-option-one");
+  let optionTwo = document.getElementById("updated-option-two");
+  let optionThree = document.getElementById("updated-option-three");
+  let optionFour = document.getElementById("updated-option-four");
+  let explanationText = document.getElementById("updated-explanation-text");
+  let updateQuestionBtn = document.getElementById("update-question-button");
+  updateQuestionBtn.setAttribute("onclick", `updateQuestion(${i})`);
+  console.log(updateQuestionBtn);
+
+  question.value = `${questions[i].question}`;
+  supportingText.value = `${questions[i].supportingText}`;
+  optionOne.value = `${questions[i].options[0]}`;
+  optionTwo.value = questions[i].options[1];
+  optionThree.value = questions[i].options[2];
+  optionFour.value = questions[i].options[3];
+  explanationText.value = questions[i].explanation;
+}
+
+function updateQuestion(i) {
+  let questions = JSON.parse(localStorage.getItem("questions")) || [];
+  let question = document.getElementById("updated-question");
+  let supportingText = document.getElementById("updated-supporting-text");
+  let optionOne = document.getElementById("updated-option-one");
+  let optionTwo = document.getElementById("updated-option-two");
+  let optionThree = document.getElementById("updated-option-three");
+  let optionFour = document.getElementById("updated-option-four");
+  let explanationText = document.getElementById("updated-explanation-text");
+  questions.splice(i, 1, {
+    question: question.value,
+    supportingText: supportingText.value,
+    options: [
+      optionOne.value,
+      optionTwo.value,
+      optionThree.value,
+      optionFour.value,
+    ],
+    explanation: explanationText.value,
+  });
+  localStorage.setItem("questions", JSON.stringify(questions));
+  alert("Updated Question Successfull");
+  readAllQuestions();
+  question.value = "";
+  supportingText.value = "";
+  optionOne.value = "";
+  optionTwo.value = "";
+  optionThree.value = "";
+  optionFour.value = "";
+  explanationText.value = "";
+  location.reload();
+  readAllQuestions();
+}
+
+function deleteQuestion(i) {
+  let questions = JSON.parse(localStorage.getItem("questions")) || [];
+  console.log(i);
+  let text = "Are you sure you want to delete the User?";
+  if (confirm(text) == true) {
+    questions.splice(i, 1);
+    localStorage.setItem("questions", JSON.stringify(questions));
+    alert("Deleted Question Successfull");
+    location.reload();
+  }
+}
+
+function deleteUser(i) {
+  let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+  console.log(i);
+  let text = "Are you sure you want to delete the User?";
+  if (confirm(text) == true) {
+    userGivenTests.splice(i, 1);
+    localStorage.setItem("usersGivenTests", JSON.stringify(userGivenTests));
+    alert("User Deleted Successfull");
+    location.reload();
+  }
+}
+
+function viewQuestions(i) {
+  let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+  console.log(i);
+  let selectedAnswers = userGivenTests[i].selectedAnswers;
+  console.log(selectedAnswers);
+  console.log(selectedAnswers[0].question);
+  for (let i = 0; i < selectedAnswers.length; i++) {
+    const element = selectedAnswers[i];
+    console.log(element);
+    var questionAnswerContainer = document.createElement("div");
+    questionAnswerContainer.className = "question-answer-container";
+    questionAnswerContainer.innerHTML = `<h2 class="container__question" id="question">${
+      i + 1
+    }. ${selectedAnswers[i].question}</h2>
+          <p class="container__selected-option">Selected Answer is:- ${
+            selectedAnswers[i].selectedAnswer
+          }</p>
+                <p class="container__correct-answer">Correct Answer is :- ${
+                  selectedAnswers[i].correctAnswer
+                }</p>
+                <p class="container__correct-answer-explanation">${
+                  questions[randomQuestionArray[i]].explanation
+                }
+                `;
+    document
+      .getElementById("users-answer-container")
+      .appendChild(questionAnswerContainer);
+  }
+}
