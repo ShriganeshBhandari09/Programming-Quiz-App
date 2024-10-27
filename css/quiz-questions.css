@@ -143,6 +143,11 @@ input[type="radio"]:checked + label {
   cursor: pointer;
 }
 
+input[type="radio"] + label:hover {
+  background-color: #f3bd00;
+  border-radius: 10px;
+}
+
 .container__buttons {
   display: flex;
   justify-content: space-between;

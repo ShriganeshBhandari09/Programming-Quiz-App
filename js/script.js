@@ -126,9 +126,12 @@ function redirectQuizQuestions() {
 
 //Logout Function Starts
 function logout() {
-  sessionStorage.removeItem("userLoggedIn");
-  sessionStorage.removeItem("adminLoggedIn");
-  window.location.assign("../index.html");
+  let text = "Are you sure you want to Logout?";
+  if (confirm(text) == true) {
+    sessionStorage.removeItem("userLoggedIn");
+    sessionStorage.removeItem("adminLoggedIn");
+    window.location.assign("../index.html");
+  }
 }
 //Logout Function Ends
 
@@ -444,12 +447,12 @@ for (let i = 0; i < randomQuestionLength; i++) {
   }
 }
 
-// console.log(randomQuestionArray);
+console.log(randomQuestionArray);
 
 var questionIndex = 0;
 function displayQuestion() {
-  questionDescription.innerText =
-    questions[randomQuestionArray[questionIndex]].supportingText;
+  // questionDescription.innerText =
+  //   questions[randomQuestionArray[questionIndex]].supportingText;
   optionOne.value = questions[randomQuestionArray[questionIndex]].options[0];
   optionTwo.value = questions[randomQuestionArray[questionIndex]].options[1];
   optionThree.value = questions[randomQuestionArray[questionIndex]].options[2];
@@ -603,65 +606,65 @@ function submitAnswers() {
   // console.log(selectedQuestionid)
 }
 
-const dummyData = [
-  {
-    fullName: "Aarav Sharma",
-    marks: 80,
-    email: "aarav.sharma@example.com",
-    noOfTimeTestGiven: 4,
-    selectedAnswers: [1, 2, 3, 4, 1, 3, 2, 1, 4, 2],
-  },
-  {
-    fullName: "Priya Verma",
-    marks: 70,
-    email: "priya.verma@example.com",
-    noOfTimeTestGiven: 3,
-    selectedAnswers: [2, 3, 1, 3, 2, 2, 1, 4, 3, 2],
-  },
-  {
-    fullName: "Rohan Patel",
-    marks: 50,
-    email: "rohan.patel@example.com",
-    noOfTimeTestGiven: 3,
-    selectedAnswers: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  },
-  {
-    fullName: "Sneha Gupta",
-    marks: 60,
-    email: "sneha.gupta@example.com",
-    noOfTimeTestGiven: 6,
-    selectedAnswers: [3, 2, 4, 2, 3, 1, 3, 2, 4, 3],
-  },
-  {
-    fullName: "Vikram Rao",
-    marks: 50,
-    email: "vikram.rao@example.com",
-    noOfTimeTestGiven: 7,
-    selectedAnswers: [4, 3, 2, 1, 4, 3, 4, 2, 1, 2],
-  },
-  {
-    fullName: "Ananya Singh",
-    marks: 40,
-    email: "ananya.singh@example.com",
-    noOfTimeTestGiven: 10,
-    selectedAnswers: [1, 4, 3, 2, 3, 1, 2, 1, 4, 3],
-  },
-  {
-    fullName: "Karan Bhandari",
-    marks: 40,
-    email: "karan.bhandari@gmail.com",
-    noOfTimeTestGiven: 4,
-    selectedAnswers: [2, 3, 4, 1, 2, 4, 3, 3, 2, 1],
-  },
-];
+// const dummyData = [
+//   {
+//     fullName: "Aarav Sharma",
+//     marks: 80,
+//     email: "aarav.sharma@example.com",
+//     noOfTimeTestGiven: 4,
+//     selectedAnswers: [1, 2, 3, 4, 1, 3, 2, 1, 4, 2],
+//   },
+//   {
+//     fullName: "Priya Verma",
+//     marks: 70,
+//     email: "priya.verma@example.com",
+//     noOfTimeTestGiven: 3,
+//     selectedAnswers: [2, 3, 1, 3, 2, 2, 1, 4, 3, 2],
+//   },
+//   {
+//     fullName: "Rohan Patel",
+//     marks: 50,
+//     email: "rohan.patel@example.com",
+//     noOfTimeTestGiven: 3,
+//     selectedAnswers: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+//   },
+//   {
+//     fullName: "Sneha Gupta",
+//     marks: 60,
+//     email: "sneha.gupta@example.com",
+//     noOfTimeTestGiven: 6,
+//     selectedAnswers: [3, 2, 4, 2, 3, 1, 3, 2, 4, 3],
+//   },
+//   {
+//     fullName: "Vikram Rao",
+//     marks: 50,
+//     email: "vikram.rao@example.com",
+//     noOfTimeTestGiven: 7,
+//     selectedAnswers: [4, 3, 2, 1, 4, 3, 4, 2, 1, 2],
+//   },
+//   {
+//     fullName: "Ananya Singh",
+//     marks: 40,
+//     email: "ananya.singh@example.com",
+//     noOfTimeTestGiven: 10,
+//     selectedAnswers: [1, 4, 3, 2, 3, 1, 2, 1, 4, 3],
+//   },
+//   {
+//     fullName: "Karan Bhandari",
+//     marks: 40,
+//     email: "karan.bhandari@gmail.com",
+//     noOfTimeTestGiven: 4,
+//     selectedAnswers: [2, 3, 4, 1, 2, 4, 3, 3, 2, 1],
+//   },
+// ];
 
-function storeDummyData() {
-  localStorage.setItem("usersGivenTests", JSON.stringify(dummyData)) || [];
-}
+// function storeDummyData() {
+//   localStorage.setItem("usersGivenTests", JSON.stringify(dummyData)) || [];
+// }
 
-if (!localStorage.getItem("usersGivenTests")) {
-  storeDummyData();
-}
+// if (!localStorage.getItem("usersGivenTests")) {
+//   storeDummyData();
+// }
 
 var marks = 0;
 var marksHeading = document.getElementById("marks");
@@ -786,7 +789,55 @@ function loadLeaderboard() {
       currentUserScore.style.display = "none";
       thirdRankProfileImg.src = `https://ui-avatars.com/api/?name=${userGivenTests[i].fullName}`;
       thirdRankScore.innerText = `${userGivenTests[2].marks}`;
-    } else if (i > 2) {
+    } else if (i === 3) {
+      document.getElementById("fourth-rank").innerText = `#${i + 1}`;
+      document.getElementById("fourth-rank-name").innerText =
+        userGivenTests[i].fullName;
+      document.getElementById("fourth-rank-score").innerText =
+        userGivenTests[i].marks;
+      if (userGivenTests[i].fullName === currentUser[0].fullName) {
+        currentUserScore.style.display = "flex";
+        currentUserScore.style.backgroundColor = "#FBF1CE";
+        document.getElementById("current-user-rank").innerText = `#${i + 1}`;
+        document.getElementById("current-user-name").innerText =
+          currentUser[0].fullName;
+        document.getElementById(
+          "current-user-marks"
+        ).innerText = `${userGivenTests[i].marks}`;
+      }
+    } else if (i === 4) {
+      document.getElementById("fifth-rank").innerText = `#${i + 1}`;
+      document.getElementById("fifth-rank-name").innerText =
+        userGivenTests[i].fullName;
+      document.getElementById("fifth-rank-score").innerText =
+        userGivenTests[i].marks;
+      if (userGivenTests[i].fullName === currentUser[0].fullName) {
+        currentUserScore.style.display = "flex";
+        currentUserScore.style.backgroundColor = "#FBF1CE";
+        document.getElementById("current-user-rank").innerText = `#${i + 1}`;
+        document.getElementById("current-user-name").innerText =
+          currentUser[0].fullName;
+        document.getElementById(
+          "current-user-marks"
+        ).innerText = `${userGivenTests[i].marks}`;
+      }
+    } else if (i === 5) {
+      document.getElementById("sixth-rank").innerText = `#${i + 1}`;
+      document.getElementById("sixth-rank-name").innerText =
+        userGivenTests[i].fullName;
+      document.getElementById("sixth-rank-score").innerText =
+        userGivenTests[i].marks;
+      if (userGivenTests[i].fullName === currentUser[0].fullName) {
+        currentUserScore.style.display = "flex";
+        currentUserScore.style.backgroundColor = "#FBF1CE";
+        document.getElementById("current-user-rank").innerText = `#${i + 1}`;
+        document.getElementById("current-user-name").innerText =
+          currentUser[0].fullName;
+        document.getElementById(
+          "current-user-marks"
+        ).innerText = `${userGivenTests[i].marks}`;
+      }
+    } else if (i > 5) {
       var rankItem = document.createElement("div");
       rankItem.id = `rank-${i + 1}`;
       // console.log(rankItem);
@@ -856,18 +907,10 @@ function generateAdminProfileName() {
 }
 
 function showSidebar() {
-  let headerMenuIcon = document.getElementById("header-menu-icon");
+  let headerLogo = document.getElementById("logo");
   let sidebar = document.getElementById("side-bar");
-  if (window.matchMedia("(min-width: 1024px)").matches) {
-    headerMenuIcon.classList.toggle("tablet-header-menu");
-    sidebar.classList.toggle("disable-sidebar");
-    console.log("If is running");
-  } else {
-    headerMenuIcon.classList.remove("tablet-header-menu");
-    headerMenuIcon.classList.toggle("move-header-menu");
-    sidebar.classList.toggle("show-sidebar");
-    console.log("Else is running");
-  }
+  sidebar.classList.toggle("disable-sidebar");
+  headerLogo.classList.toggle("disable-logo");
 }
 // function loadAdminPage() {
 //
@@ -915,19 +958,9 @@ function readAllQuestions() {
   for (let i = 0; i < questions.length; i++) {
     var newRow = document.createElement("tr");
     newRow.id = `question-${i + 1}`;
-    newRow.innerHTML += `<td>${i + 1}</td>
+    newRow.innerHTML += `<td class="table-content">${i + 1}</td>
     <td>${questions[i].question}</td>
-    <td>${questions[i].supportingText}</td>
-    <td class="options">
-    <div class="options-div">
-    <p>1. ${questions[i].options[0]}</p>
-    <p>2. ${questions[i].options[1]}</p>
-    <p>3. ${questions[i].options[2]}</p>
-    <p>4. ${questions[i].options[3]}</p>
-    </div>
-    </td>
-    <td>${questions[i].explanation}</td>
-    <td class="table-button"><div class="table-button-div"><button onclick="updateQuestionForm(${i})" id="update-button-${
+    <td class="table-button"><div class="table-button-div"><button onclick="viewQuestion(${i})"><i class="fa-solid fa-eye"></i></button><button onclick="updateQuestionForm(${i})" id="update-button-${
       i + 1
     }"><i class="fa-solid fa-pencil"></i></button><button onclick="deleteQuestion(${i})" id="delete-button-${
       i + 1
@@ -951,52 +984,77 @@ function readAllUsers() {
     <td class="options">${userGivenTests[i].email}</td>
     <td>${userGivenTests[i].noOfTimeTestGiven}</td>
     <td>${userGivenTests[i].marks}</td>
-    <td class="table-button"><div class="table-button-div"><button onclick="viewQuestions(${i})"><i class="fa-solid fa-eye"></i></button><button onclick="deleteUser(${i})" id="delete-button-${
-      i + 1
-    }"><i class="fa-solid fa-trash"></i></button></div></td>`;
+    <td class="table-button"><div class="table-button-div"><button onclick="viewQuestions(${i})"><i class="fa-regular fa-file-lines"></i>View Test</button></div></td>`;
     tableData.appendChild(newRow);
   }
 }
 
-function displayQuestionForm() {
-  let quizForm = document.getElementById("quiz-form");
-  quizForm.style.display = "initial";
-  let addQuestionBtn = document.getElementById("add-question-btn");
-  addQuestionBtn.setAttribute("onclick", "addQuestions()");
-  console.log(addQuestionBtn);
+function showAddQuestionModal() {
+  // let quizForm = document.getElementById("quiz-form");
+  // quizForm.style.display = "initial";
+  // let addQuestionBtn = document.getElementById("add-question-btn");
+  // addQuestionBtn.setAttribute("onclick", "addQuestions()");
+  // console.log(addQuestionBtn);
+  document.querySelector(".overlay").classList.add("showoverlay");
+  document
+    .querySelector(".quiz-question-form")
+    .classList.add("showquestionform");
+}
+
+function closeAddQuestionModal() {
+  // let quizForm = document.getElementById("quiz-form");
+  // quizForm.style.display = "initial";
+  // let addQuestionBtn = document.getElementById("add-question-btn");
+  // addQuestionBtn.setAttribute("onclick", "addQuestions()");
+  // console.log(addQuestionBtn);
+  document.querySelector(".overlay").classList.remove("showoverlay");
+  document
+    .querySelector(".quiz-question-form")
+    .classList.remove("showquestionform");
+  document
+    .querySelector(".update-quiz-question-form")
+    .classList.remove("show-update-question-form");
+    document
+    .querySelector(".view-question")
+    .classList.remove("show-view-question");
 }
 
 function addQuestions() {
   let questions = JSON.parse(localStorage.getItem("questions")) || [];
   // var email = registerEmail.value;
   let question = document.getElementById("question");
-  let supportingText = document.getElementById("supporting-text");
+  // let supportingText = document.getElementById("supporting-text");
   let optionOne = document.getElementById("option-one");
   let optionTwo = document.getElementById("option-two");
   let optionThree = document.getElementById("option-three");
   let optionFour = document.getElementById("option-four");
-  let explanationText = document.getElementById("explanation-text");
+  let correctAnswer = document.getElementById("correct-answer");
+  // let explanationText = document.getElementById("explanation-text");
   questions.push({
     question: question.value,
-    supportingText: supportingText.value,
+    // supportingText: supportingText.value,
     options: [
       optionOne.value,
       optionTwo.value,
       optionThree.value,
       optionFour.value,
     ],
-    explanation: explanationText.value,
+    answer: correctAnswer.value,
+    // explanation: explanationText.value,
   });
   localStorage.setItem("questions", JSON.stringify(questions));
   alert("Added Question Successfull");
-  readAllQuestions();
   question.value = "";
-  supportingText.value = "";
+  // supportingText.value = "";
   optionOne.value = "";
   optionTwo.value = "";
   optionThree.value = "";
   optionFour.value = "";
-  explanationText.value = "";
+  correctAnswer.value = "";
+  // explanationText.value = "";
+  closeAddQuestionModal();
+  location.reload();
+  readAllQuestions();
 }
 
 // function updateQuestionForm() {
@@ -1045,69 +1103,136 @@ function addQuestions() {
 
 // }
 
+function showUpdateQuestionFormModal() {
+  document.querySelector(".overlay").classList.add("showoverlay");
+  document
+    .querySelector(".update-quiz-question-form")
+    .classList.add("show-update-question-form");
+}
+
+function closeUpdateQuestionFormModal() {
+  document.querySelector(".overlay").classList.remove("showoverlay");
+  document
+    .querySelector(".update-quiz-question-form")
+    .classList.remove("show-update-question-form");
+}
+
+// function showAddQuestionModal() {
+//   // let quizForm = document.getElementById("quiz-form");
+//   // quizForm.style.display = "initial";
+//   // let addQuestionBtn = document.getElementById("add-question-btn");
+//   // addQuestionBtn.setAttribute("onclick", "addQuestions()");
+//   // console.log(addQuestionBtn);
+//   document
+//     .querySelector(".quiz-question-form")
+//     .classList.add("showquestionform");
+// }
+
+// function closeAddQuestionModal() {
+//   // let quizForm = document.getElementById("quiz-form");
+//   // quizForm.style.display = "initial";
+//   // let addQuestionBtn = document.getElementById("add-question-btn");
+//   // addQuestionBtn.setAttribute("onclick", "addQuestions()");
+//   // console.log(addQuestionBtn);
+//   document.querySelector(".overlay").classList.remove("showoverlay");
+//   document
+//     .querySelector(".quiz-question-form")
+//     .classList.remove("showquestionform");
+// }
+
 function updateQuestionForm(i) {
-  let updateButton = document.getElementById(`update-button-${i + 1}`);
-  let updateQuizQuestionForm = document.getElementById("update-quiz-form");
-  updateQuizQuestionForm.style.display = "initial";
   let questions = JSON.parse(localStorage.getItem("questions")) || [];
   let question = document.getElementById("updated-question");
-  let supportingText = document.getElementById("updated-supporting-text");
   let optionOne = document.getElementById("updated-option-one");
   let optionTwo = document.getElementById("updated-option-two");
   let optionThree = document.getElementById("updated-option-three");
   let optionFour = document.getElementById("updated-option-four");
-  let explanationText = document.getElementById("updated-explanation-text");
+  let correctAnswer = document.getElementById("updated-correct-answer");
   let updateQuestionBtn = document.getElementById("update-question-button");
   updateQuestionBtn.setAttribute("onclick", `updateQuestion(${i})`);
   console.log(updateQuestionBtn);
 
+  showUpdateQuestionFormModal();
+
   question.value = `${questions[i].question}`;
-  supportingText.value = `${questions[i].supportingText}`;
   optionOne.value = `${questions[i].options[0]}`;
   optionTwo.value = questions[i].options[1];
   optionThree.value = questions[i].options[2];
   optionFour.value = questions[i].options[3];
-  explanationText.value = questions[i].explanation;
+  correctAnswer.value = questions[i].answer;
 }
 
 function updateQuestion(i) {
   let questions = JSON.parse(localStorage.getItem("questions")) || [];
   let question = document.getElementById("updated-question");
-  let supportingText = document.getElementById("updated-supporting-text");
   let optionOne = document.getElementById("updated-option-one");
   let optionTwo = document.getElementById("updated-option-two");
   let optionThree = document.getElementById("updated-option-three");
   let optionFour = document.getElementById("updated-option-four");
-  let explanationText = document.getElementById("updated-explanation-text");
+  let correctAnswer = document.getElementById("updated-correct-answer");
   questions.splice(i, 1, {
     question: question.value,
-    supportingText: supportingText.value,
     options: [
       optionOne.value,
       optionTwo.value,
       optionThree.value,
       optionFour.value,
     ],
-    explanation: explanationText.value,
+    answer: correctAnswer.value,
   });
   localStorage.setItem("questions", JSON.stringify(questions));
   alert("Updated Question Successfull");
-  readAllQuestions();
   question.value = "";
-  supportingText.value = "";
   optionOne.value = "";
   optionTwo.value = "";
   optionThree.value = "";
   optionFour.value = "";
-  explanationText.value = "";
+  correctAnswer.value =""
+  closeAddQuestionModal();
   location.reload();
   readAllQuestions();
+}
+
+
+function viewQuestionModal() {
+  document.querySelector(".overlay").classList.add("showoverlay");
+  document
+    .querySelector(".view-question")
+    .classList.add("show-view-question");
+}
+
+function closeViewQuestionModal() {
+  document.querySelector(".overlay").classList.remove("showoverlay");
+  document
+    .querySelector(".view-question")
+    .classList.remove("show-view-question");
+}
+
+
+function viewQuestion(i) {
+  let questions = JSON.parse(localStorage.getItem("questions")) || [];
+  let question = document.getElementById("view-question");
+  let optionOne = document.getElementById("view-option-one");
+  let optionTwo = document.getElementById("view-option-two");
+  let optionThree = document.getElementById("view-option-three");
+  let optionFour = document.getElementById("view-option-four");
+  let correctAnswer = document.getElementById("view-correct-answer");
+  let updateQuestionBtn = document.getElementById("update-question-button");
+
+  viewQuestionModal()
+  // console.log(question,optionOne,optionTwo, optionThree, optionFour, correctAnswer , updateQuestionBtn)
+  question.innerText = questions[i].question
+  optionOne.innerHTML =questions[i].options[0]
+  optionTwo.innerHTML =questions[i].options[1]
+  optionThree.innerHTML =questions[i].options[2]
+  optionFour.innerHTML = questions[i].options[3]
+  correctAnswer.innerHTML = `Answer is:- ${questions[i].answer}`
 }
 
 function deleteQuestion(i) {
   let questions = JSON.parse(localStorage.getItem("questions")) || [];
   console.log(i);
-  let text = "Are you sure you want to delete the User?";
+  let text = "Are you sure you want to delete the Question?";
   if (confirm(text) == true) {
     questions.splice(i, 1);
     localStorage.setItem("questions", JSON.stringify(questions));
@@ -1130,6 +1255,7 @@ function deleteUser(i) {
 
 function viewQuestions(i) {
   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+  document.getElementById("users-answer-container").style.display = "inline";
   console.log(i);
   let selectedAnswers = userGivenTests[i].selectedAnswers;
   console.log(selectedAnswers);
@@ -1137,11 +1263,12 @@ function viewQuestions(i) {
   for (let i = 0; i < selectedAnswers.length; i++) {
     const element = selectedAnswers[i];
     console.log(element);
+    var usersAnswerContainer = document.getElementById("users-answers");
     var questionAnswerContainer = document.createElement("div");
     questionAnswerContainer.className = "question-answer-container";
     questionAnswerContainer.innerHTML = `<h2 class="container__question" id="question">${
       i + 1
-    }. ${selectedAnswers[i].question}</h2>
+    }. ${selectedAnswers[i].question}</h2>  
           <p class="container__selected-option">Selected Answer is:- ${
             selectedAnswers[i].selectedAnswer
           }</p>
@@ -1152,8 +1279,12 @@ function viewQuestions(i) {
                   questions[randomQuestionArray[i]].explanation
                 }
                 `;
-    document
-      .getElementById("users-answer-container")
-      .appendChild(questionAnswerContainer);
+    usersAnswerContainer.appendChild(questionAnswerContainer);
   }
+}
+
+function closeQuestions() {
+  let usersAnswerContainer = document.getElementById("users-answers");
+  usersAnswerContainer.innerHTML = "";
+  document.getElementById("users-answer-container").style.display = "none";
 }
