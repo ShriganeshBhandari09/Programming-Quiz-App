@@ -5,17 +5,18 @@
   box-sizing: border-box;
 }
 
-.container {
+/* .container {
   max-width: 100%;
-}
+} */
 
 body {
   font-family: Inter;
+  height: 100%;
 }
 
 .main-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
   width: 100%;
 }
@@ -114,10 +115,6 @@ i {
 .sidebar-menu-links:hover {
   color: #f3bd00;
 }
-.main-container {
-  display: flex;
-  flex-direction: row;
-}
 
 .main-section {
   display: flex;
@@ -128,7 +125,7 @@ i {
   width: 100%;
   border-radius: 0px 0px 20px 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  height: 100vh;
+  min-height: 90vh;
 }
 
 .disable-sidebar {
@@ -155,7 +152,6 @@ table {
   width: 100%;
   border-radius: 0px 0px 20px 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  height: fit-content;
   padding: 20px;
   display: flex;
   flex-direction: column;

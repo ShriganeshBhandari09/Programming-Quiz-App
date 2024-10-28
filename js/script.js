@@ -669,6 +669,8 @@ function submitAnswers() {
 var marks = 0;
 var marksHeading = document.getElementById("marks");
 var selectedAnswersArray = [];
+var tests = [];
+var correctAnswers = 0;
 var noOfTimeTestGiven = 1;
 function calculateMarks() {
   let userGivenTests =
@@ -692,16 +694,16 @@ function calculateMarks() {
     questionAnswerContainer.innerHTML = `<h2 class="container__question" id="question">${
       index + 1
     }. ${questions[randomQuestionArray[index]].question}</h2>
-          <p class="container__selected-option">Selected Answer is:- ${
-            selectedOptionsArray[index]
-          }</p>
-                <p class="container__correct-answer">Correct Answer is :- ${
-                  questions[randomQuestionArray[index]].answer
-                }</p>
-                <p class="container__correct-answer-explanation">${
-                  questions[randomQuestionArray[index]].explanation
-                }
-                `;
+        <p class="container__selected-option">Selected Answer is:- ${
+          selectedOptionsArray[index]
+        }</p>
+              <p class="container__correct-answer">Correct Answer is :- ${
+                questions[randomQuestionArray[index]].answer
+              }</p>
+              <p class="container__correct-answer-explanation">${
+                questions[randomQuestionArray[index]].explanation
+              }
+              `;
     document
       .getElementById("display-question-answers-continer")
       .appendChild(questionAnswerContainer);
@@ -715,32 +717,54 @@ function calculateMarks() {
     console.log(questionAnswerContainer);
     if (selectedOptionsArray[index] === correctAnswer) {
       questionAnswerContainer.classList.add("question-container-right-answers");
+      correctAnswers++;
     } else {
       questionAnswerContainer.classList.add("question-container-wrong-answers");
     }
   }
-  // date = new Date();
   let loggedInEmail = userLoggedIn[0].email;
+
+  date = new Date();
+  tests.push({
+    testNo: noOfTimeTestGiven,
+    selectedAnswers: selectedAnswersArray,
+    marks: marks,
+    date: `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`,
+    time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+    correctAnswers: correctAnswers,
+  });
 
   const existingTest = userGivenTests.find(
     (test) => test.email === loggedInEmail
   );
 
   if (existingTest) {
+    let tests = existingTest.tests;
+    tests.push({
+      testNo: existingTest.noOfTimeTestGiven + 1,
+      selectedAnswers: selectedAnswersArray,
+      marks: marks,
+      date: `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`,
+      time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+      correctAnswers: correctAnswers,
+    });
     noOfTimeTestGiven = existingTest.noOfTimeTestGiven + 1;
     existingTest.noOfTimeTestGiven = noOfTimeTestGiven;
     existingTest.marks = marks;
-    existingTest.selectedAnswers = selectedAnswersArray;
-    console.log("If is running");
+    // existingTest.selectedAnswers = selectedAnswersArray;
+    // existingTest.date = `${date.getDate()}-${
+    //   date.getMonth() + 1
+    // }-${date.getFullYear()}`;
+    // console.log("If is running");
+    // existingTest.time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    existingTest.tests = tests;
   } else {
     userGivenTests.push({
       fullName: userLoggedIn[0].fullName,
       marks: marks,
       email: userLoggedIn[0].email,
       noOfTimeTestGiven: noOfTimeTestGiven,
-      selectedAnswers: selectedAnswersArray,
-      // date: date,
-      // time: date.getTime(),
+      tests: tests,
     });
     console.log("Else is running");
   }
@@ -972,23 +996,6 @@ function readAllQuestions() {
 }
 // console.log(tableData)
 
-function readAllUsers() {
-  generateAdminProfileName();
-  let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-  let tableData = document.getElementById("user-table-data");
-
-  for (let i = 0; i < userGivenTests.length; i++) {
-    var newRow = document.createElement("tr");
-    newRow.innerHTML += `<td>${i + 1}</td>
-    <td>${userGivenTests[i].fullName}</td>
-    <td class="options">${userGivenTests[i].email}</td>
-    <td>${userGivenTests[i].noOfTimeTestGiven}</td>
-    <td>${userGivenTests[i].marks}</td>
-    <td class="table-button"><div class="table-button-div"><button onclick="viewQuestions(${i})"><i class="fa-regular fa-file-lines"></i>View Test</button></div></td>`;
-    tableData.appendChild(newRow);
-  }
-}
-
 function showAddQuestionModal() {
   // let quizForm = document.getElementById("quiz-form");
   // quizForm.style.display = "initial";
@@ -1014,7 +1021,7 @@ function closeAddQuestionModal() {
   document
     .querySelector(".update-quiz-question-form")
     .classList.remove("show-update-question-form");
-    document
+  document
     .querySelector(".view-question")
     .classList.remove("show-view-question");
 }
@@ -1187,18 +1194,15 @@ function updateQuestion(i) {
   optionTwo.value = "";
   optionThree.value = "";
   optionFour.value = "";
-  correctAnswer.value =""
+  correctAnswer.value = "";
   closeAddQuestionModal();
   location.reload();
   readAllQuestions();
 }
 
-
 function viewQuestionModal() {
   document.querySelector(".overlay").classList.add("showoverlay");
-  document
-    .querySelector(".view-question")
-    .classList.add("show-view-question");
+  document.querySelector(".view-question").classList.add("show-view-question");
 }
 
 function closeViewQuestionModal() {
@@ -1207,7 +1211,6 @@ function closeViewQuestionModal() {
     .querySelector(".view-question")
     .classList.remove("show-view-question");
 }
-
 
 function viewQuestion(i) {
   let questions = JSON.parse(localStorage.getItem("questions")) || [];
@@ -1219,14 +1222,14 @@ function viewQuestion(i) {
   let correctAnswer = document.getElementById("view-correct-answer");
   let updateQuestionBtn = document.getElementById("update-question-button");
 
-  viewQuestionModal()
+  viewQuestionModal();
   // console.log(question,optionOne,optionTwo, optionThree, optionFour, correctAnswer , updateQuestionBtn)
-  question.innerText = questions[i].question
-  optionOne.innerHTML =questions[i].options[0]
-  optionTwo.innerHTML =questions[i].options[1]
-  optionThree.innerHTML =questions[i].options[2]
-  optionFour.innerHTML = questions[i].options[3]
-  correctAnswer.innerHTML = `Answer is:- ${questions[i].answer}`
+  question.innerText = questions[i].question;
+  optionOne.innerHTML = questions[i].options[0];
+  optionTwo.innerHTML = questions[i].options[1];
+  optionThree.innerHTML = questions[i].options[2];
+  optionFour.innerHTML = questions[i].options[3];
+  correctAnswer.innerHTML = `Answer is:- ${questions[i].answer}`;
 }
 
 function deleteQuestion(i) {
@@ -1241,50 +1244,125 @@ function deleteQuestion(i) {
   }
 }
 
-function deleteUser(i) {
+// function deleteUser(i) {
+//   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+//   console.log(i);
+//   let text = "Are you sure you want to delete the User?";
+//   if (confirm(text) == true) {
+//     userGivenTests.splice(i, 1);
+//     localStorage.setItem("usersGivenTests", JSON.stringify(userGivenTests));
+//     alert("User Deleted Successfull");
+//     location.reload();
+//   }
+// }
+
+function readAllUsers() {
+  generateAdminProfileName();
   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-  console.log(i);
-  let text = "Are you sure you want to delete the User?";
-  if (confirm(text) == true) {
-    userGivenTests.splice(i, 1);
-    localStorage.setItem("usersGivenTests", JSON.stringify(userGivenTests));
-    alert("User Deleted Successfull");
-    location.reload();
+  let tableData = document.getElementById("user-table-data");
+
+  for (let i = 0; i < userGivenTests.length; i++) {
+    var newRow = document.createElement("tr");
+    newRow.innerHTML += `<td>${i + 1}</td>
+    <td>${userGivenTests[i].fullName}</td>
+    <td class="options">${userGivenTests[i].email}</td>
+    <td>${userGivenTests[i].noOfTimeTestGiven}</td>
+    <td>${userGivenTests[i].marks}</td>
+    <td class="table-button"><div class="table-button-div"><a href="users-history.html?index=${i}&name=${encodeURIComponent(
+      userGivenTests[i].fullName
+    )}">
+          View Tests
+        </a></div></td>`;
+    tableData.appendChild(newRow);
   }
 }
 
-function viewQuestions(i) {
+function getQueryParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    index: params.get("index"),
+    name: params.get("name"),
+  };
+}
+
+// Use the parameters
+const { index, name } = getQueryParams();
+
+function loadUserTest(index, name) {
+  let usersGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+  console.log(index, name);
+  generateAdminProfileName();
   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-  document.getElementById("users-answer-container").style.display = "inline";
-  console.log(i);
-  let selectedAnswers = userGivenTests[i].selectedAnswers;
-  console.log(selectedAnswers);
-  console.log(selectedAnswers[0].question);
-  for (let i = 0; i < selectedAnswers.length; i++) {
-    const element = selectedAnswers[i];
-    console.log(element);
-    var usersAnswerContainer = document.getElementById("users-answers");
-    var questionAnswerContainer = document.createElement("div");
-    questionAnswerContainer.className = "question-answer-container";
-    questionAnswerContainer.innerHTML = `<h2 class="container__question" id="question">${
-      i + 1
-    }. ${selectedAnswers[i].question}</h2>  
-          <p class="container__selected-option">Selected Answer is:- ${
-            selectedAnswers[i].selectedAnswer
-          }</p>
-                <p class="container__correct-answer">Correct Answer is :- ${
-                  selectedAnswers[i].correctAnswer
-                }</p>
-                <p class="container__correct-answer-explanation">${
-                  questions[randomQuestionArray[i]].explanation
-                }
-                `;
-    usersAnswerContainer.appendChild(questionAnswerContainer);
+  document.getElementById(
+    "user-name"
+  ).innerText = `${name} | ${usersGivenTests[index].email}`;
+
+  let tableData = document.getElementById("user-test-table-data");
+  let userTests = userGivenTests[index].tests;
+  console.log(userTests);
+  for (let i = 0; i < userTests.length; i++) {
+    var newRow = document.createElement("tr");
+    newRow.innerHTML += `<td>${userTests[i].testNo}</td>
+    <td>${userTests[i].date}</td>
+    <td class="options">${userTests[i].marks}</td>
+    <td>${userTests[i].correctAnswers}</td>
+    <td class="table-button"><div class="table-button-div"><a href="users-testlist.html?index=${i}&name=${encodeURIComponent(
+      userGivenTests[i].fullName
+    )}">
+          View Test
+        </a></div></td>`;
+    tableData.appendChild(newRow);
   }
 }
 
-function closeQuestions() {
-  let usersAnswerContainer = document.getElementById("users-answers");
-  usersAnswerContainer.innerHTML = "";
-  document.getElementById("users-answer-container").style.display = "none";
+// function viewUserTest(i) {
+//   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+//   let questions = JSON.parse(localStorage.getItem("questions"));
+//   document.querySelector(".users-section").style.display = "none";
+//   document.querySelector(".user-test-section").style.display = "initial";
+
+//   // console.log(i);
+//   let selectedAnswers = userGivenTests[i].selectedAnswers;
+//   console.log(selectedAnswers);
+//   console.log(selectedAnswers[0].question);
+//   for (let i = 0; i < selectedAnswers.length; i++) {
+//     const element = selectedAnswers[i];
+//     console.log(element);
+//     var usersAnswerContainer = document.querySelector(".user-test-section");
+//     var questionAnswerContainer = document.createElement("div");
+//     questionAnswerContainer.className = "question-answer-container";
+//     questionAnswerContainer.innerHTML += `<h2 class="container__question" id="question">${
+//       i + 1
+//     }. ${selectedAnswers[i].question}</h2>
+//           <p class="container__selected-option">Selected Answer is:- ${
+//             selectedAnswers[i].selectedAnswer
+//           }</p>
+//                 <p class="container__correct-answer">Correct Answer is :- ${
+//                   selectedAnswers[i].correctAnswer
+//                 }</p>
+//                 <p class="container__correct-answer-explanation">${
+//                   questions[randomQuestionArray[i]].explanation
+//                 }
+//                 `;
+
+//     usersAnswerContainer.appendChild(questionAnswerContainer);
+//   }
+// }
+
+// let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+// console.log(userGivenTests);
+
+function viewUserTest(i) {
+  let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+  // console.log(userGivenTests);
+  let userName = userGivenTests[i].fullName;
+  let userEmail = userGivenTests[i].email;
+  let userTest = userGivenTests[i].tests;
+  console.log(userName, userTest, userEmail);
+}
+
+function closeUserTestSection() {
+  document.querySelector(".question-answer-container").innerHTML = "";
+  document.querySelector(".user-test-section").style.display = "none";
+  document.querySelector(".users-section").style.display = "initial";
 }

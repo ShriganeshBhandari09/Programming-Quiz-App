@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Admin Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,9 +17,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/admin/css/dashboard.css" />
+    <link rel="stylesheet" href="../admin/css/dashboard.css" />
   </head>
-  <body onload="generateAdminProfileName()">
+  <body onload="readAllUsers()">
     <header class="header">
       <div class="header__image-wrapper">
         <a href="dashboard.html">
@@ -60,11 +60,27 @@
           >
         </div>
       </section>
-      <section class="main-section">
-        <h1>Welcome to Admin Page</h1>
+      <section class="users-section">
+        <h1 class="users-section__header">Users</h1>
+        <table>
+          <thead>
+            <tr>
+              <th class="table-header">Sr. No.</th>
+              <th class="table-header">Name</th>
+              <th class="table-header ">Email</th>
+              <th class="table-header">No. of Test Given</th>
+              <th class="table-header">Score</th>
+              <th class="table-header">Action</th>
+            </tr>
+          </thead>
+          <tbody class="table-data" id="user-table-data"></tbody>
+        </table>
+      </section>
+      <section class="user-test-section">
       </section>
     </main>
   </body>
-  <script src="../js/script.js"></script>
-  <!-- <script src="../js/load-profilename.js"></script> -->
+  <script src="../js/script.js">
+    readAll()
+  </script>
 </html>
