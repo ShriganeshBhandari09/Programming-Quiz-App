@@ -447,7 +447,7 @@ for (let i = 0; i < randomQuestionLength; i++) {
   }
 }
 
-console.log(randomQuestionArray);
+// console.log(randomQuestionArray);
 
 var questionIndex = 0;
 function displayQuestion() {
@@ -712,6 +712,7 @@ function calculateMarks() {
       question: `${questions[randomQuestionArray[index]].question}`,
       selectedAnswer: `${selectedOptionsArray[index]}`,
       correctAnswer: correctAnswer,
+      options: questions[randomQuestionArray[index]].options,
     });
 
     console.log(questionAnswerContainer);
@@ -1282,13 +1283,16 @@ function getQueryParams() {
   return {
     index: params.get("index"),
     name: params.get("name"),
+    testIndex: params.get("testIndex"),
   };
 }
 
 // Use the parameters
-const { index, name } = getQueryParams();
 
-function loadUserTest(index, name) {
+function loadUserTestDetails() {
+  generateAdminProfileName();
+  let { index, name } = getQueryParams();
+
   let usersGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
   console.log(index, name);
   generateAdminProfileName();
@@ -1306,12 +1310,49 @@ function loadUserTest(index, name) {
     <td>${userTests[i].date}</td>
     <td class="options">${userTests[i].marks}</td>
     <td>${userTests[i].correctAnswers}</td>
-    <td class="table-button"><div class="table-button-div"><a href="users-testlist.html?index=${i}&name=${encodeURIComponent(
-      userGivenTests[i].fullName
-    )}">
+    <td class="table-button"><div class="table-button-div"><a href="user-testlist.html?testIndex=${i}&name=${userGivenTests[index].fullName}">
           View Test
         </a></div></td>`;
     tableData.appendChild(newRow);
+  }
+}
+
+// const { testIndex } = getQueryParams();
+// console.log(testIndex)
+function viewUserTest() {
+  generateAdminProfileName();
+  let { name, testIndex } = getQueryParams();
+
+  let usersGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+
+  const userIndex = usersGivenTests.findIndex((user) => user.fullName === name);
+  document.getElementById(
+    "user-name"
+  ).innerText = `${usersGivenTests[userIndex].fullName} | ${usersGivenTests[userIndex].email}`;
+  let userTestAnswers =
+    usersGivenTests[userIndex].tests[testIndex].selectedAnswers;
+
+  document.getElementById(
+    "test-number"
+  ).innerText = `Test No. ${usersGivenTests[userIndex].tests[testIndex].testNo}`;
+  document.getElementById(
+    "test-score"
+  ).innerText = `Score: ${usersGivenTests[userIndex].tests[testIndex].marks}`;
+  document.getElementById(
+    "test-date"
+  ).innerText = `Test Date: ${usersGivenTests[userIndex].tests[testIndex].date}`;
+
+  for (let i = 0; i < userTestAnswers.length; i++) {
+    var newDiv = document.createElement("div");
+    newDiv.innerHTML += `
+    <div> 
+    <p><strong>Question:</strong> ${userTestAnswers[i].question}</p>
+    <p class="list-item option-one" value="${userTestAnswers[i].options[0]}">${userTestAnswers[i].options[0]}</p>
+    <p class="list-item option-two" value="${userTestAnswers[i].options[1]}">${userTestAnswers[i].options[1]}</p>
+    <p class="list-item option-three" value="${userTestAnswers[i].options[2]}">${userTestAnswers[i].options[2]}</p>
+    <p class="list-item option-four" value="${userTestAnswers[i].options[3]}">${userTestAnswers[i].options[3]}</p>
+    </div>`;
+    document.getElementById("user-test-data").appendChild(newDiv);
   }
 }
 
@@ -1352,14 +1393,14 @@ function loadUserTest(index, name) {
 // let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
 // console.log(userGivenTests);
 
-function viewUserTest(i) {
-  let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-  // console.log(userGivenTests);
-  let userName = userGivenTests[i].fullName;
-  let userEmail = userGivenTests[i].email;
-  let userTest = userGivenTests[i].tests;
-  console.log(userName, userTest, userEmail);
-}
+// function viewUserTest(i) {
+//   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
+//   // console.log(userGivenTests);
+//   let userName = userGivenTests[i].fullName;
+//   let userEmail = userGivenTests[i].email;
+//   let userTest = userGivenTests[i].tests;
+//   console.log(userName, userTest, userEmail);
+// }
 
 function closeUserTestSection() {
   document.querySelector(".question-answer-container").innerHTML = "";

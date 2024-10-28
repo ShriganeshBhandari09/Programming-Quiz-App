@@ -19,7 +19,7 @@
     />
     <link rel="stylesheet" href="/admin/css/dashboard.css" />
   </head>
-  <body onload="loadUserTestDetails()">
+  <body onload="viewUserTest()">
     <header class="header">
       <div class="header__image-wrapper">
         <a href="dashboard.html">
@@ -60,20 +60,13 @@
           >
         </div>
       </section>
-      <section class="users-section">
+      <section class="users-test-section">
         <h1 class="users-section__header" id="user-name"></h1>
-        <table>
-          <thead>
-            <tr>
-              <th class="table-header">Test No.</th>
-              <th class="table-header">Test Date</th>
-              <th class="table-header">Score</th>
-              <th class="table-header">Correct Ans</th>
-              <th class="table-header">View Test</th>
-            </tr>
-          </thead>
-          <tbody class="table-data" id="user-test-table-data"></tbody>
-        </table>
+        <div id="user-test-data">
+          <span id="test-number"></span>
+          <span id="test-score"></span>
+          <span id="test-date"></span>
+        </div>
       </section>
     </main>
   </body>

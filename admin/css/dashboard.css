@@ -89,6 +89,7 @@ i {
   width: 300px;
   flex-direction: column;
   gap: 20px;
+  min-height: 90vh;
 }
 
 .sidebar-menu {
