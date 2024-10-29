@@ -1343,16 +1343,54 @@ function viewUserTest() {
   ).innerText = `Test Date: ${usersGivenTests[userIndex].tests[testIndex].date}`;
 
   for (let i = 0; i < userTestAnswers.length; i++) {
+    const userAnswer = userTestAnswers[i];
     var newDiv = document.createElement("div");
+    newDiv.classList.add("user-test-question");
     newDiv.innerHTML += `
-    <div> 
-    <p><strong>Question:</strong> ${userTestAnswers[i].question}</p>
-    <p class="list-item option-one" value="${userTestAnswers[i].options[0]}">${userTestAnswers[i].options[0]}</p>
-    <p class="list-item option-two" value="${userTestAnswers[i].options[1]}">${userTestAnswers[i].options[1]}</p>
-    <p class="list-item option-three" value="${userTestAnswers[i].options[2]}">${userTestAnswers[i].options[2]}</p>
-    <p class="list-item option-four" value="${userTestAnswers[i].options[3]}">${userTestAnswers[i].options[3]}</p>
+    <p><strong>Question:</strong> ${userAnswer.question}</p>
+    <div class="options-container">
+    <div class="option"><p>1. ${userAnswer.options[0]}<span><i class="fa-solid icon"></i></span></p></div>
+    <div class="option"><p>2. ${userAnswer.options[1]}<span><i class="fa-solid icon"></i></span></p></div>
+    <div class="option"><p>3. ${userAnswer.options[2]}<span><i class="fa-solid icon"></i></span></p></div>
+    <div class="option"><p>4. ${userAnswer.options[4]}<span><i class="fa-solid icon"></i></span></p></div>
     </div>`;
+
     document.getElementById("user-test-data").appendChild(newDiv);
+
+    const userAnswerIndex = userAnswer.options.findIndex(
+      (option) => option === userAnswer.selectedAnswer
+    );
+    const correctAnswerIndex = userAnswer.options.findIndex(
+      (option) => option === userAnswer.correctAnswer
+    );
+
+    const correctOptionDiv =
+      newDiv.querySelectorAll(".option")[correctAnswerIndex];
+    correctOptionDiv.classList.add("question-container-right-answers");
+    if (!correctOptionDiv.querySelector(".fa-circle-check")) {
+      correctOptionDiv.querySelector(".icon").classList.add("fa-circle-check");
+      correctOptionDiv.querySelector(".icon").style.color = "#CB6040";
+    }
+
+    const selectedOptionDiv =
+      newDiv.querySelectorAll(".option")[userAnswerIndex];
+    if (userAnswer.selectedAnswer === userAnswer.correctAnswer) {
+      selectedOptionDiv.classList.add("question-container-right-answers");
+      if (!selectedOptionDiv.querySelector(".fa-circle-check")) {
+        selectedOptionDiv
+          .querySelector(".icon")
+          .classList.add("fa-circle-check");
+        selectedOptionDiv.querySelector(".icon").style.color = "#CB6040";
+      }
+    } else {
+      selectedOptionDiv.classList.add("question-container-wrong-answers");
+      if (!selectedOptionDiv.querySelector(".fa-circle-xmark")) {
+        selectedOptionDiv
+          .querySelector(".icon")
+          .classList.add("fa-circle-xmark");
+        selectedOptionDiv.querySelector(".icon").style.color = "#31511E";
+      }
+    }
   }
 }
 
@@ -1403,7 +1441,6 @@ function viewUserTest() {
 // }
 
 function closeUserTestSection() {
-  document.querySelector(".question-answer-container").innerHTML = "";
   document.querySelector(".user-test-section").style.display = "none";
   document.querySelector(".users-section").style.display = "initial";
 }
