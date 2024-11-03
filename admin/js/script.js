@@ -32,22 +32,23 @@ function readAllQuestions() {
   let questions = JSON.parse(localStorage.getItem("questions"));
 
   let tableData = document.getElementById("question-table-data");
-  for (let i = 0; i < questions.length; i++) {
+  for (
+    let questionIndex = 0;
+    questionIndex < questions.length;
+    questionIndex++
+  ) {
     var newRow = document.createElement("tr");
-    newRow.id = `question-${i + 1}`;
-    newRow.innerHTML += `<td class="table-content">${i + 1}</td>
-      <td>${questions[i].question}</td>
-      <td class="table-button"><div class="table-button-div"><button onclick="viewQuestion(${i})"><i class="fa-solid fa-eye"></i></button><button onclick="updateQuestionForm(${i})" id="update-button-${
-      i + 1
-    }"><i class="fa-solid fa-pencil"></i></button><button onclick="deleteQuestion(${i})" id="delete-button-${
-      i + 1
+    newRow.id = `question-${questionIndex + 1}`;
+    newRow.innerHTML += `<td class="table-content">${questionIndex + 1}</td>
+      <td>${questions[questionIndex].question}</td>
+      <td class="table-button"><div class="table-button-div"><button onclick="viewQuestion(${questionIndex})"><i class="fa-solid fa-eye"></i></button><button onclick="updateQuestionForm(${questionIndex})" id="update-button-${
+      questionIndex + 1
+    }"><i class="fa-solid fa-pencil"></i></button><button onclick="deleteQuestion(${questionIndex})" id="delete-button-${
+      questionIndex + 1
     }"><i class="fa-solid fa-trash"></i></button></div></td>`;
     tableData.appendChild(newRow);
   }
-
-  console.log("running this function");
 }
-// console.log(tableData)
 
 function showAddQuestionModal() {
   document.querySelector(".overlay").classList.add("showoverlay");
@@ -72,7 +73,6 @@ function closeAddQuestionModal() {
 function addQuestions() {
   let questions = JSON.parse(localStorage.getItem("questions")) || [];
   let question = document.getElementById("question");
-  // let supportingText = document.getElementById("supporting-text");
   let optionOne = document.getElementById("option-one");
   let optionTwo = document.getElementById("option-two");
   let optionThree = document.getElementById("option-three");
@@ -132,52 +132,6 @@ function addQuestions() {
   readAllQuestions();
 }
 
-// function updateQuestionForm() {
-//   let quizForm = document.getElementById("quiz-form");
-//   quizForm.style.display = "initial";
-//   let questions = JSON.parse(localStorage.getItem("questions")) || [];
-//   // var email = registerEmail.value;
-//   let question = document.getElementById("question");
-//   let supportingText = document.getElementById("supporting-text");
-//   let optionOne = document.getElementById("option-one");
-//   let optionTwo = document.getElementById("option-two");
-//   let optionThree = document.getElementById("option-three");
-//   let optionFour = document.getElementById("option-four");
-//   let explanationText = document.getElementById("explanation-text");
-
-//   for (let i = 0; i < questions.length; i++) {
-//     // const element = questions[i];
-//     // console.log(element);
-//     // console.log(questions[i].id)
-//     let questionId = questions[i].id - 1;
-//     if (i === questionId) {
-//       question.value = `${questions[i].question}`;
-//       supportingText.value = `${questions[i].supportingText}`;
-//       optionOne.value = `${questions[i].options[0]}`;
-//       optionTwo.value = questions[i].options[1];
-//       optionThree.value = questions[i].options[2];
-//       optionFour.value = questions[i].options[3];
-//       explanationText.value = questions[i].explanation;
-//       return
-//     } else {
-//       console.log("Elsei ");
-//     }
-
-//     // if(i === 0){
-//     //   console.log(true)
-//     // }else{
-//     //   console.log(false)
-//     // }
-//   }
-// }
-
-// function displayUpdateQuestionForm() {
-//   let addQuestionBtn = document.getElementById("add-question-btn")
-//   addQuestionBtn.setAttribute('onclick', 'addQuestions()');
-//   console.log(addQuestionBtn)
-
-// }
-
 function showUpdateQuestionFormModal() {
   document.querySelector(".overlay").classList.add("showoverlay");
   document
@@ -192,7 +146,7 @@ function closeUpdateQuestionFormModal() {
     .classList.remove("show-update-question-form");
 }
 
-function updateQuestionForm(i) {
+function updateQuestionForm(questionIndex) {
   let questions = JSON.parse(localStorage.getItem("questions")) || [];
   let question = document.getElementById("updated-question");
   let optionOne = document.getElementById("updated-option-one");
@@ -206,28 +160,28 @@ function updateQuestionForm(i) {
   let optionListThree = document.getElementById("option-list-three");
   let optionListFour = document.getElementById("option-list-four");
 
-  updateQuestionBtn.setAttribute("onclick", `updateQuestion(${i})`);
+  updateQuestionBtn.setAttribute("onclick", `updateQuestion(${questionIndex})`);
   console.log(updateQuestionBtn);
 
   showUpdateQuestionFormModal();
 
-  question.value = `${questions[i].question}`;
-  optionOne.value = `${questions[i].options[0]}`;
-  optionTwo.value = questions[i].options[1];
-  optionThree.value = questions[i].options[2];
-  optionFour.value = questions[i].options[3];
-  // correctAnswer.value = questions[i].answer;
-  optionListOne.value = questions[i].options[0];
-  optionListOne.innerText = questions[i].options[0];
-  optionListTwo.value = questions[i].options[1];
-  optionListTwo.innerText = questions[i].options[1];
-  optionListThree.value = questions[i].options[2];
-  optionListThree.innerText = questions[i].options[2];
-  optionListFour.value = questions[i].options[3];
-  optionListFour.innerText = questions[i].options[3];
+  question.value = `${questions[questionIndex].question}`;
+  optionOne.value = `${questions[questionIndex].options[0]}`;
+  optionTwo.value = questions[questionIndex].options[1];
+  optionThree.value = questions[questionIndex].options[2];
+  optionFour.value = questions[questionIndex].options[3];
+  // correctAnswer.value = questions[questionIndex].answer;
+  optionListOne.value = questions[questionIndex].options[0];
+  optionListOne.innerText = questions[questionIndex].options[0];
+  optionListTwo.value = questions[questionIndex].options[1];
+  optionListTwo.innerText = questions[questionIndex].options[1];
+  optionListThree.value = questions[questionIndex].options[2];
+  optionListThree.innerText = questions[questionIndex].options[2];
+  optionListFour.value = questions[questionIndex].options[3];
+  optionListFour.innerText = questions[questionIndex].options[3];
 }
 
-function updateQuestion(i) {
+function updateQuestion(questionIndex) {
   let questions = JSON.parse(localStorage.getItem("questions")) || [];
   let question = document.getElementById("updated-question");
   let optionOne = document.getElementById("updated-option-one");
@@ -235,7 +189,7 @@ function updateQuestion(i) {
   let optionThree = document.getElementById("updated-option-three");
   let optionFour = document.getElementById("updated-option-four");
   let correctAnswer = document.getElementById("updated-correct-answer");
-  questions.splice(i, 1, {
+  questions.splice(questionIndex, 1, {
     question: question.value,
     options: [
       optionOne.value,
@@ -270,7 +224,7 @@ function closeViewQuestionModal() {
     .classList.remove("show-view-question");
 }
 
-function viewQuestion(i) {
+function viewQuestion(questionIndex) {
   let questions = JSON.parse(localStorage.getItem("questions")) || [];
   let question = document.getElementById("view-question");
   let optionOne = document.getElementById("view-option-one");
@@ -282,52 +236,39 @@ function viewQuestion(i) {
 
   viewQuestionModal();
   // console.log(question,optionOne,optionTwo, optionThree, optionFour, correctAnswer , updateQuestionBtn)
-  question.innerText = questions[i].question;
-  optionOne.innerHTML = questions[i].options[0];
-  optionTwo.innerHTML = questions[i].options[1];
-  optionThree.innerHTML = questions[i].options[2];
-  optionFour.innerHTML = questions[i].options[3];
-  correctAnswer.innerHTML = `Answer is:- ${questions[i].answer}`;
+  question.innerText = questions[questionIndex].question;
+  optionOne.innerHTML = questions[questionIndex].options[0];
+  optionTwo.innerHTML = questions[questionIndex].options[1];
+  optionThree.innerHTML = questions[questionIndex].options[2];
+  optionFour.innerHTML = questions[questionIndex].options[3];
+  correctAnswer.innerHTML = `Answer is:- ${questions[questionIndex].answer}`;
 }
 
-function deleteQuestion(i) {
+function deleteQuestion(questionIndex) {
   let questions = JSON.parse(localStorage.getItem("questions")) || [];
-  console.log(i);
   let text = "Are you sure you want to delete the Question?";
   if (confirm(text) == true) {
-    questions.splice(i, 1);
+    questions.splice(questionIndex, 1);
     localStorage.setItem("questions", JSON.stringify(questions));
     alert("Deleted Question Successfull");
     location.reload();
   }
 }
 
-// function deleteUser(i) {
-//   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-//   console.log(i);
-//   let text = "Are you sure you want to delete the User?";
-//   if (confirm(text) == true) {
-//     userGivenTests.splice(i, 1);
-//     localStorage.setItem("usersGivenTests", JSON.stringify(userGivenTests));
-//     alert("User Deleted Successfull");
-//     location.reload();
-//   }
-// }
-
 function readAllUsers() {
   generateAdminProfileName();
   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
   let tableData = document.getElementById("user-table-data");
 
-  for (let i = 0; i < userGivenTests.length; i++) {
+  for (let userIndex = 0; userIndex < userGivenTests.length; userIndex++) {
     var newRow = document.createElement("tr");
-    newRow.innerHTML += `<td>${i + 1}</td>
-      <td>${userGivenTests[i].fullName}</td>
-      <td class="options">${userGivenTests[i].email}</td>
-      <td>${userGivenTests[i].noOfTimeTestGiven}</td>
-      <td>${userGivenTests[i].marks}</td>
-      <td class="table-button"><div class="table-button-div"><a href="users-history.html?index=${i}&name=${encodeURIComponent(
-      userGivenTests[i].fullName
+    newRow.innerHTML += `<td>${userIndex + 1}</td>
+      <td>${userGivenTests[userIndex].fullName}</td>
+      <td class="options">${userGivenTests[userIndex].email}</td>
+      <td>${userGivenTests[userIndex].noOfTimeTestGiven}</td>
+      <td>${userGivenTests[userIndex].marks}</td>
+      <td class="table-button"><div class="table-button-div"><a href="users-history.html?index=${userIndex}&name=${encodeURIComponent(
+      userGivenTests[userIndex].fullName
     )}">
             View Tests
           </a></div></td>`;
@@ -347,10 +288,8 @@ function getQueryParams() {
 function loadUserTestDetails() {
   generateAdminProfileName();
   let { index, name } = getQueryParams();
-
-  let usersGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-  console.log(index, name);
   generateAdminProfileName();
+  let usersGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
   document.getElementById(
     "user-name"
@@ -358,22 +297,23 @@ function loadUserTestDetails() {
 
   let tableData = document.getElementById("user-test-table-data");
   let userTests = userGivenTests[index].tests;
-  console.log(userTests);
-  for (let i = 0; i < userTests.length; i++) {
+  for (
+    let userTestIndex = 0;
+    userTestIndex < userTests.length;
+    userTestIndex++
+  ) {
     var newRow = document.createElement("tr");
-    newRow.innerHTML += `<td>${userTests[i].testNo}</td>
-      <td>${userTests[i].date}</td>
-      <td class="options">${userTests[i].marks}</td>
-      <td>${userTests[i].correctAnswers}</td>
-      <td class="table-button"><div class="table-button-div"><a href="user-testlist.html?testIndex=${i}&name=${userGivenTests[index].fullName}">
+    newRow.innerHTML += `<td>${userTests[userTestIndex].testNo}</td>
+      <td>${userTests[userTestIndex].date}</td>
+      <td class="options">${userTests[userTestIndex].marks}</td>
+      <td>${userTests[userTestIndex].correctAnswers}</td>
+      <td class="table-button"><div class="table-button-div"><a href="user-testlist.html?testIndex=${userTestIndex}&name=${userGivenTests[index].fullName}">
             View Test
           </a></div></td>`;
     tableData.appendChild(newRow);
   }
 }
 
-// const { testIndex } = getQueryParams();
-// console.log(testIndex)
 function viewUserTest() {
   generateAdminProfileName();
   let { name, testIndex } = getQueryParams();
@@ -448,49 +388,3 @@ function viewUserTest() {
     }
   }
 }
-
-// function viewUserTest(i) {
-//   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-//   let questions = JSON.parse(localStorage.getItem("questions"));
-//   document.querySelector(".users-section").style.display = "none";
-//   document.querySelector(".user-test-section").style.display = "initial";
-
-//   // console.log(i);
-//   let selectedAnswers = userGivenTests[i].selectedAnswers;
-//   console.log(selectedAnswers);
-//   console.log(selectedAnswers[0].question);
-//   for (let i = 0; i < selectedAnswers.length; i++) {
-//     const element = selectedAnswers[i];
-//     console.log(element);
-//     var usersAnswerContainer = document.querySelector(".user-test-section");
-//     var questionAnswerContainer = document.createElement("div");
-//     questionAnswerContainer.className = "question-answer-container";
-//     questionAnswerContainer.innerHTML += `<h2 class="container__question" id="question">${
-//       i + 1
-//     }. ${selectedAnswers[i].question}</h2>
-//           <p class="container__selected-option">Selected Answer is:- ${
-//             selectedAnswers[i].selectedAnswer
-//           }</p>
-//                 <p class="container__correct-answer">Correct Answer is :- ${
-//                   selectedAnswers[i].correctAnswer
-//                 }</p>
-//                 <p class="container__correct-answer-explanation">${
-//                   questions[randomQuestionArray[i]].explanation
-//                 }
-//                 `;
-
-//     usersAnswerContainer.appendChild(questionAnswerContainer);
-//   }
-// }
-
-// let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-// console.log(userGivenTests);
-
-// function viewUserTest(i) {
-//   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-//   // console.log(userGivenTests);
-//   let userName = userGivenTests[i].fullName;
-//   let userEmail = userGivenTests[i].email;
-//   let userTest = userGivenTests[i].tests;
-//   console.log(userName, userTest, userEmail);
-// }

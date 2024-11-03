@@ -373,12 +373,8 @@ function redirectQuizQuestions() {
 }
 //Redirect from dashboard to quiz questions Ended
 
-//Load Questions Function Starts
 
-// console.log("Runnng Load Questions Script");
-
-// // console.log(JSON.parse(localStorage.getItem("questions")));
-
+//Load Question Function Starts
 var questions = JSON.parse(localStorage.getItem("questions"));
 // console.log(questions.length);
 var question = document.getElementById("question");
@@ -409,19 +405,6 @@ var slider = document.getElementById("rangeSliderValue");
 var maxSliderValue = 100;
 var sliderValue = maxSliderValue / totalQuestions;
 var sliderValueArray = [];
-// sliderValueArray.push(sliderValue);
-// console.log(sliderValueArray);
-// slider.style.width = `${sliderValue}%`;
-// function increaseSliderValue() {
-//   sliderValue = sliderValue + maxSliderValue / totalQuestions;
-//   if (sliderValue > 100) {
-//     sliderValue = 100;
-//   }
-//   sliderValueArray.push(sliderValue);
-//   console.log(sliderValueArray);
-//   slider.style.width = `${sliderValue}%`;
-//   console.log(slider.style.width);
-// }
 var sliderValue = maxSliderValue / totalQuestions;
 sliderValueArray.push(sliderValue);
 for (let questionIndex = 0; questionIndex < totalQuestions; questionIndex++) {
