@@ -66,14 +66,14 @@ This is a web-based quiz application focused on programming languages, such as H
 │   ├── users-history.html
 │   └── users.html
 ├── assets
-│   ├── css
-│   │   ├── dashboard.css
-│   │   ├── leaderboard.css
-│   │   ├── login.css
-│   │   ├── quiz-questions.css
-│   │   └── terms-and-conditions.css
-│   └── js
-│       └── script.js
+├── css
+│   ├── dashboard.css
+│   ├── leaderboard.css
+│   ├── login.css
+│   ├── quiz-questions.css
+│   └── terms-and-conditions.css
+└── js
+│   └── script.js
 ├── pages
 │   ├── dashboard.html
 │   ├── leaderboard.html
