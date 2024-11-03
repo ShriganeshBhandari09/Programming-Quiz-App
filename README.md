@@ -95,19 +95,19 @@ Here are some screenshots of the Programming Quiz App:
 
 ### Login Page
 
-![Login Page](screenshots/Screenshot-1.png)
+![Login Page](Screenshots/Screenshot-1.png)
 
 ### Quiz Interface
 
-![Quiz Interface](screenshots/Screenshot-2.png)
+![Quiz Interface](Screenshots/Screenshot-2.png)
 
 ### Score Display
 
-![Score Display](screenshots/Screenshot-3.png)
+![Score Display](Screenshots/Screenshot-3.png)
 
 ### Leaderboard
 
-![Leaderboard](screenshots/Screenshot-4.png)
+![Leaderboard](Screenshots/Screenshot-4.png)
 
 ## License
 
