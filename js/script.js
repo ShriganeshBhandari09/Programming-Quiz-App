@@ -1,141 +1,3 @@
-//SignUp Function Starts
-function registerUser() {
-  console.log("Signup is running");
-  var users = JSON.parse(localStorage.getItem("users")) || [];
-  // var email = registerEmail.value;
-  let fullName = document.getElementById("fullname").value;
-  let registerEmail = document.getElementById("registeremail").value;
-  let registerPassword = document.getElementById("registerpassword").value;
-  let checboxSelected = document.querySelector("input[type=checkbox]:checked");
-
-  if (fullName.trim() === "") {
-    alert("Please Enter Name");
-    return;
-  }
-
-  if (registerEmail === "") {
-    alert("Please Enter Email");
-    return;
-  }
-
-  if (registerPassword === "") {
-    alert("Please Enter Password");
-    return;
-  }
-
-  if (registerPassword.length < 6) {
-    alert("Password must be at least 6 characters long.");
-    return;
-  }
-
-  if (!checboxSelected) {
-    alert("Accept Terms and Conditions");
-    return;
-  }
-
-  for (let i = 0; i < users.length; i++) {
-    if (users[i].email === registerEmail.toLowerCase()) {
-      alert("Email Already Registered");
-      return;
-    }
-  }
-
-  // validateForm();
-  users.push({
-    fullName: fullName,
-    email: registerEmail.toLowerCase(),
-    password: registerPassword,
-  });
-  localStorage.setItem("users", JSON.stringify(users));
-  window.location.assign("../index.html");
-  alert("Signup Successfull");
-}
-//Signup Function Ended
-
-//Login Function Starts
-function loginUser() {
-  let email = document.getElementById("loginemail").value.toLowerCase();
-  let password = document.getElementById("loginpassword").value;
-  let users = JSON.parse(localStorage.getItem("users"));
-  let isLoggedIn = false;
-  let userLoggedIn = [];
-  let adminLoggedIn = [];
-
-  if (email === "") {
-    alert("Please Enter Email");
-    return;
-  }
-
-  if (password === "") {
-    alert("Please Enter Password");
-    return;
-  }
-
-  if (email === "admin@gmail.com" && password === "admin") {
-    console.log("Admin Login Successfull");
-    window.location.assign("/admin/dashboard.html");
-    adminLoggedIn.push({ name: "Admin", email: email, password: password });
-    sessionStorage.setItem("adminLoggedIn", JSON.stringify(adminLoggedIn));
-    return;
-  }
-
-  for (let i = 0; i < users.length; i++) {
-    if (email != users[i].email && password != users[i].password) {
-      isLoggedIn = false;
-      console.log("if is running");
-    } else if (email === users[i].email && password === users[i].password) {
-      isLoggedIn = true;
-      userLoggedIn.push(users[i]);
-      sessionStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
-      console.log("Else if is running");
-    }
-  }
-  console.log(isLoggedIn);
-  console.log(userLoggedIn);
-
-  if (isLoggedIn === true) {
-    alert("Login Successfull");
-    console.log("Login Successfull");
-    window.location.assign("/pages/dashboard.html");
-    console.log("Logged In is Running");
-    return;
-  } else {
-    console.log("Incorrect Email or Password");
-    alert("Incorrect Email or Password");
-    return;
-  }
-}
-//Login Function Ended
-
-//Load Profile Name Starts
-function generateProfileName() {
-  let userLoggedIn = JSON.parse(sessionStorage.getItem("userLoggedIn"));
-  let profileName = document.getElementById("profile-name");
-  let image = document.getElementById("profile-img");
-  profileName.innerText = `Welcome, ${userLoggedIn[0].fullName}`;
-  // console.log(userLoggedIn[0].fullName);
-  image.src = `https://ui-avatars.com/api/?name=${userLoggedIn[0].fullName}&background=F3BD00&color=000`;
-}
-//Load Profile Name Ended
-
-//Redirect from dashboard to quiz questions
-function redirectQuizQuestions() {
-  window.location.assign("/pages/quiz-questions.html");
-}
-//Redirect from dashboard to quiz questions Ended
-
-//Logout Function Starts
-function logout() {
-  let text = "Are you sure you want to Logout?";
-  if (confirm(text) == true) {
-    sessionStorage.removeItem("userLoggedIn");
-    sessionStorage.removeItem("adminLoggedIn");
-    window.location.assign("../index.html");
-  }
-}
-//Logout Function Ends
-
-//Load Questions Function Starts
 var questions = [
   {
     question: "What does HTML stand for?",
@@ -375,6 +237,144 @@ if (!localStorage.getItem("questions")) {
   storeQuestion();
 }
 
+//SignUp Function Starts
+function registerUser() {
+  console.log("Signup is running");
+  var users = JSON.parse(localStorage.getItem("users")) || [];
+  let fullName = document.getElementById("fullname").value;
+  let registerEmail = document.getElementById("registeremail").value;
+  let registerPassword = document.getElementById("registerpassword").value;
+  let checboxSelected = document.querySelector("input[type=checkbox]:checked");
+
+  if (fullName.trim() === "") {
+    alert("Please Enter Name");
+    return;
+  }
+
+  if (registerEmail === "") {
+    alert("Please Enter Email");
+    return;
+  }
+
+  if (registerPassword === "") {
+    alert("Please Enter Password");
+    return;
+  }
+
+  if (registerPassword.length < 6) {
+    alert("Password must be at least 6 characters long.");
+    return;
+  }
+
+  if (!checboxSelected) {
+    alert("Accept Terms and Conditions");
+    return;
+  }
+
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].email === registerEmail.toLowerCase()) {
+      alert("Email Already Registered");
+      return;
+    }
+  }
+
+  // validateForm();
+  users.push({
+    fullName: fullName,
+    email: registerEmail.toLowerCase(),
+    password: registerPassword,
+  });
+  localStorage.setItem("users", JSON.stringify(users));
+  location.href = "../index.html";
+  alert("Signup Successfull");
+}
+//Signup Function Ended
+
+//Login Function Starts
+function loginUser() {
+  let email = document.getElementById("loginemail").value.toLowerCase();
+  let password = document.getElementById("loginpassword").value;
+  let users = JSON.parse(localStorage.getItem("users"));
+  let isLoggedIn = false;
+  let userLoggedIn = [];
+  let adminLoggedIn = [];
+
+  if (email === "") {
+    alert("Please Enter Email");
+    return;
+  }
+
+  if (password === "") {
+    alert("Please Enter Password");
+    return;
+  }
+
+  if (email === "admin@gmail.com" && password === "admin") {
+    console.log("Admin Login Successfull");
+    window.location.assign("/admin/dashboard.html");
+    adminLoggedIn.push({ name: "Admin", email: email, password: password });
+    sessionStorage.setItem("adminLoggedIn", JSON.stringify(adminLoggedIn));
+    return;
+  }
+
+  for (let i = 0; i < users.length; i++) {
+    if (email != users[i].email && password != users[i].password) {
+      isLoggedIn = false;
+      console.log("if is running");
+    } else if (email === users[i].email && password === users[i].password) {
+      isLoggedIn = true;
+      userLoggedIn.push(users[i]);
+      sessionStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
+      console.log("Else if is running");
+    }
+  }
+  console.log(isLoggedIn);
+  console.log(userLoggedIn);
+
+  if (isLoggedIn === true) {
+    alert("Login Successfull");
+    console.log("Login Successfull");
+    window.location.assign("/pages/dashboard.html");
+    console.log("Logged In is Running");
+    return;
+  } else {
+    console.log("Incorrect Email or Password");
+    alert("Incorrect Email or Password");
+    return;
+  }
+}
+//Login Function Ended
+
+//Load Profile Name Starts
+function generateProfileName() {
+  let userLoggedIn = JSON.parse(sessionStorage.getItem("userLoggedIn"));
+  let profileName = document.getElementById("profile-name");
+  let image = document.getElementById("profile-img");
+  profileName.innerText = `Welcome, ${userLoggedIn[0].fullName}`;
+  // console.log(userLoggedIn[0].fullName);
+  image.src = `https://ui-avatars.com/api/?name=${userLoggedIn[0].fullName}&background=F3BD00&color=000`;
+}
+//Load Profile Name Ended
+
+//Logout Function Starts
+function logout() {
+  let text = "Are you sure you want to Logout?";
+  if (confirm(text) == true) {
+    sessionStorage.removeItem("userLoggedIn");
+    sessionStorage.removeItem("adminLoggedIn");
+    window.location.assign("../index.html");
+  }
+}
+//Logout Function Ends
+
+//Redirect from dashboard to quiz questions
+function redirectQuizQuestions() {
+  window.location.assign("/pages/quiz-questions.html");
+}
+//Redirect from dashboard to quiz questions Ended
+
+//Load Questions Function Starts
+
 // console.log("Runnng Load Questions Script");
 
 // // console.log(JSON.parse(localStorage.getItem("questions")));
@@ -424,7 +424,7 @@ var sliderValueArray = [];
 // }
 var sliderValue = maxSliderValue / totalQuestions;
 sliderValueArray.push(sliderValue);
-for (let j = 0; j < totalQuestions; j++) {
+for (let questionIndex = 0; questionIndex < totalQuestions; questionIndex++) {
   sliderValue = sliderValue + maxSliderValue / totalQuestions;
   if (sliderValue > 100) {
     sliderValue = 100;
@@ -433,17 +433,20 @@ for (let j = 0; j < totalQuestions; j++) {
     sliderValueArray.push(sliderValue);
   }
 }
-// console.log(sliderValueArray);
 
 let randomQuestionArray = [];
 let randomQuestionLength = questions.length;
-for (let i = 0; i < randomQuestionLength; i++) {
+for (
+  let questionIndex = 0;
+  questionIndex < randomQuestionLength;
+  questionIndex++
+) {
   let randomNumber = Math.floor(Math.random() * randomQuestionLength);
 
   if (!randomQuestionArray.includes(randomNumber)) {
     randomQuestionArray.push(randomNumber);
   } else {
-    i--;
+    questionIndex--;
   }
 }
 
@@ -486,32 +489,6 @@ function loadQuestion() {
   // console.log(selectedQuestionid);
 }
 
-// function generateQuestions() {
-//   if (questionId === questions.length - 1) {
-//     questionheading.innerText = "Last Question";
-//     submitBtn.innerHTML = `Submit <i class="fa-solid fa-arrow-right"></i>`;
-//   } else {
-//     questionheading.innerText = `Question ${
-//       questionId + 1
-//     } of ${totalQuestions}`;
-//   }
-
-//   question.innerText = `${questionId + 1}.${questions[questionId].question}`;
-//   optionOne.value = questions[questionId].options[0];
-//   optionTwo.value = questions[questionId].options[1];
-//   optionThree.value = questions[questionId].options[2];
-//   optionFour.value = questions[questionId].options[3];
-
-//   labelOne.innerText = questions[questionId].options[0];
-//   labelTwo.innerText = questions[questionId].options[1];
-//   labelThree.innerText = questions[questionId].options[2];
-//   labelFour.innerText = questions[questionId].options[3];
-//   questionId++;
-//   // console.log("The question id is", questionId);
-//   // console.log("The selected question id is", selectedQuestionid);
-//   // console.log(" The array is", selectedOptionsArray);
-// }
-
 function nextQuestion() {
   questionIndex++;
   if (questionIndex === totalQuestions - 1) {
@@ -541,6 +518,9 @@ function previousQuestion() {
     questionIndex + 1
   } of ${totalQuestions}`;
   // console.log(questionIndex);
+  question.innerText = `${questionIndex + 1}.${
+    questions[randomQuestionArray[questionIndex]].question
+  }`;
   displayQuestion();
   // console.log(questions[randomQuestionArray[questionIndex]]);
   slider.style.width = `${sliderValueArray[questionIndex]}%`;
@@ -558,29 +538,7 @@ function previousQuestion() {
   console.log(totalQuestions);
 }
 
-// selectedQuestionid = 0;
 var selectedOptionsArray = [];
-// var selectedOption = document.querySelector('input[name="options"]:checked');
-// function compareAns(selectedOption) {
-//   if (selectedQuestionid === questions.length) {
-//     selectedOptionsArray.push(selectedOption.value);
-//     selectedOption.checked = false;
-//     console.log(selectedOptionsArray);
-//     calculateMarks();
-//   } else {
-//     if (!selectedOption) {
-//       alert("please select the answer");
-//     } else {
-//       selectedOptionsArray.push(selectedOption.value);
-//       selectedOption.checked = false;
-//       console.log(selectedOptionsArray);
-//       console.log(selectedOption);
-//       nextQuestion();
-//       selectedQuestionid++;
-//     }
-//   }
-//   console.log(selectedQuestionid);
-// }
 
 function submitAnswers() {
   let selectedOption = document.querySelector('input[name="options"]:checked');
@@ -605,66 +563,6 @@ function submitAnswers() {
   }
   // console.log(selectedQuestionid)
 }
-
-// const dummyData = [
-//   {
-//     fullName: "Aarav Sharma",
-//     marks: 80,
-//     email: "aarav.sharma@example.com",
-//     noOfTimeTestGiven: 4,
-//     selectedAnswers: [1, 2, 3, 4, 1, 3, 2, 1, 4, 2],
-//   },
-//   {
-//     fullName: "Priya Verma",
-//     marks: 70,
-//     email: "priya.verma@example.com",
-//     noOfTimeTestGiven: 3,
-//     selectedAnswers: [2, 3, 1, 3, 2, 2, 1, 4, 3, 2],
-//   },
-//   {
-//     fullName: "Rohan Patel",
-//     marks: 50,
-//     email: "rohan.patel@example.com",
-//     noOfTimeTestGiven: 3,
-//     selectedAnswers: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-//   },
-//   {
-//     fullName: "Sneha Gupta",
-//     marks: 60,
-//     email: "sneha.gupta@example.com",
-//     noOfTimeTestGiven: 6,
-//     selectedAnswers: [3, 2, 4, 2, 3, 1, 3, 2, 4, 3],
-//   },
-//   {
-//     fullName: "Vikram Rao",
-//     marks: 50,
-//     email: "vikram.rao@example.com",
-//     noOfTimeTestGiven: 7,
-//     selectedAnswers: [4, 3, 2, 1, 4, 3, 4, 2, 1, 2],
-//   },
-//   {
-//     fullName: "Ananya Singh",
-//     marks: 40,
-//     email: "ananya.singh@example.com",
-//     noOfTimeTestGiven: 10,
-//     selectedAnswers: [1, 4, 3, 2, 3, 1, 2, 1, 4, 3],
-//   },
-//   {
-//     fullName: "Karan Bhandari",
-//     marks: 40,
-//     email: "karan.bhandari@gmail.com",
-//     noOfTimeTestGiven: 4,
-//     selectedAnswers: [2, 3, 4, 1, 2, 4, 3, 3, 2, 1],
-//   },
-// ];
-
-// function storeDummyData() {
-//   localStorage.setItem("usersGivenTests", JSON.stringify(dummyData)) || [];
-// }
-
-// if (!localStorage.getItem("usersGivenTests")) {
-//   storeDummyData();
-// }
 
 var marks = 0;
 var marksHeading = document.getElementById("marks");
@@ -878,13 +776,6 @@ function loadLeaderboard() {
               </div>
             </div>`;
       document.getElementById("other-ranks-section").appendChild(rankItem);
-      // console.log(document.getElementById(`rank-${i+1}`).style.display = "none")
-      //       currentUserScore.style.display = "flex"
-      // currentUserScore.style.backgroundColor = "#34fe34"
-      // document.getElementById("current-user-rank").innerText = `#${i+1}`
-      // document.getElementById("current-user-name").innerText = currentUserName
-      // document.getElementById('current-user-marks').innerText = `${userGivenTests[i].marks}`
-      // console.log("Present");
       if (userGivenTests[i].fullName === currentUser[0].fullName) {
         currentUserScore.style.display = "flex";
         currentUserScore.style.backgroundColor = "#FBF1CE";
@@ -917,530 +808,4 @@ function loadLeaderboard() {
   } else {
     displayRank.innerText = `Wow, You Rank ${currentUserIndex}th`;
   }
-}
-
-///////////////////////////////////////////////Admin Side Script//////////////////////////////////////////////////
-
-// //Load Profile Name
-function generateAdminProfileName() {
-  let adminLoggedIn = JSON.parse(sessionStorage.getItem("adminLoggedIn"));
-  let profileName = document.getElementById("profile-name");
-  let image = document.getElementById("profile-img");
-  profileName.innerText = `Welcome, ${adminLoggedIn[0].name}`;
-  // console.log(userLoggedIn[0].fullName);
-  image.src = `https://ui-avatars.com/api/?name=${adminLoggedIn[0].name}&background=F3BD00&color=000`;
-}
-
-function showSidebar() {
-  let headerLogo = document.getElementById("logo");
-  let sidebar = document.getElementById("side-bar");
-  sidebar.classList.toggle("disable-sidebar");
-  headerLogo.classList.toggle("disable-logo");
-}
-// function loadAdminPage() {
-//
-//   var adminContainerContent = document.getElementById(
-//     "admin-container-content"
-//   );
-//   var userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-//   var questions = JSON.parse(localStorage.getItem("questions"));
-//   var adminPage = document.createElement("div");
-//   adminPage.id = "admin-container-content";
-//   adminPage.innerHTML = `<h1>Welcome! Admin</h1>
-//         <h2>Number of Questions Added : ${questions.length}</h2>
-//         <h2>Number of Users Given Tests:  ${userGivenTests.length}</h2>`;
-//   adminContainerContent.appendChild(adminPage);
-// }
-
-// function fetchQuestions() {
-//   var mainContainer = document.getElementById("admin-container");
-//   var adminContainerContent = document.getElementById(
-//     "admin-container-content"
-//   );
-//   adminContainerContent.style.display = "none";
-//   var questions = JSON.parse(localStorage.getItem("questions"));
-//   var questionsPage = document.createElement("div");
-//   questionsPage.id = "questions-page-content";
-//   for (let i = 0; i < questions.length; i++) {
-//     questionsPage.innerHTML += `<h2 class="question">${questions[i].question}</h2>
-//         <p class="supporting-text">${questions[i].supportingText}</p>
-//         <ul class="opptions">
-//           <li>${questions[i].options[0]}</li>
-//           <li>${questions[i].options[1]}</li>
-//           <li>${questions[i].options[2]}</li>
-//           <li>${questions[i].options[3]}</li>
-//         </ul>`;
-//     mainContainer.appendChild(questionsPage);
-//   }
-// }
-
-// var questionsLength = 20;
-function readAllQuestions() {
-  generateAdminProfileName();
-  let questions = JSON.parse(localStorage.getItem("questions"));
-
-  let tableData = document.getElementById("question-table-data");
-  for (let i = 0; i < questions.length; i++) {
-    var newRow = document.createElement("tr");
-    newRow.id = `question-${i + 1}`;
-    newRow.innerHTML += `<td class="table-content">${i + 1}</td>
-    <td>${questions[i].question}</td>
-    <td class="table-button"><div class="table-button-div"><button onclick="viewQuestion(${i})"><i class="fa-solid fa-eye"></i></button><button onclick="updateQuestionForm(${i})" id="update-button-${
-      i + 1
-    }"><i class="fa-solid fa-pencil"></i></button><button onclick="deleteQuestion(${i})" id="delete-button-${
-      i + 1
-    }"><i class="fa-solid fa-trash"></i></button></div></td>`;
-    tableData.appendChild(newRow);
-  }
-
-  console.log("running this function");
-}
-// console.log(tableData)
-
-function showAddQuestionModal() {
-  // let quizForm = document.getElementById("quiz-form");
-  // quizForm.style.display = "initial";
-  // let addQuestionBtn = document.getElementById("add-question-btn");
-  // addQuestionBtn.setAttribute("onclick", "addQuestions()");
-  // console.log(addQuestionBtn);
-  document.querySelector(".overlay").classList.add("showoverlay");
-  document
-    .querySelector(".quiz-question-form")
-    .classList.add("showquestionform");
-}
-
-function closeAddQuestionModal() {
-  // let quizForm = document.getElementById("quiz-form");
-  // quizForm.style.display = "initial";
-  // let addQuestionBtn = document.getElementById("add-question-btn");
-  // addQuestionBtn.setAttribute("onclick", "addQuestions()");
-  // console.log(addQuestionBtn);
-  document.querySelector(".overlay").classList.remove("showoverlay");
-  document
-    .querySelector(".quiz-question-form")
-    .classList.remove("showquestionform");
-  document
-    .querySelector(".update-quiz-question-form")
-    .classList.remove("show-update-question-form");
-  document
-    .querySelector(".view-question")
-    .classList.remove("show-view-question");
-}
-
-function addQuestions() {
-  let questions = JSON.parse(localStorage.getItem("questions")) || [];
-  // var email = registerEmail.value;
-  let question = document.getElementById("question");
-  // let supportingText = document.getElementById("supporting-text");
-  let optionOne = document.getElementById("option-one");
-  let optionTwo = document.getElementById("option-two");
-  let optionThree = document.getElementById("option-three");
-  let optionFour = document.getElementById("option-four");
-  let correctAnswer = document.getElementById("correct-answer");
-  // let explanationText = document.getElementById("explanation-text");
-  questions.push({
-    question: question.value,
-    // supportingText: supportingText.value,
-    options: [
-      optionOne.value,
-      optionTwo.value,
-      optionThree.value,
-      optionFour.value,
-    ],
-    answer: correctAnswer.value,
-    // explanation: explanationText.value,
-  });
-  localStorage.setItem("questions", JSON.stringify(questions));
-  alert("Added Question Successfull");
-  question.value = "";
-  // supportingText.value = "";
-  optionOne.value = "";
-  optionTwo.value = "";
-  optionThree.value = "";
-  optionFour.value = "";
-  correctAnswer.value = "";
-  // explanationText.value = "";
-  closeAddQuestionModal();
-  location.reload();
-  readAllQuestions();
-}
-
-// function updateQuestionForm() {
-//   let quizForm = document.getElementById("quiz-form");
-//   quizForm.style.display = "initial";
-//   let questions = JSON.parse(localStorage.getItem("questions")) || [];
-//   // var email = registerEmail.value;
-//   let question = document.getElementById("question");
-//   let supportingText = document.getElementById("supporting-text");
-//   let optionOne = document.getElementById("option-one");
-//   let optionTwo = document.getElementById("option-two");
-//   let optionThree = document.getElementById("option-three");
-//   let optionFour = document.getElementById("option-four");
-//   let explanationText = document.getElementById("explanation-text");
-
-//   for (let i = 0; i < questions.length; i++) {
-//     // const element = questions[i];
-//     // console.log(element);
-//     // console.log(questions[i].id)
-//     let questionId = questions[i].id - 1;
-//     if (i === questionId) {
-//       question.value = `${questions[i].question}`;
-//       supportingText.value = `${questions[i].supportingText}`;
-//       optionOne.value = `${questions[i].options[0]}`;
-//       optionTwo.value = questions[i].options[1];
-//       optionThree.value = questions[i].options[2];
-//       optionFour.value = questions[i].options[3];
-//       explanationText.value = questions[i].explanation;
-//       return
-//     } else {
-//       console.log("Elsei ");
-//     }
-
-//     // if(i === 0){
-//     //   console.log(true)
-//     // }else{
-//     //   console.log(false)
-//     // }
-//   }
-// }
-
-// function displayUpdateQuestionForm() {
-//   let addQuestionBtn = document.getElementById("add-question-btn")
-//   addQuestionBtn.setAttribute('onclick', 'addQuestions()');
-//   console.log(addQuestionBtn)
-
-// }
-
-function showUpdateQuestionFormModal() {
-  document.querySelector(".overlay").classList.add("showoverlay");
-  document
-    .querySelector(".update-quiz-question-form")
-    .classList.add("show-update-question-form");
-}
-
-function closeUpdateQuestionFormModal() {
-  document.querySelector(".overlay").classList.remove("showoverlay");
-  document
-    .querySelector(".update-quiz-question-form")
-    .classList.remove("show-update-question-form");
-}
-
-// function showAddQuestionModal() {
-//   // let quizForm = document.getElementById("quiz-form");
-//   // quizForm.style.display = "initial";
-//   // let addQuestionBtn = document.getElementById("add-question-btn");
-//   // addQuestionBtn.setAttribute("onclick", "addQuestions()");
-//   // console.log(addQuestionBtn);
-//   document
-//     .querySelector(".quiz-question-form")
-//     .classList.add("showquestionform");
-// }
-
-// function closeAddQuestionModal() {
-//   // let quizForm = document.getElementById("quiz-form");
-//   // quizForm.style.display = "initial";
-//   // let addQuestionBtn = document.getElementById("add-question-btn");
-//   // addQuestionBtn.setAttribute("onclick", "addQuestions()");
-//   // console.log(addQuestionBtn);
-//   document.querySelector(".overlay").classList.remove("showoverlay");
-//   document
-//     .querySelector(".quiz-question-form")
-//     .classList.remove("showquestionform");
-// }
-
-function updateQuestionForm(i) {
-  let questions = JSON.parse(localStorage.getItem("questions")) || [];
-  let question = document.getElementById("updated-question");
-  let optionOne = document.getElementById("updated-option-one");
-  let optionTwo = document.getElementById("updated-option-two");
-  let optionThree = document.getElementById("updated-option-three");
-  let optionFour = document.getElementById("updated-option-four");
-  let correctAnswer = document.getElementById("updated-correct-answer");
-  let updateQuestionBtn = document.getElementById("update-question-button");
-  updateQuestionBtn.setAttribute("onclick", `updateQuestion(${i})`);
-  console.log(updateQuestionBtn);
-
-  showUpdateQuestionFormModal();
-
-  question.value = `${questions[i].question}`;
-  optionOne.value = `${questions[i].options[0]}`;
-  optionTwo.value = questions[i].options[1];
-  optionThree.value = questions[i].options[2];
-  optionFour.value = questions[i].options[3];
-  correctAnswer.value = questions[i].answer;
-}
-
-function updateQuestion(i) {
-  let questions = JSON.parse(localStorage.getItem("questions")) || [];
-  let question = document.getElementById("updated-question");
-  let optionOne = document.getElementById("updated-option-one");
-  let optionTwo = document.getElementById("updated-option-two");
-  let optionThree = document.getElementById("updated-option-three");
-  let optionFour = document.getElementById("updated-option-four");
-  let correctAnswer = document.getElementById("updated-correct-answer");
-  questions.splice(i, 1, {
-    question: question.value,
-    options: [
-      optionOne.value,
-      optionTwo.value,
-      optionThree.value,
-      optionFour.value,
-    ],
-    answer: correctAnswer.value,
-  });
-  localStorage.setItem("questions", JSON.stringify(questions));
-  alert("Updated Question Successfull");
-  question.value = "";
-  optionOne.value = "";
-  optionTwo.value = "";
-  optionThree.value = "";
-  optionFour.value = "";
-  correctAnswer.value = "";
-  closeAddQuestionModal();
-  location.reload();
-  readAllQuestions();
-}
-
-function viewQuestionModal() {
-  document.querySelector(".overlay").classList.add("showoverlay");
-  document.querySelector(".view-question").classList.add("show-view-question");
-}
-
-function closeViewQuestionModal() {
-  document.querySelector(".overlay").classList.remove("showoverlay");
-  document
-    .querySelector(".view-question")
-    .classList.remove("show-view-question");
-}
-
-function viewQuestion(i) {
-  let questions = JSON.parse(localStorage.getItem("questions")) || [];
-  let question = document.getElementById("view-question");
-  let optionOne = document.getElementById("view-option-one");
-  let optionTwo = document.getElementById("view-option-two");
-  let optionThree = document.getElementById("view-option-three");
-  let optionFour = document.getElementById("view-option-four");
-  let correctAnswer = document.getElementById("view-correct-answer");
-  let updateQuestionBtn = document.getElementById("update-question-button");
-
-  viewQuestionModal();
-  // console.log(question,optionOne,optionTwo, optionThree, optionFour, correctAnswer , updateQuestionBtn)
-  question.innerText = questions[i].question;
-  optionOne.innerHTML = questions[i].options[0];
-  optionTwo.innerHTML = questions[i].options[1];
-  optionThree.innerHTML = questions[i].options[2];
-  optionFour.innerHTML = questions[i].options[3];
-  correctAnswer.innerHTML = `Answer is:- ${questions[i].answer}`;
-}
-
-function deleteQuestion(i) {
-  let questions = JSON.parse(localStorage.getItem("questions")) || [];
-  console.log(i);
-  let text = "Are you sure you want to delete the Question?";
-  if (confirm(text) == true) {
-    questions.splice(i, 1);
-    localStorage.setItem("questions", JSON.stringify(questions));
-    alert("Deleted Question Successfull");
-    location.reload();
-  }
-}
-
-// function deleteUser(i) {
-//   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-//   console.log(i);
-//   let text = "Are you sure you want to delete the User?";
-//   if (confirm(text) == true) {
-//     userGivenTests.splice(i, 1);
-//     localStorage.setItem("usersGivenTests", JSON.stringify(userGivenTests));
-//     alert("User Deleted Successfull");
-//     location.reload();
-//   }
-// }
-
-function readAllUsers() {
-  generateAdminProfileName();
-  let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-  let tableData = document.getElementById("user-table-data");
-
-  for (let i = 0; i < userGivenTests.length; i++) {
-    var newRow = document.createElement("tr");
-    newRow.innerHTML += `<td>${i + 1}</td>
-    <td>${userGivenTests[i].fullName}</td>
-    <td class="options">${userGivenTests[i].email}</td>
-    <td>${userGivenTests[i].noOfTimeTestGiven}</td>
-    <td>${userGivenTests[i].marks}</td>
-    <td class="table-button"><div class="table-button-div"><a href="users-history.html?index=${i}&name=${encodeURIComponent(
-      userGivenTests[i].fullName
-    )}">
-          View Tests
-        </a></div></td>`;
-    tableData.appendChild(newRow);
-  }
-}
-
-function getQueryParams() {
-  const params = new URLSearchParams(window.location.search);
-  return {
-    index: params.get("index"),
-    name: params.get("name"),
-    testIndex: params.get("testIndex"),
-  };
-}
-
-// Use the parameters
-
-function loadUserTestDetails() {
-  generateAdminProfileName();
-  let { index, name } = getQueryParams();
-
-  let usersGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-  console.log(index, name);
-  generateAdminProfileName();
-  let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-  document.getElementById(
-    "user-name"
-  ).innerText = `${name} | ${usersGivenTests[index].email}`;
-
-  let tableData = document.getElementById("user-test-table-data");
-  let userTests = userGivenTests[index].tests;
-  console.log(userTests);
-  for (let i = 0; i < userTests.length; i++) {
-    var newRow = document.createElement("tr");
-    newRow.innerHTML += `<td>${userTests[i].testNo}</td>
-    <td>${userTests[i].date}</td>
-    <td class="options">${userTests[i].marks}</td>
-    <td>${userTests[i].correctAnswers}</td>
-    <td class="table-button"><div class="table-button-div"><a href="user-testlist.html?testIndex=${i}&name=${userGivenTests[index].fullName}">
-          View Test
-        </a></div></td>`;
-    tableData.appendChild(newRow);
-  }
-}
-
-// const { testIndex } = getQueryParams();
-// console.log(testIndex)
-function viewUserTest() {
-  generateAdminProfileName();
-  let { name, testIndex } = getQueryParams();
-
-  let usersGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-
-  const userIndex = usersGivenTests.findIndex((user) => user.fullName === name);
-  document.getElementById(
-    "user-name"
-  ).innerText = `${usersGivenTests[userIndex].fullName} | ${usersGivenTests[userIndex].email}`;
-  let userTestAnswers =
-    usersGivenTests[userIndex].tests[testIndex].selectedAnswers;
-
-  document.getElementById(
-    "test-number"
-  ).innerText = `Test No. ${usersGivenTests[userIndex].tests[testIndex].testNo}`;
-  document.getElementById(
-    "test-score"
-  ).innerText = `Score: ${usersGivenTests[userIndex].tests[testIndex].marks}`;
-  document.getElementById(
-    "test-date"
-  ).innerText = `Test Date: ${usersGivenTests[userIndex].tests[testIndex].date}`;
-
-  for (let i = 0; i < userTestAnswers.length; i++) {
-    const userAnswer = userTestAnswers[i];
-    var newDiv = document.createElement("div");
-    newDiv.classList.add("user-test-question");
-    newDiv.innerHTML += `
-    <p><strong>Question:</strong> ${userAnswer.question}</p>
-    <div class="options-container">
-    <div class="option"><p>1. ${userAnswer.options[0]}<span><i class="fa-solid icon"></i></span></p></div>
-    <div class="option"><p>2. ${userAnswer.options[1]}<span><i class="fa-solid icon"></i></span></p></div>
-    <div class="option"><p>3. ${userAnswer.options[2]}<span><i class="fa-solid icon"></i></span></p></div>
-    <div class="option"><p>4. ${userAnswer.options[4]}<span><i class="fa-solid icon"></i></span></p></div>
-    </div>`;
-
-    document.getElementById("user-test-data").appendChild(newDiv);
-
-    const userAnswerIndex = userAnswer.options.findIndex(
-      (option) => option === userAnswer.selectedAnswer
-    );
-    const correctAnswerIndex = userAnswer.options.findIndex(
-      (option) => option === userAnswer.correctAnswer
-    );
-
-    const correctOptionDiv =
-      newDiv.querySelectorAll(".option")[correctAnswerIndex];
-    correctOptionDiv.classList.add("question-container-right-answers");
-    if (!correctOptionDiv.querySelector(".fa-circle-check")) {
-      correctOptionDiv.querySelector(".icon").classList.add("fa-circle-check");
-      correctOptionDiv.querySelector(".icon").style.color = "#CB6040";
-    }
-
-    const selectedOptionDiv =
-      newDiv.querySelectorAll(".option")[userAnswerIndex];
-    if (userAnswer.selectedAnswer === userAnswer.correctAnswer) {
-      selectedOptionDiv.classList.add("question-container-right-answers");
-      if (!selectedOptionDiv.querySelector(".fa-circle-check")) {
-        selectedOptionDiv
-          .querySelector(".icon")
-          .classList.add("fa-circle-check");
-        selectedOptionDiv.querySelector(".icon").style.color = "#CB6040";
-      }
-    } else {
-      selectedOptionDiv.classList.add("question-container-wrong-answers");
-      if (!selectedOptionDiv.querySelector(".fa-circle-xmark")) {
-        selectedOptionDiv
-          .querySelector(".icon")
-          .classList.add("fa-circle-xmark");
-        selectedOptionDiv.querySelector(".icon").style.color = "#31511E";
-      }
-    }
-  }
-}
-
-// function viewUserTest(i) {
-//   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-//   let questions = JSON.parse(localStorage.getItem("questions"));
-//   document.querySelector(".users-section").style.display = "none";
-//   document.querySelector(".user-test-section").style.display = "initial";
-
-//   // console.log(i);
-//   let selectedAnswers = userGivenTests[i].selectedAnswers;
-//   console.log(selectedAnswers);
-//   console.log(selectedAnswers[0].question);
-//   for (let i = 0; i < selectedAnswers.length; i++) {
-//     const element = selectedAnswers[i];
-//     console.log(element);
-//     var usersAnswerContainer = document.querySelector(".user-test-section");
-//     var questionAnswerContainer = document.createElement("div");
-//     questionAnswerContainer.className = "question-answer-container";
-//     questionAnswerContainer.innerHTML += `<h2 class="container__question" id="question">${
-//       i + 1
-//     }. ${selectedAnswers[i].question}</h2>
-//           <p class="container__selected-option">Selected Answer is:- ${
-//             selectedAnswers[i].selectedAnswer
-//           }</p>
-//                 <p class="container__correct-answer">Correct Answer is :- ${
-//                   selectedAnswers[i].correctAnswer
-//                 }</p>
-//                 <p class="container__correct-answer-explanation">${
-//                   questions[randomQuestionArray[i]].explanation
-//                 }
-//                 `;
-
-//     usersAnswerContainer.appendChild(questionAnswerContainer);
-//   }
-// }
-
-// let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-// console.log(userGivenTests);
-
-// function viewUserTest(i) {
-//   let userGivenTests = JSON.parse(localStorage.getItem("usersGivenTests"));
-//   // console.log(userGivenTests);
-//   let userName = userGivenTests[i].fullName;
-//   let userEmail = userGivenTests[i].email;
-//   let userTest = userGivenTests[i].tests;
-//   console.log(userName, userTest, userEmail);
-// }
-
-function closeUserTestSection() {
-  document.querySelector(".user-test-section").style.display = "none";
-  document.querySelector(".users-section").style.display = "initial";
 }

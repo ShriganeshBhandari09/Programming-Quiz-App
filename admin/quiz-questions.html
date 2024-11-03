@@ -144,12 +144,13 @@
         </div>
         <div class="question-form-div">
           <label for="correct-answer">Correct Answer</label>
-          <input
-            type="text"
-            name="correct-answer"
-            placeholder="Correct Answer"
-            id="correct-answer"
-          />
+          <select name="options" id="correct-answer">
+            <option value="Select an Option">Select an Option</option>
+            <option id="select-option-one" value="option-one">Option A</option>
+            <option id="select-option-two" value="option-two">Option B</option>
+            <option id="select-option-three" value="option-three">Option C</option>
+            <option id="select-option-four" value="option-four">Option D</option>
+          </select>
         </div>
         <!-- <div class="question-form-div">
           <label for="explanation-text">Explanation Text</label>
@@ -231,13 +232,14 @@
           />
         </div>
         <div class="question-form-div">
-          <label for="correct-answer">Correct Answer</label>
-          <input
-            type="text"
-            name="correct-answer"
-            placeholder="Correct Answer"
-            id="updated-correct-answer"
-          />
+          <label for="updated-correct-answer">Correct Answer</label>
+          <select name="options" id="updated-correct-answer">
+            <option value="">Select a Option</option>
+            <option id="option-list-one" value=""></option>
+            <option id="option-list-two" value=""></option>
+            <option id="option-list-three" value=""></option>
+            <option id="option-list-four" value=""></option>
+          </select>
         </div>
         <!-- <div class="question-form-div">
           <label for="explanation-text">Explanation Text</label>
@@ -269,7 +271,5 @@
       <h2 id="view-correct-answer"></h2>
     </div>
   </body>
-  <script src="../js/script.js">
-    readAll()
-  </script>
+  <script src="./js/script.js"></script>
 </html>
