@@ -85,7 +85,7 @@ This is a web-based quiz application focused on programming languages, such as H
 │   ├── Screenshot-1.png
 │   ├── Screenshot-2.png
 │   ├── Screenshot-3.png
-│   └── Screenshot-4.html
+│   └── Screenshot-4.png
 └── index.html
 ```
 
